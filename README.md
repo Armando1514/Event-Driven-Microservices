@@ -8,7 +8,21 @@
 
 ## HOW TO RUN IT 
 
-go in the folder 'docker-compose' and type:
+Launch docker.
+
+From the microservices folder to create the docker images type in the terminal:
+
+```
+mvn clean install -DskipTests
+```
+
+Go from terminal in the folder 'docker-compose' and make 'check-config-server-started.sh' runnable:
+
+```
+chmod +x check-config-server-started.sh
+```
+
+And after type:
 
 ```
 docker-compose up
