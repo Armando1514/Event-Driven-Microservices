@@ -7,7 +7,8 @@
 		<module>app-config-data</module>
 		<module>kafka</module>
 		<module>common-config</module>
-	</modules>
+        <module>config-server</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -31,6 +32,9 @@
 		<spring.retry>1.3.3</spring.retry>
 		<webflux.version>2.7.3</webflux.version>
 		<avro.serializer.version>7.2.1</avro.serializer.version>
+		<spring.cloud.config.version>3.1.3</spring.cloud.config.version>
+		<spring-cloud-dependencies.version>2021.0.3</spring-cloud-dependencies.version>
+		<logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -38,6 +42,13 @@
 			<url>https://packages.confluent.io/maven/</url>
 		</repository>
 	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+		</dependency>
+	</dependencies>
+
 	<dependencyManagement>
 		<dependencies>
 			<!-- LOCAL -->
@@ -67,6 +78,23 @@
 				<version>${project.version}</version>
 			</dependency>
 			<!-- LOCAL -->
+			<dependency>
+				<groupId>net.logstash.logback</groupId>
+				<artifactId>logstash-logback-encoder</artifactId>
+				<version>${logstash-logback-encoder.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-config</artifactId>
+				<version>${spring.cloud.config.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>io.confluent</groupId>
 				<artifactId>kafka-avro-serializer</artifactId>
