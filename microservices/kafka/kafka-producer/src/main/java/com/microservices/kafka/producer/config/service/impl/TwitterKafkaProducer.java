@@ -1,16 +1,20 @@
 package com.microservices.kafka.producer.config.service.impl;
 
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;import com.microservices.kafka.avro.model.TwitterAvroModel;
+
+import com.microservices.kafka.avro.model.TwitterAvroModel;
 import com.microservices.kafka.producer.config.service.KafkaProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
+import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import javax.annotation.PreDestroy;
 
+@Service
 public class TwitterKafkaProducer implements KafkaProducer<Long, TwitterAvroModel> {
 
     private static final Logger LOG = LoggerFactory.getLogger(TwitterKafkaProducer.class);
@@ -20,7 +24,6 @@ public class TwitterKafkaProducer implements KafkaProducer<Long, TwitterAvroMode
     public TwitterKafkaProducer(KafkaTemplate<Long, TwitterAvroModel> template) {
         this.kafkaTemplate = template;
     }
-
 
     @Override
     public void send(String topicName, Long key, TwitterAvroModel message) {

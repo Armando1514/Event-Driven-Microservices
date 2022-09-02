@@ -17,6 +17,7 @@ import org.springframework.retry.support.RetryTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.util.Collection;
 import java.util.List;
@@ -38,11 +39,15 @@ public class KafkaAdminClient {
 
     private final WebClient webClient;
 
-    public KafkaAdminClient(KafkaConfigData kafkaConfigData, RetryConfigData retryConfigData, AdminClient adminClient, RetryTemplate retryTemplate, WebClient webClient) {
-        this.kafkaConfigData = kafkaConfigData;
+    public KafkaAdminClient(KafkaConfigData config,
+                            RetryConfigData retryConfigData,
+                            AdminClient client,
+                            RetryTemplate template,
+                            WebClient webClient) {
+        this.kafkaConfigData = config;
         this.retryConfigData = retryConfigData;
-        this.adminClient = adminClient;
-        this.retryTemplate = retryTemplate;
+        this.adminClient = client;
+        this.retryTemplate = template;
         this.webClient = webClient;
     }
 
@@ -50,6 +55,7 @@ public class KafkaAdminClient {
         CreateTopicsResult createTopicsResult;
         try {
             createTopicsResult = retryTemplate.execute(this::doCreateTopics);
+            LOG.info("Create topic result {}", createTopicsResult.values().values());
         }
         catch (Throwable t) {
             throw new KafkaClientException("Reached max number of retry for creating kafka topic(s)!", t);
@@ -102,30 +108,28 @@ public class KafkaAdminClient {
     public void checkTopicsCreated() {
         Collection<TopicListing> topics = getTopics();
         int retryCount = 1;
-        Integer maxRetry = retryConfigData.getMaxAttemps();
-        Integer multiplier = retryConfigData.getMultiplier().intValue();
+        Integer maxRetry = retryConfigData.getMaxAttempts();
+        int multiplier = retryConfigData.getMultiplier().intValue();
         Long sleepTimeMs = retryConfigData.getSleepTimeMs();
-        for(String topic: kafkaConfigData.getTopicNamesToCreate()){
-            while(!isTopicCreated(topics, topic)){
+        for (String topic : kafkaConfigData.getTopicNamesToCreate()) {
+            while (!isTopicCreated(topics, topic)) {
                 checkMaxRetry(retryCount++, maxRetry);
                 sleep(sleepTimeMs);
-                sleepTimeMs  += multiplier;
+                sleepTimeMs *= multiplier;
                 topics = getTopics();
             }
         }
-
     }
 
-    public void checkSchemaRegistry(){
-        int retryCount = retryConfigData.getMaxAttemps();
-        Integer maxRetry = retryConfigData.getMaxAttemps();
+    public void checkSchemaRegistry() {
+        int retryCount = 1;
+        Integer maxRetry = retryConfigData.getMaxAttempts();
         int multiplier = retryConfigData.getMultiplier().intValue();
         Long sleepTimeMs = retryConfigData.getSleepTimeMs();
-
-        while(getSchemaRegistryStatus().is2xxSuccessful()) {
+        while (!getSchemaRegistryStatus().is2xxSuccessful()) {
             checkMaxRetry(retryCount++, maxRetry);
             sleep(sleepTimeMs);
-            sleepTimeMs += multiplier;
+            sleepTimeMs *= multiplier;
         }
     }
 
@@ -134,13 +138,16 @@ public class KafkaAdminClient {
             return webClient
                     .method(HttpMethod.GET)
                     .uri(kafkaConfigData.getSchemaRegistryUrl())
-                    .exchange()
-                    .map(ClientResponse::statusCode)
-                    .block();
-        } catch(Exception e){
+                    .exchangeToMono(response -> {
+                        if (response.statusCode().is2xxSuccessful()) {
+                            return Mono.just(response.statusCode());
+                        } else {
+                            return Mono.just(HttpStatus.SERVICE_UNAVAILABLE);
+                        }
+                    }).block();
+        } catch (Exception e) {
             return HttpStatus.SERVICE_UNAVAILABLE;
         }
-
     }
     private void sleep(Long sleepTimeMs){
         try{
