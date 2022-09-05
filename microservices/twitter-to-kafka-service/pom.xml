@@ -43,7 +43,21 @@
             <groupId>org.twitter4j</groupId>
             <artifactId>twitter4j-stream</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.microservices</groupId>
+            <artifactId>elastic-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microservices</groupId>
+            <artifactId>elastic-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microservices</groupId>
+            <artifactId>elastic-index-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

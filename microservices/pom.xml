@@ -13,7 +13,11 @@
 		<module>kafka/kafka-producer</module>
 		<module>kafka/kafka-consumer</module>
         <module>kafka-to-elastic-service</module>
-    </modules>
+        <module>elastic</module>
+		<module>elastic/elastic-config</module>
+		<module>elastic/elastic-index-client</module>
+		<module>elastic/elastic-model</module>
+	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -41,6 +45,7 @@
 		<spring-cloud-dependencies.version>2021.0.3</spring-cloud-dependencies.version>
 		<logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
 		<spring.boot.security.version>2.7.3</spring.boot.security.version>
+		<elastic.version>7.17.4</elastic.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -88,7 +93,43 @@
 				<artifactId>kafka-consumer</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			<!-- LOCAL -->
+			<dependency>
+				<groupId>com.microservices</groupId>
+				<artifactId>elastic-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microservices</groupId>
+				<artifactId>elastic-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microservices</groupId>
+				<artifactId>elastic-config</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microservices</groupId>
+				<artifactId>elastic-index-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<!-- END LOCAL -->
+			<dependency>
+				<groupId>org.elasticsearch</groupId>
+				<artifactId>elasticsearch</artifactId>
+				<version>${elastic.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.elasticsearch.client</groupId>
+				<artifactId>elasticsearch-rest-high-level-client</artifactId>
+				<version>${elastic.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-security</artifactId>
@@ -181,6 +222,7 @@
 				<version>${project-lombok.version}</version>
 				<scope>provided</scope>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

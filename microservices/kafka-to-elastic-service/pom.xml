@@ -52,6 +52,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.microservices</groupId>
+            <artifactId>elastic-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.microservices</groupId>
+            <artifactId>elastic-index-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.microservices</groupId>
+            <artifactId>elastic-index-client</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

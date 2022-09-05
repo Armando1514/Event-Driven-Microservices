@@ -25,8 +25,8 @@ services:
   config-server:
     image: ${GROUP_ID}/config.server:${SERVICE_VERSION:-latest}
     ports:
-      - "5018:5018"
-      - "8889:8889"
+      - "5007:5007"
+      - "8888:8888"
     volumes:
       - "./docker-logs:/workspace/config-server/logs"
     environment:

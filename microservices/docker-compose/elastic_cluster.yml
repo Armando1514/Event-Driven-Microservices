@@ -1,0 +1,94 @@
+version: '3.7'
+services:
+  elastic-1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-latest}
+    hostname: elastic-1
+    environment:
+      - node.name=elastic-1
+      - cluster.name=es-twitter-cluster
+      - discovery.seed_hosts=elastic-2,elastic-3
+      - cluster.initial_master_nodes=elastic-1,elastic-2,elastic-3
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01_7_15_2:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - ${GLOBAL_NETWORK:-elastic}
+  elastic-2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION}
+    environment:
+      - node.name=elastic-2
+      - cluster.name=es-twitter-cluster
+      - discovery.seed_hosts=elastic-1,elastic-3
+      - cluster.initial_master_nodes=elastic-1,elastic-2,elastic-3
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data02_7_15_2:/usr/share/elasticsearch/data
+    networks:
+      - ${GLOBAL_NETWORK:-elastic}
+  elastic-3:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION}
+    environment:
+      - node.name=elastic-3
+      - cluster.name=es-twitter-cluster
+      - discovery.seed_hosts=elastic-1,elastic-2
+      - cluster.initial_master_nodes=elastic-1,elastic-2,elastic-3
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data03_7_15_2:/usr/share/elasticsearch/data
+    networks:
+      - ${GLOBAL_NETWORK:-elastic}
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${ELASTIC_VERSION}
+    ports:
+      - 5601:5601
+    depends_on:
+      - elastic-1
+      - elastic-2
+      - elastic-3
+    environment:
+      ELASTICSEARCH_HOSTS: http://elastic-1:9200
+    networks:
+      - ${GLOBAL_NETWORK:-elastic}
+  logstash:
+    image: docker.elastic.co/logstash/logstash:${ELASTIC_VERSION}
+    command: logstash -f /etc/logstash/conf.d/logback.conf
+    ports:
+      - "9600:9600"
+    depends_on:
+      - elastic-1
+      - elastic-2
+      - elastic-3
+    volumes:
+      - ./config/logback.conf:/etc/logstash/conf.d/logback.conf
+      - ./docker-logs/logstash:/logs
+    environment:
+      LS_JAVA_OPTS: "-Xms256m -Xmx512m"
+      CLUSTER_NAME: es-twitter-cluster
+      XPACK_MONITORING_ELASTICSEARCH_HOSTS: http://elastic-1:9200
+    networks:
+      - ${GLOBAL_NETWORK:-elastic}
+
+volumes:
+  data01_7_15_2:
+    driver: local
+  data02_7_15_2:
+    driver: local
+  data03_7_15_2:
+    driver: local

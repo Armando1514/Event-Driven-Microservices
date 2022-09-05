@@ -53,3 +53,10 @@ kafka-consumer-config:
   # it will block in the poll method on kafka consumer nad wait this time for the new records.
   # too high will block too much and too low will cost CPU stall = CPU doesn't make progress although it is running.
   poll-timeout-ms: 150
+
+elastic-config:
+  index-name: twitter-index
+  connection-url: http://localhost:9200
+  connect-timeout-ms: 5000
+  socket-timeout-ms: 30000
+  is-repository: true

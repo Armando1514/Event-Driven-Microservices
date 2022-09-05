@@ -21,8 +21,8 @@ public class KafkaConsumerConfigData {
     private Integer sessionTimeoutMs;
     private Integer heartbeatIntervalMs;
     private Integer maxPollIntervalMs;
-    private Integer maxPoolRecords;
+    private Integer maxPollRecords;
     private Integer maxPartitionFetchBytesDefault;
     private Integer maxPartitionFetchBytesBoostFactor;
-    private Long poolTimeoutMs;
+    private Long pollTimeoutMs;
 }
