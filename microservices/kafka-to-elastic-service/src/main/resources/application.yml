@@ -13,3 +13,4 @@ spring:
 
 log:
   app-name: kafka-to-elastic-service
+

@@ -19,7 +19,7 @@ c.) ElasticsearchOperations requires to convert the input object to query object
 */
 
 @Service
-@ConditionalOnProperty(name = "elastic-config.is-repository", havingValue = "true")
+@ConditionalOnProperty(name = "elastic-config.is-repository", havingValue = "true", matchIfMissing = true)
 public class TwitterElasticRepositoryIndexClient implements ElasticIndexClient<TwitterIndexModel> {
 
     private static final Logger LOG = LoggerFactory.getLogger(TwitterElasticRepositoryIndexClient.class);

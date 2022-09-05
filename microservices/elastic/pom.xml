@@ -10,17 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>elastic</artifactId>
-
-    <name>elastic</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-    </properties>
-
-    <dependencies>
-    </dependencies>
+    <packaging>pom</packaging>
+    <modules>
+        <module>elastic-model</module>
+        <module>elastic-config</module>
+        <module>elastic-index-client</module>
+    </modules>
 
 
 </project>
