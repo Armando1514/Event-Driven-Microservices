@@ -1,0 +1,20 @@
+logging:
+  level:
+    ROOT: DEBUG
+    com.microservices: DEBUG
+
+spring:
+  application:
+    name: elastic-query-service
+  profiles:
+    active: elastic_query
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      name: elastic-query-service,config-client
+      username: spring_cloud_user
+      password: '1234'
+
+log:
+  appName: elastic-query-service
