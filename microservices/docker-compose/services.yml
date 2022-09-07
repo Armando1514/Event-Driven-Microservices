@@ -68,3 +68,30 @@ services:
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
     networks:
       - ${GLOBAL_NETWORK:-services}
+  elastic-query-service-1:
+    image: ${GROUP_ID}/elastic.query.service:${SERVICE_VERSION:-latest}
+    ports:
+      - "5008:5008"
+      - "8183:8183"
+    volumes:
+      - "./docker-logs:/workspace/elastic-query-service/logs"
+      - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+    user: root
+    entrypoint: [ "check-config-server-started.sh" ]
+    depends_on:
+      - config-server
+      - elastic-1
+      - elastic-2
+      - elastic-3
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5008 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES=info"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
+      - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
+      - "SERVER_PORT=8183"
+      - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888,http://config-server-ha:8889"
+      - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+    networks:
+      - ${GLOBAL_NETWORK:-services}

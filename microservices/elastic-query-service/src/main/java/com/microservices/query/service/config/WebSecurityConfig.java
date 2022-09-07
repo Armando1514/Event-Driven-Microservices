@@ -24,7 +24,7 @@ public class WebSecurityConfig {
         http.csrf().disable();
         return http.build();
     }
-    
+
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().antMatchers(pathsToIgnore);
