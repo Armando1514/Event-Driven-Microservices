@@ -17,3 +17,12 @@ user-config:
   username: test
   password: test1234
   roles: USER
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+security:
+  paths-to-ignore: /api-docs

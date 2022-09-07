@@ -46,6 +46,7 @@
 		<logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
 		<spring.boot.security.version>2.7.3</spring.boot.security.version>
 		<elastic.version>7.17.4</elastic.version>
+		<openapi.ui.version>1.6.11</openapi.ui.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -125,11 +126,15 @@
 			</dependency>
 			<!-- END LOCAL -->
 			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${openapi.ui.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.elasticsearch</groupId>
 				<artifactId>elasticsearch</artifactId>
 				<version>${elastic.version}</version>
 			</dependency>
-
 			<dependency>
 				<groupId>org.elasticsearch.client</groupId>
 				<artifactId>elasticsearch-rest-high-level-client</artifactId>
