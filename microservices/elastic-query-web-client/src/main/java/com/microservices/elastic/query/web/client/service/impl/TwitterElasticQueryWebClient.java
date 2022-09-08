@@ -13,12 +13,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+@Service
 public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
 
     private static final Logger LOG = LoggerFactory.getLogger(TwitterElasticQueryWebClient.class);
