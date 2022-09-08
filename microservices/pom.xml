@@ -48,6 +48,7 @@
 		<spring.boot.security.version>2.7.3</spring.boot.security.version>
 		<elastic.version>7.17.4</elastic.version>
 		<openapi.ui.version>1.6.11</openapi.ui.version>
+		<spring.cloud.load.balancer.version>3.1.4</spring.cloud.load.balancer.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -126,6 +127,11 @@
 				<version>${project.version}</version>
 			</dependency>
 			<!-- END LOCAL -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-loadbalancer</artifactId>
+				<version>${spring.cloud.load.balancer.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-ui</artifactId>

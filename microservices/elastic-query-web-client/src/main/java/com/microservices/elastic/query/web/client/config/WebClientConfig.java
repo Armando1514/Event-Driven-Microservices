@@ -7,6 +7,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +18,7 @@ import reactor.netty.http.client.HttpClient;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
+@LoadBalancerClient(name = "elastic-query-service", configuration = ElasticQueryServiceInstanceListSupplierConfig.class)
 public class WebClientConfig {
 
     private final ElasticQueryWebClientConfigData.WebClient elasticQueryWebClientConfigData;

@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
+import java.time.ZonedDateTime;
 
 @Data
 @Builder
@@ -13,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class ElasticQueryWebClientResponseModel {
     private String id;
-    @NotEmpty
+    private Long userId;
     private String text;
+    private ZonedDateTime createdAt;
 }
