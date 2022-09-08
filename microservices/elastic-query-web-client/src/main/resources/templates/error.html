@@ -1,0 +1,15 @@
+<div th:replace="header"></div>
+
+<div class="container">
+    <h1>Query Client</h1>
+    <div class="jumbotron">
+        <h2>An error occurred</h2>
+        <ul>
+            <li th:text="'Error:' + ${error}"></li>
+            <li th:text="${error_description}"></li>
+        </ul>
+        <a class="btn btn-primary" href="#" role="button" th:href="@{/}">Main page</a>
+    </div>
+</div>
+
+<div th:replace="footer"></div>

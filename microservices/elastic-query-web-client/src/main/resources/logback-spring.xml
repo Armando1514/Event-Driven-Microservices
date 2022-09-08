@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProperty name="log.app-name" source="log.app-name" />
+
+    <property name="DEV_HOME" value="./elastic-query-web-client/logs"/>
+    <property name="APP_NAME" value="${log.app-name}"/>
+
+    <include resource="logback-common.xml"/>
+
+</configuration>

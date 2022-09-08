@@ -1,0 +1,15 @@
+<div th:replace="header"></div>
+
+<div class="container float-left">
+    <div th:unless="${#authorization.expression('isAuthenticated()')}">
+        <p>Please <a th:href="@{/home}">login</a> to start searching</p>
+    </div>
+
+    <div th:if="${#authorization.expression('isAuthenticated()')}">
+        <p>Hello <span th:text="${#authentication.principal.fullName}"/><a th:href="@{/home}"> Let's get start searching!</a></p>
+    </div>
+</div>
+
+<div th:replace="footer"></div>
+
+

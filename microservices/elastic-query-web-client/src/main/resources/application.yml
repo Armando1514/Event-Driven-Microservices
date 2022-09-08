@@ -1,0 +1,19 @@
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  application:
+    name: elastic-query-web-client
+  profiles:
+    active: elastic_query_web
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      name: elastic-query-web-client,config-client
+      username: spring_cloud_user
+      password: '1234'
+
+log:
+  app-name: elastic-query-web-client
