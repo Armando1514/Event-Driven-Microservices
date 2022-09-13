@@ -1,3 +1,6 @@
+elastic-query-service:
+  custom-audience: elastic-query-service
+
 server:
   port: 8183
   servlet:
@@ -12,6 +15,13 @@ elastic-config:
   connect-timeout-ms: 5000
   socket-timeout-ms: 30000
 
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/microservices_realm
+          jwk-set-uri: http://localhost:8081/realms/microservices_realm/protocol/openid-connect/certs
 
 user-config:
   username: test

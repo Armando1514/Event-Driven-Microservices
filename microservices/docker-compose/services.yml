@@ -83,6 +83,7 @@ services:
       - elastic-1
       - elastic-2
       - elastic-3
+      - keycloak-authorization-server
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5008 -Xms128m -Xmx256m"
       - "LOGGING_LEVEL_COM_MICROSERVICES=info"
@@ -110,6 +111,7 @@ services:
       - elastic-1
       - elastic-2
       - elastic-3
+      - keycloak-authorization-server
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5009 -Xms128m -Xmx256m"
       - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
