@@ -22,6 +22,7 @@ Go from terminal in the folder 'docker-compose' and make 'check-config-server-st
 chmod +x check-config-server-started.sh
 chmod +x check-kafka-topics-created.sh
 chmod +x create-mapping-elasticsearch.sh
+chmod +x check-keycloak-server-started.sh
 ```
 
 And after type:

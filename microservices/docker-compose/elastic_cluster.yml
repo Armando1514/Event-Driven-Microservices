@@ -19,7 +19,7 @@ services:
     ports:
       - 9200:9200
     networks:
-      - ${GLOBAL_NETWORK:-elastic}
+      - ${GLOBAL_NETWORK:-services}
   elastic-2:
     image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION}
     environment:
@@ -36,7 +36,7 @@ services:
     volumes:
       - data02_7_15_2:/usr/share/elasticsearch/data
     networks:
-      - ${GLOBAL_NETWORK:-elastic}
+      - ${GLOBAL_NETWORK:-services}
   elastic-3:
     image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION}
     environment:
@@ -83,7 +83,7 @@ services:
       CLUSTER_NAME: es-twitter-cluster
       XPACK_MONITORING_ELASTICSEARCH_HOSTS: http://elastic-1:9200
     networks:
-      - ${GLOBAL_NETWORK:-elastic}
+      - ${GLOBAL_NETWORK:-services}
 
 volumes:
   data01_7_15_2:

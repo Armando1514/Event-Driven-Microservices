@@ -1,12 +1,25 @@
 version: '3.7'
 services:
+  keycloak-authorization-server:
+    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
+    hostname: keycloak-server
+    ports:
+      - '9091:8080'
+    depends_on:
+      - postgres_db_keycloak
+    entrypoint: ["/opt/keycloak/bin/kc.sh", "start-dev", "--db=postgres"]
+    environment:
+      - "KC_DB_URL=jdbc:postgresql://postgres_db_keycloak/keycloak"
+      - "KC_DB_USERNAME=postgres"
+      - "KC_DB_PASSWORD=postgres"
+      - "KC_DB_SCHEMA=keycloak"
+    restart: on-failure
+    networks:
+      - ${GLOBAL_NETWORK:-services}
   twitter-to-kafka-service:
     image: ${GROUP_ID}/twitter.to.kafka.service:${SERVICE_VERSION:-latest}
     ports:
       - "5005:5005"
-    volumes:
-      - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
-      - "./docker-logs:/workspace/twitter-to-kafka-service/logs"
     user: root
     depends_on:
       - config-server
@@ -19,10 +32,14 @@ services:
       - "LOGGING_LEVEL_COM_MICROSERVICES=info"
       - "LOGGING_LEVEL_ROOT=info"
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
-      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9093"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+    volumes:
+      - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+      - "./docker-logs:/workspace/twitter-to-kafka-service/logs"
+      - "./check-keycloak-server-started.sh:/usr/local/bin/check-keycloak-server-started.sh"
     networks:
       - ${GLOBAL_NETWORK:-services}
   kafka-to-elastic-service:
@@ -49,7 +66,7 @@ services:
       - "LOGGING_LEVEL_COM_MICROSERVICES=info"
       - "LOGGING_LEVEL_ROOT=info"
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
-      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9093"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888,http://config-server-ha:8889"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
@@ -76,6 +93,7 @@ services:
     volumes:
       - "./docker-logs:/workspace/elastic-query-service/logs"
       - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+      - "./check-keycloak-server-started.sh:/usr/local/bin/check-keycloak-server-started.sh"
     user: root
     entrypoint: [ "check-config-server-started.sh" ]
     depends_on:
@@ -90,10 +108,15 @@ services:
       - "LOGGING_LEVEL_ROOT=info"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:8080/realms/microservices_realm"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/certs"
+      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/token"
+      - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db_elastic_query_service/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true"
       - "SERVER_PORT=8183"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888,http://config-server-ha:8889"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-service-2:
@@ -104,6 +127,7 @@ services:
     volumes:
       - "./docker-logs:/workspace/elastic-query-service/logs"
       - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+      - "./check-keycloak-server-started.sh:/usr/local/bin/check-keycloak-server-started.sh"
     user: root
     entrypoint: [ "check-config-server-started.sh" ]
     depends_on:
@@ -118,6 +142,10 @@ services:
       - "LOGGING_LEVEL_ROOT=info"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:8080/realms/microservices_realm"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/certs"
+      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/token"
+      - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db_elastic_query_service/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true"
       - "SERVER_PORT=8185"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"

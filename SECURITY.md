@@ -44,7 +44,11 @@ You can think of realm as a tenant. So the first thing you will want to do is cr
 
 CLIENT = Entities that can request Keycloak to authenticate a user. Most often, clients are web, mobile and native applications that want to use keycloak to secure themselves and provide a single sign-on solution.
 
-elastic-query-webclient:
+**elastic-query-webclient**:
+
+Resource Owner Password Flow = Though we do not recommend it, highly-trusted applications can use the Resource Owner Password Flow (defined in [OAuth 2.0 RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)), which requests that users provide credentials (username and password),  typically using an interactive form. Because credentials are sent to the backend and can be stored for future use before being exchanged for an  Access Token, it is imperative that the application is absolutely  trusted with this information. We implement this and not Authorization Code Flow because it is easier to test.
+
+![ROP_Grant](./ROP_Grant.png)
 
 1. We set Client Authentication ON. When it's ON, the OIDC type is set to confidential access type. When it's OFF, it is set to public access type.
 2. By default we have enabled standard. In terms of OpenID Connect or OAuth2 specifications, this enables support of 'Authorization Code Flow' for this client.

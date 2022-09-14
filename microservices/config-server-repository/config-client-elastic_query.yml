@@ -1,4 +1,5 @@
 elastic-query-service:
+  version: v1
   custom-audience: elastic-query-service
 
 server:
@@ -20,8 +21,24 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8081/realms/microservices_realm
-          jwk-set-uri: http://localhost:8081/realms/microservices_realm/protocol/openid-connect/certs
+          issuer-uri: http://localhost:9091/realms/microservices_realm
+          jwk-set-uri: http://localhost:9091/realms/microservices_realm/protocol/openid-connect/certs
+  sql:
+    init:
+      mode: always
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
 
 user-config:
   username: test

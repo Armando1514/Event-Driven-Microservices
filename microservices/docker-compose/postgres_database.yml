@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  postgres_db:
+  postgres_db_keycloak:
     image: postgres:${POSTGRES_VERSION:-latest}
     environment:
       - "POSTGRES_USER=postgres"
@@ -9,13 +9,26 @@ services:
     ports:
       - '5432:5432'
     volumes:
-    - "./db.sql:/docker-entrypoint-initdb.d/db.sql"
-    - "postgres_storage:/var/lib/postgresql/data/"
+    - "./db-keycloak.sql:/docker-entrypoint-initdb.d/db-keycloak.sql"
+    - "postgres_storage_1:/var/lib/postgresql/data/"
     networks:
-      - ${GLOBAL_NETWORK:-keycloak}
-
+      - ${GLOBAL_NETWORK:-services}
+  postgres_db_elastic_query_service:
+    image: postgres:${POSTGRES_VERSION:-latest}
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+      - "POSTGRES_DB=postgres"
+    ports:
+      - '5433:5432'
+    volumes:
+      - "./db-elastic-query-service.sql:/docker-entrypoint-initdb.d/db-elastic-query-service.sql"
+      - "postgres_storage_2:/var/lib/postgresql/data/"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
 
 volumes:
-  postgres_storage:
+  postgres_storage_1:
     driver: local
-
+  postgres_storage_2:
+    driver: local

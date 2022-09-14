@@ -49,6 +49,7 @@
 		<elastic.version>7.17.4</elastic.version>
 		<openapi.ui.version>1.6.11</openapi.ui.version>
 		<spring.cloud.load.balancer.version>3.1.4</spring.cloud.load.balancer.version>
+		<postgresql.version>42.5.0</postgresql.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -127,6 +128,11 @@
 				<version>${project.version}</version>
 			</dependency>
 			<!-- END LOCAL -->
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-loadbalancer</artifactId>

@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Map;
 
 import static com.microservices.query.Constants.NA;
 
@@ -18,6 +19,7 @@ public class TwitterQueryUser implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
+    private Map<String, PermissionType> permissions;
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = authorities;
