@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Query Client</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Twitter Search Engine</title>
+</head>
+
+<body id="query-client">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="menu">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Main page</a>
+            </li>
+            <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}">
+                <a class="nav-link" th:href="@{/home}">Search page</a>
+            </li>
+        </ul>
+
+        <div class="row">
+            <div class="col-12" th:if="${#authorization.expression('isAuthenticated()')}">
+                <p class="text-light bg-dark float-right">Welcome, <span th:text="${#authentication.principal.fullName}"/>!</p>
+            </div>
+            <form class="col-12" method="post" th:action="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button id="logout-button" type="submit" class="btn btn-danger float-right">Logout</button>
+            </form>
+            <form class="col-12" method="get" th:action="@{/home}" th:unless="${#authorization.expression('isAuthenticated()')}">
+                <button id="login-button" class="btn btn-primary float-right" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</nav>

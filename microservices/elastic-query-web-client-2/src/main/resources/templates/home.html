@@ -1,0 +1,49 @@
+<div th:replace="header"></div>
+
+<div class="container">
+    <h1>Query Client</h1>
+    <div class="mx-auto mt-5">
+        <form class="col-12" action="#" th:action="@{/query-by-text}" th:object="${elasticQueryWebClientRequestModel}" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" th:field="*{text}" id="text" placeholder="Enter text to search">
+                <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+                <div class="text-center mt-5">
+                    <input class="btn btn-dark" type="submit" value="Search">
+                </div>
+            </div>
+            <div class="col-12" th:switch="${elasticQueryWebClientResponseModels}">
+                <h4 th:case="null">
+                    <span th:text="${error != null} ? ${error + error_description} : 'No results yet!'"/>
+                </h4>
+                <div th:case="*">
+                    <h4>Search results for '<span th:text="${searchText}"/>'</h4>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">user-id</th>
+                            <th scope="col">text</th>
+                            <th scope="col">date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="elasticQueryWebClientResponseModel : ${elasticQueryWebClientResponseModels}">
+                            <th scope="row" th:text="${elasticQueryWebClientResponseModel.id}"></th>
+                            <td th:text="${elasticQueryWebClientResponseModel.userId}"></td>
+                            <td th:text="${elasticQueryWebClientResponseModel.text}"></td>
+                            <td th:text="${elasticQueryWebClientResponseModel.createdAt}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div th:replace="footer"></div>
+
+
+
+

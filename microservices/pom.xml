@@ -18,6 +18,7 @@
 		<module>common-util</module>
 		<module>elastic-query-service</module>
 		<module>elastic-query-web-client</module>
+		<module>elastic-query-web-client-2</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

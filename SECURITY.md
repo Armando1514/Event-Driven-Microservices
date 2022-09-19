@@ -1,3 +1,17 @@
+## SECURITY
+
+Because regular web apps are server-side apps where the source code is not  publicly exposed, they can use the **Authorization Code Flow** (defined in [OAuth 2.0 RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)), which exchanges an Authorization Code for a token. Your app must be  server-side because during this exchange, you must also pass along your  application's Client Secret, which must always be kept secure, and you  will have to store it in your client.
+
+![0auth flow](auth-sequence-auth-code.png)
+
+**NOTE:** Once the user send the request with Access Token (9), the 0Auth specification doesn't say how you can validate it, but due the fact we use JWT with asymetric key, the web app will  download the public key from  http://issuer-uri/protocol/open-id-connects/certs and so can validate part of the token signed with the private one. You can see a more concise flow below:
+
+![oauth_complete](./oauth_complete.jpg)
+
+**NOTE**: Different SSO protocols share session information in different ways, but the essential concept is the same: there is a **central domain**, through which authentication is performed, and then the **session is shared** with other domains in some way.  For instance, the central domain may generate a signed [JSON Web Token (JWT)](https://auth0.com/docs/jwt), which may be encrypted using [JSON Web Encryption (JWE)](https://tools.ietf.org/html/rfc7516). This token may then be passed to the client and used by the  authentication domain as well as any other domains. The token can be  passed to the original domain by a redirect and it contains all the  information needed to identify the user for the domain requiring  authentication. As the token is signed, it cannot be modified in any way by the client.
+
+![SSO](./typical-sso-v2.png)
+
 ### MICROSERVICES_REALM 
 
 You can think of realm as a tenant. So the first thing you will want to do is create a realm for your application and users. A realm is fully isolated (in terms of configuration, users, roles, etc) from other realms. Because of this, you can create one realm for internal applications and your employees and another realm for external applications and customers.
@@ -22,7 +36,7 @@ You can think of realm as a tenant. So the first thing you will want to do is cr
 
    And we assign the corresponding role to the group, for instance app_user_role -> app_user_group.
 
-3. **USERS**= You create users in the realm where you intend to have applications needed by those users.
+3. **USERS** = You create users in the realm where you intend to have applications needed by those users.
 
    We create 3 users for our application:
 
@@ -34,7 +48,7 @@ You can think of realm as a tenant. So the first thing you will want to do is cr
 
 ### NOW WE CREATE CLIENT SCOPES
 
-**CLIENT SCOPES**=Client scopes are a common set of protocol mappers and roles that are shared between multiple clients.
+**CLIENT SCOPES** = Client scopes are a common set of protocol mappers and roles that are shared between multiple clients.
 
 - app_user_role and we assign the role app_user_role. By matching a role with a scope, we will restrict the returned scopes in a JWT and only return scopes that users roles match.
 - app_admin_role and we assign  the role app_admin_role.
@@ -46,20 +60,15 @@ CLIENT = Entities that can request Keycloak to authenticate a user. Most often, 
 
 **elastic-query-webclient**:
 
-Resource Owner Password Flow = Though we do not recommend it, highly-trusted applications can use the Resource Owner Password Flow (defined in [OAuth 2.0 RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)), which requests that users provide credentials (username and password),  typically using an interactive form. Because credentials are sent to the backend and can be stored for future use before being exchanged for an  Access Token, it is imperative that the application is absolutely  trusted with this information. We implement this and not Authorization Code Flow because it is easier to test.
-
-![ROP_Grant](./ROP_Grant.png)
-
 1. We set Client Authentication ON. When it's ON, the OIDC type is set to confidential access type. When it's OFF, it is set to public access type.
 2. By default we have enabled standard. In terms of OpenID Connect or OAuth2 specifications, this enables support of 'Authorization Code Flow' for this client.
-3. By default Direct access grants is on, this enables support for Direct Access Grants, which means that client  has access to username/password of user and exchange it directly with  Keycloak server for access token. In terms of OAuth2 specification, this enables support of 'Resource Owner Password Credentials Grant' for this client. This is not secure but we will use it only for test purposes.
 4. We will add redirect uri as "http://localhost:8184/elastic-query-web-client/login/oauth2/code/keycloak"
 5. As valid post logout redirect URI: http://localhost:8184/elastic-query-web-client, to be used a successful  path for post logout
 6. Home URL (Default URL to use when the auth server needs to redirect or link back to the client): http://localhost:8184/elastic-query-web-client 
 7. Web origins (allowed CORS origins), we add: "http://localhost:8184".
 8. Then we copy the client secret in the credentials. We will use this secret with client id in our services to authenticate clients to keycloak.
 9. PROTOCOL MAPPERS=  **User property protocol mappers allow you to map built in properties defined on the Keycloak user interface to a claim in a token.  Protocol mappers  can be defined for a single client, or they can be defined for a client  scope which can be shared between multiple different clients.** We define mappers for our client secret, saying what we wanna return inside the token.:
-   1. We will add user groups as group membership, to add them to id and access tokens, as well as to userInfo endpoints. Because we want to see groups og user and use them in the authorization code. So we add a new mapper of type: "Group Membership". In the field "token claim name" (Name of the claim to insert into the token) we set groups (disable full group path in the option).
+   1. We will add user groups as group membership.  We want to see the group where the user belong to and use them in the authorization code (this in JWT will be in the payload token). So we add a new mapper of type: "Group Membership". In the field "token claim name" (Name of the claim to insert into the token) we set groups (disable full group path in the option).
    2. Second we will add a mapper of type "audience" with a name "elastic-query-service" and add it to only access token. It is a list of String values, according to OpenID Connect specification, audience claim is mandatory for id tokens. And it's specified as the audience that is the id token intended for (**defines the intended recipients of the token**). It must contain the 0Auth2 client id of the relying party as an audience value. In our case the intended recipient of the token is elastc-query-service, because we will call elastic-query-service from the web client. We will check it on resource server by overriding Jwt decoder and adding a validation for this audience.
    3. Finally we will add 3 more mappers of type User session note: "clientID", "clientHost" and "clientIPAddress". Those 3 variables also will be mapped to token and we can reach them when we decode the JWT.
 10. We assign to the elastic-query-webclient the 3 client scope : app_user_role, app_admin_role and app_user_role as default. **Note**: A client token by default will include scopes and spring security will map those scopes to the spring security authorities, by using a SCOPE_ prefix. To map them to Spring security user roles, with a prefix ROLE_, and use hasRole preAuthorize annotation, we need to use custom JWT encoders or mappers.
@@ -79,7 +88,7 @@ NOW we can create a second client with name elastic-query-web-client-2 for singl
 
 6. We define mappers for our client secret, saying what we wanna return inside the token.:
 
-   1. We will add user groups as group membership, to add them to id and access tokens, as well as to userInfo endpoints. Because we want to see groups og user and use them in the authorization code. So we add a new mapper of type: "Group Membership". In the field "token claim name" (Name of the claim to insert into the token) we set groups (disable full group path in the option).
+   1. We will add user groups as group membership.  We want to see the group where the user belong to and use them in the authorization code (this in JWT will be in the payload token). So we add a new mapper of type: "Group Membership". In the field "token claim name" (Name of the claim to insert into the token) we set groups (disable full group path in the option).
    2. Second we will add a mapper of type "audience" with a name "elastic-query-service" and add it to only access token. It is a list of String values, according to OpenID Connect specification, audience claim is mandatory for id tokens. And it's specified as the audience that is the id token intended for (**defines the intended recipients of the token**). It must contain the 0Auth2 client id of the relying party as an audience value. In our case the intended recipient of the token is elastc-query-service, because we will call elastic-query-service from the web client. We will check it on resource server by overriding Jwt decoder and adding a validation for this audience.
    3. Finally we will add 3 more mappers of type User session note: "clientID", "clientHost" and "clientIPAddress". Those 3 variables also will be mapped to token and we can reach them when we decode the JWT.
 
@@ -95,7 +104,7 @@ NOW we can create a second client with name elastic-query-web-client-2 for singl
    6. Web origins (allowed CORS origins), we add: "http://localhost:8183".
    7. We assign to the elastic-query-webclient the 3 client scope : app_user_role, app_admin_role and app_user_role as default
    8. We define mappers for our client secret, saying what we wanna return inside the token.:
-      1. We will add user groups as group membership, to add them to id and access tokens, as well as to userInfo endpoints. Because we want to see groups og user and use them in the authorization code. So we add a new mapper of type: "Group Membership". In the field "token claim name" (Name of the claim to insert into the token) we set groups (disable full group path in the option).
+      1. We will add user groups as group membership.  We want to see the group where the user belong to and use them in the authorization code (this in JWT will be in the payload token). So we add a new mapper of type: "Group Membership". In the field "token claim name" (Name of the claim to insert into the token) we set groups (disable full group path in the option).
       2. Second we will add a mapper of type "audience" but this time we will add two values, because from elastic-query-service we want to make a call either to kafka-streams-service or analytics-service, so we create those two audience's mappers. And then we will check on the resource server to be included at least one of these values.
       3. Finally we will add 3 more mappers of type User session note: "clientID", "clientHost" and "clientIPAddress". Those 3 variables also will be mapped to token and we can reach them when we decode the JWT.
 

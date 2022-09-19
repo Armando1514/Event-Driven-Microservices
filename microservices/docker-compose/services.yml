@@ -4,10 +4,10 @@ services:
     image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
     hostname: keycloak-server
     ports:
-      - '9091:8080'
+      - '9091:9091'
     depends_on:
       - postgres_db_keycloak
-    entrypoint: ["/opt/keycloak/bin/kc.sh", "start-dev", "--db=postgres"]
+    entrypoint: ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-port=9091", "--db=postgres"]
     environment:
       - "KC_DB_URL=jdbc:postgresql://postgres_db_keycloak/keycloak"
       - "KC_DB_USERNAME=postgres"
@@ -88,7 +88,6 @@ services:
   elastic-query-service-1:
     image: ${GROUP_ID}/elastic.query.service:${SERVICE_VERSION:-latest}
     ports:
-      - "5008:5008"
       - "8183:8183"
     volumes:
       - "./docker-logs:/workspace/elastic-query-service/logs"
@@ -108,9 +107,9 @@ services:
       - "LOGGING_LEVEL_ROOT=info"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
-      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:8080/realms/microservices_realm"
-      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/certs"
-      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/token"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:9091/realms/microservices_realm/protocol/openid-connect/certs"
+      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN-URI=http://keycloak-authorization-server:9091/realms/microservices_realm/protocol/openid-connect/token"
       - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db_elastic_query_service/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true"
       - "SERVER_PORT=8183"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
@@ -122,7 +121,6 @@ services:
   elastic-query-service-2:
     image: ${GROUP_ID}/elastic.query.service:${SERVICE_VERSION:-latest}
     ports:
-      - "5009:5009"
       - "8185:8185"
     volumes:
       - "./docker-logs:/workspace/elastic-query-service/logs"
@@ -142,9 +140,9 @@ services:
       - "LOGGING_LEVEL_ROOT=info"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
-      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:8080/realms/microservices_realm"
-      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/certs"
-      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN-URI=http://keycloak-authorization-server:8080/realms/microservices_realm/protocol/openid-connect/token"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:9091/realms/microservices_realm/protocol/openid-connect/certs"
+      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN-URI=http://keycloak-authorization-server:9091/realms/microservices_realm/protocol/openid-connect/token"
       - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db_elastic_query_service/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true"
       - "SERVER_PORT=8185"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
@@ -152,14 +150,14 @@ services:
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
     networks:
       - ${GLOBAL_NETWORK:-services}
-  elastic-query-web-client:
+  elastic-query-web-client-1:
     image: ${GROUP_ID}/elastic.query.web.client:${SERVICE_VERSION:-latest}
     ports:
-      - "5010:5010"
       - "8184:8184"
     volumes:
       - "./docker-logs:/workspace/elastic-query-web-client/logs"
       - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+      - "./check-keycloak-server-started.sh:/usr/local/bin/check-keycloak-server-started.sh"
     user: root
     entrypoint: [ "check-config-server-started.sh" ]
     depends_on:
@@ -179,5 +177,38 @@ services:
       - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_1_HOST=elastic-query-service-2"
       - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_1_PORT=8185"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
+      - "SECURITY_LOGOUT-SUCCESS-URL=http://elastic-query-web-client-1:8184/elastic-query-web-client"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  elastic-query-web-client-2:
+    image: ${GROUP_ID}/elastic.query.web.client.2:${SERVICE_VERSION:-latest}
+    ports:
+      - "8186:8186"
+    volumes:
+      - "./docker-logs:/workspace/elastic-query-web-client/logs"
+      - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+      - "./check-keycloak-server-started.sh:/usr/local/bin/check-keycloak-server-started.sh"
+    user: root
+    entrypoint: [ "check-config-server-started.sh" ]
+    depends_on:
+      - config-server
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5010 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES=info"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "SERVER_PORT=8186"
+      - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-web-client"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_BASE-URL=http://elastic-query-service/elastic-query-service/documents"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_0_ID=elastic-query-service-1"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_0_HOST=elastic-query-service-1"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_0_PORT=8183"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_1_ID=elastic-query-service-2"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_1_HOST=elastic-query-service-2"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_1_PORT=8185"
+      - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+      - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
+      - "SECURITY_LOGOUT-SUCCESS-URL=http://elastic-query-web-client-2:8184/elastic-query-web-client"
     networks:
       - ${GLOBAL_NETWORK:-services}

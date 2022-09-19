@@ -1,0 +1,25 @@
+server:
+  port: 8188
+  servlet:
+    context-path: /elastic-query-web-client
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  application:
+    name: elastic-query-web-client-2
+  profiles:
+    active: elastic_query_web_2
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      name: elastic-query-web-client-2,config-client
+      username: spring_cloud_user
+      password: '1234'
+
+log:
+  app-name: elastic-query-web-client-2
+
+

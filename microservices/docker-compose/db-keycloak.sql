@@ -5,7 +5,7 @@
 -- Dumped from database version 14.5 (Debian 14.5-1.pgdg110+1)
 -- Dumped by pg_dump version 14.4
 
--- Started on 2022-09-13 13:11:51 CEST
+-- Started on 2022-09-19 17:23:59 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -48,7 +48,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 251 (class 1259 OID 17018)
+-- TOC entry 210 (class 1259 OID 16386)
 -- Name: admin_event_entity; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -71,7 +71,7 @@ CREATE TABLE keycloak.admin_event_entity (
 ALTER TABLE keycloak.admin_event_entity OWNER TO postgres;
 
 --
--- TOC entry 280 (class 1259 OID 17461)
+-- TOC entry 211 (class 1259 OID 16391)
 -- Name: associated_policy; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -84,7 +84,7 @@ CREATE TABLE keycloak.associated_policy (
 ALTER TABLE keycloak.associated_policy OWNER TO postgres;
 
 --
--- TOC entry 254 (class 1259 OID 17033)
+-- TOC entry 212 (class 1259 OID 16394)
 -- Name: authentication_execution; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -105,7 +105,7 @@ CREATE TABLE keycloak.authentication_execution (
 ALTER TABLE keycloak.authentication_execution OWNER TO postgres;
 
 --
--- TOC entry 253 (class 1259 OID 17028)
+-- TOC entry 213 (class 1259 OID 16398)
 -- Name: authentication_flow; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -123,7 +123,7 @@ CREATE TABLE keycloak.authentication_flow (
 ALTER TABLE keycloak.authentication_flow OWNER TO postgres;
 
 --
--- TOC entry 252 (class 1259 OID 17023)
+-- TOC entry 214 (class 1259 OID 16406)
 -- Name: authenticator_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -137,7 +137,7 @@ CREATE TABLE keycloak.authenticator_config (
 ALTER TABLE keycloak.authenticator_config OWNER TO postgres;
 
 --
--- TOC entry 255 (class 1259 OID 17038)
+-- TOC entry 215 (class 1259 OID 16409)
 -- Name: authenticator_config_entry; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -151,7 +151,7 @@ CREATE TABLE keycloak.authenticator_config_entry (
 ALTER TABLE keycloak.authenticator_config_entry OWNER TO postgres;
 
 --
--- TOC entry 281 (class 1259 OID 17476)
+-- TOC entry 216 (class 1259 OID 16414)
 -- Name: broker_link; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -169,7 +169,7 @@ CREATE TABLE keycloak.broker_link (
 ALTER TABLE keycloak.broker_link OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 16399)
+-- TOC entry 217 (class 1259 OID 16419)
 -- Name: client; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -206,7 +206,7 @@ CREATE TABLE keycloak.client (
 ALTER TABLE keycloak.client OWNER TO postgres;
 
 --
--- TOC entry 235 (class 1259 OID 16757)
+-- TOC entry 218 (class 1259 OID 16437)
 -- Name: client_attributes; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -220,7 +220,7 @@ CREATE TABLE keycloak.client_attributes (
 ALTER TABLE keycloak.client_attributes OWNER TO postgres;
 
 --
--- TOC entry 292 (class 1259 OID 17725)
+-- TOC entry 219 (class 1259 OID 16442)
 -- Name: client_auth_flow_bindings; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -234,7 +234,7 @@ CREATE TABLE keycloak.client_auth_flow_bindings (
 ALTER TABLE keycloak.client_auth_flow_bindings OWNER TO postgres;
 
 --
--- TOC entry 291 (class 1259 OID 17600)
+-- TOC entry 220 (class 1259 OID 16445)
 -- Name: client_initial_access; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -251,7 +251,7 @@ CREATE TABLE keycloak.client_initial_access (
 ALTER TABLE keycloak.client_initial_access OWNER TO postgres;
 
 --
--- TOC entry 237 (class 1259 OID 16767)
+-- TOC entry 221 (class 1259 OID 16448)
 -- Name: client_node_registrations; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -265,7 +265,7 @@ CREATE TABLE keycloak.client_node_registrations (
 ALTER TABLE keycloak.client_node_registrations OWNER TO postgres;
 
 --
--- TOC entry 269 (class 1259 OID 17266)
+-- TOC entry 222 (class 1259 OID 16451)
 -- Name: client_scope; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -281,7 +281,7 @@ CREATE TABLE keycloak.client_scope (
 ALTER TABLE keycloak.client_scope OWNER TO postgres;
 
 --
--- TOC entry 270 (class 1259 OID 17280)
+-- TOC entry 223 (class 1259 OID 16456)
 -- Name: client_scope_attributes; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -295,7 +295,7 @@ CREATE TABLE keycloak.client_scope_attributes (
 ALTER TABLE keycloak.client_scope_attributes OWNER TO postgres;
 
 --
--- TOC entry 293 (class 1259 OID 17766)
+-- TOC entry 224 (class 1259 OID 16461)
 -- Name: client_scope_client; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -309,7 +309,7 @@ CREATE TABLE keycloak.client_scope_client (
 ALTER TABLE keycloak.client_scope_client OWNER TO postgres;
 
 --
--- TOC entry 271 (class 1259 OID 17285)
+-- TOC entry 225 (class 1259 OID 16467)
 -- Name: client_scope_role_mapping; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -322,7 +322,7 @@ CREATE TABLE keycloak.client_scope_role_mapping (
 ALTER TABLE keycloak.client_scope_role_mapping OWNER TO postgres;
 
 --
--- TOC entry 213 (class 1259 OID 16410)
+-- TOC entry 226 (class 1259 OID 16470)
 -- Name: client_session; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -343,7 +343,7 @@ CREATE TABLE keycloak.client_session (
 ALTER TABLE keycloak.client_session OWNER TO postgres;
 
 --
--- TOC entry 258 (class 1259 OID 17056)
+-- TOC entry 227 (class 1259 OID 16475)
 -- Name: client_session_auth_status; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -357,7 +357,7 @@ CREATE TABLE keycloak.client_session_auth_status (
 ALTER TABLE keycloak.client_session_auth_status OWNER TO postgres;
 
 --
--- TOC entry 236 (class 1259 OID 16762)
+-- TOC entry 228 (class 1259 OID 16478)
 -- Name: client_session_note; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -371,7 +371,7 @@ CREATE TABLE keycloak.client_session_note (
 ALTER TABLE keycloak.client_session_note OWNER TO postgres;
 
 --
--- TOC entry 250 (class 1259 OID 16940)
+-- TOC entry 229 (class 1259 OID 16483)
 -- Name: client_session_prot_mapper; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -384,7 +384,7 @@ CREATE TABLE keycloak.client_session_prot_mapper (
 ALTER TABLE keycloak.client_session_prot_mapper OWNER TO postgres;
 
 --
--- TOC entry 214 (class 1259 OID 16415)
+-- TOC entry 230 (class 1259 OID 16486)
 -- Name: client_session_role; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -397,7 +397,7 @@ CREATE TABLE keycloak.client_session_role (
 ALTER TABLE keycloak.client_session_role OWNER TO postgres;
 
 --
--- TOC entry 259 (class 1259 OID 17137)
+-- TOC entry 231 (class 1259 OID 16489)
 -- Name: client_user_session_note; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -411,7 +411,7 @@ CREATE TABLE keycloak.client_user_session_note (
 ALTER TABLE keycloak.client_user_session_note OWNER TO postgres;
 
 --
--- TOC entry 289 (class 1259 OID 17521)
+-- TOC entry 232 (class 1259 OID 16494)
 -- Name: component; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -429,7 +429,7 @@ CREATE TABLE keycloak.component (
 ALTER TABLE keycloak.component OWNER TO postgres;
 
 --
--- TOC entry 288 (class 1259 OID 17516)
+-- TOC entry 233 (class 1259 OID 16499)
 -- Name: component_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -444,7 +444,7 @@ CREATE TABLE keycloak.component_config (
 ALTER TABLE keycloak.component_config OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 16418)
+-- TOC entry 234 (class 1259 OID 16504)
 -- Name: composite_role; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -457,7 +457,7 @@ CREATE TABLE keycloak.composite_role (
 ALTER TABLE keycloak.composite_role OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 16421)
+-- TOC entry 235 (class 1259 OID 16507)
 -- Name: credential; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -477,7 +477,7 @@ CREATE TABLE keycloak.credential (
 ALTER TABLE keycloak.credential OWNER TO postgres;
 
 --
--- TOC entry 211 (class 1259 OID 16391)
+-- TOC entry 236 (class 1259 OID 16512)
 -- Name: databasechangelog; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -502,7 +502,7 @@ CREATE TABLE keycloak.databasechangelog (
 ALTER TABLE keycloak.databasechangelog OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 16386)
+-- TOC entry 237 (class 1259 OID 16517)
 -- Name: databasechangeloglock; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -517,7 +517,7 @@ CREATE TABLE keycloak.databasechangeloglock (
 ALTER TABLE keycloak.databasechangeloglock OWNER TO postgres;
 
 --
--- TOC entry 294 (class 1259 OID 17782)
+-- TOC entry 238 (class 1259 OID 16520)
 -- Name: default_client_scope; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -531,7 +531,7 @@ CREATE TABLE keycloak.default_client_scope (
 ALTER TABLE keycloak.default_client_scope OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 16426)
+-- TOC entry 239 (class 1259 OID 16524)
 -- Name: event_entity; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -552,7 +552,7 @@ CREATE TABLE keycloak.event_entity (
 ALTER TABLE keycloak.event_entity OWNER TO postgres;
 
 --
--- TOC entry 282 (class 1259 OID 17481)
+-- TOC entry 240 (class 1259 OID 16529)
 -- Name: fed_user_attribute; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -569,7 +569,7 @@ CREATE TABLE keycloak.fed_user_attribute (
 ALTER TABLE keycloak.fed_user_attribute OWNER TO postgres;
 
 --
--- TOC entry 283 (class 1259 OID 17486)
+-- TOC entry 241 (class 1259 OID 16534)
 -- Name: fed_user_consent; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -589,7 +589,7 @@ CREATE TABLE keycloak.fed_user_consent (
 ALTER TABLE keycloak.fed_user_consent OWNER TO postgres;
 
 --
--- TOC entry 296 (class 1259 OID 17808)
+-- TOC entry 242 (class 1259 OID 16539)
 -- Name: fed_user_consent_cl_scope; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -602,7 +602,7 @@ CREATE TABLE keycloak.fed_user_consent_cl_scope (
 ALTER TABLE keycloak.fed_user_consent_cl_scope OWNER TO postgres;
 
 --
--- TOC entry 284 (class 1259 OID 17495)
+-- TOC entry 243 (class 1259 OID 16542)
 -- Name: fed_user_credential; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -624,7 +624,7 @@ CREATE TABLE keycloak.fed_user_credential (
 ALTER TABLE keycloak.fed_user_credential OWNER TO postgres;
 
 --
--- TOC entry 285 (class 1259 OID 17504)
+-- TOC entry 244 (class 1259 OID 16547)
 -- Name: fed_user_group_membership; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -639,7 +639,7 @@ CREATE TABLE keycloak.fed_user_group_membership (
 ALTER TABLE keycloak.fed_user_group_membership OWNER TO postgres;
 
 --
--- TOC entry 286 (class 1259 OID 17507)
+-- TOC entry 245 (class 1259 OID 16550)
 -- Name: fed_user_required_action; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -654,7 +654,7 @@ CREATE TABLE keycloak.fed_user_required_action (
 ALTER TABLE keycloak.fed_user_required_action OWNER TO postgres;
 
 --
--- TOC entry 287 (class 1259 OID 17513)
+-- TOC entry 246 (class 1259 OID 16556)
 -- Name: fed_user_role_mapping; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -669,7 +669,7 @@ CREATE TABLE keycloak.fed_user_role_mapping (
 ALTER TABLE keycloak.fed_user_role_mapping OWNER TO postgres;
 
 --
--- TOC entry 240 (class 1259 OID 16803)
+-- TOC entry 247 (class 1259 OID 16559)
 -- Name: federated_identity; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -686,7 +686,7 @@ CREATE TABLE keycloak.federated_identity (
 ALTER TABLE keycloak.federated_identity OWNER TO postgres;
 
 --
--- TOC entry 290 (class 1259 OID 17578)
+-- TOC entry 248 (class 1259 OID 16564)
 -- Name: federated_user; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -700,7 +700,7 @@ CREATE TABLE keycloak.federated_user (
 ALTER TABLE keycloak.federated_user OWNER TO postgres;
 
 --
--- TOC entry 266 (class 1259 OID 17205)
+-- TOC entry 249 (class 1259 OID 16569)
 -- Name: group_attribute; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -715,7 +715,7 @@ CREATE TABLE keycloak.group_attribute (
 ALTER TABLE keycloak.group_attribute OWNER TO postgres;
 
 --
--- TOC entry 265 (class 1259 OID 17202)
+-- TOC entry 250 (class 1259 OID 16575)
 -- Name: group_role_mapping; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -728,7 +728,7 @@ CREATE TABLE keycloak.group_role_mapping (
 ALTER TABLE keycloak.group_role_mapping OWNER TO postgres;
 
 --
--- TOC entry 241 (class 1259 OID 16808)
+-- TOC entry 251 (class 1259 OID 16578)
 -- Name: identity_provider; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -752,7 +752,7 @@ CREATE TABLE keycloak.identity_provider (
 ALTER TABLE keycloak.identity_provider OWNER TO postgres;
 
 --
--- TOC entry 242 (class 1259 OID 16817)
+-- TOC entry 252 (class 1259 OID 16589)
 -- Name: identity_provider_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -766,7 +766,7 @@ CREATE TABLE keycloak.identity_provider_config (
 ALTER TABLE keycloak.identity_provider_config OWNER TO postgres;
 
 --
--- TOC entry 247 (class 1259 OID 16921)
+-- TOC entry 253 (class 1259 OID 16594)
 -- Name: identity_provider_mapper; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -782,7 +782,7 @@ CREATE TABLE keycloak.identity_provider_mapper (
 ALTER TABLE keycloak.identity_provider_mapper OWNER TO postgres;
 
 --
--- TOC entry 248 (class 1259 OID 16926)
+-- TOC entry 254 (class 1259 OID 16599)
 -- Name: idp_mapper_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -796,7 +796,7 @@ CREATE TABLE keycloak.idp_mapper_config (
 ALTER TABLE keycloak.idp_mapper_config OWNER TO postgres;
 
 --
--- TOC entry 264 (class 1259 OID 17199)
+-- TOC entry 255 (class 1259 OID 16604)
 -- Name: keycloak_group; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -811,7 +811,7 @@ CREATE TABLE keycloak.keycloak_group (
 ALTER TABLE keycloak.keycloak_group OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 16434)
+-- TOC entry 256 (class 1259 OID 16607)
 -- Name: keycloak_role; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -830,7 +830,7 @@ CREATE TABLE keycloak.keycloak_role (
 ALTER TABLE keycloak.keycloak_role OWNER TO postgres;
 
 --
--- TOC entry 246 (class 1259 OID 16918)
+-- TOC entry 257 (class 1259 OID 16613)
 -- Name: migration_model; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -844,7 +844,7 @@ CREATE TABLE keycloak.migration_model (
 ALTER TABLE keycloak.migration_model OWNER TO postgres;
 
 --
--- TOC entry 263 (class 1259 OID 17190)
+-- TOC entry 258 (class 1259 OID 16617)
 -- Name: offline_client_session; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -862,7 +862,7 @@ CREATE TABLE keycloak.offline_client_session (
 ALTER TABLE keycloak.offline_client_session OWNER TO postgres;
 
 --
--- TOC entry 262 (class 1259 OID 17185)
+-- TOC entry 259 (class 1259 OID 16624)
 -- Name: offline_user_session; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -880,7 +880,7 @@ CREATE TABLE keycloak.offline_user_session (
 ALTER TABLE keycloak.offline_user_session OWNER TO postgres;
 
 --
--- TOC entry 276 (class 1259 OID 17404)
+-- TOC entry 260 (class 1259 OID 16630)
 -- Name: policy_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -894,7 +894,7 @@ CREATE TABLE keycloak.policy_config (
 ALTER TABLE keycloak.policy_config OWNER TO postgres;
 
 --
--- TOC entry 238 (class 1259 OID 16792)
+-- TOC entry 261 (class 1259 OID 16635)
 -- Name: protocol_mapper; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -911,7 +911,7 @@ CREATE TABLE keycloak.protocol_mapper (
 ALTER TABLE keycloak.protocol_mapper OWNER TO postgres;
 
 --
--- TOC entry 239 (class 1259 OID 16798)
+-- TOC entry 262 (class 1259 OID 16640)
 -- Name: protocol_mapper_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -925,7 +925,7 @@ CREATE TABLE keycloak.protocol_mapper_config (
 ALTER TABLE keycloak.protocol_mapper_config OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 16440)
+-- TOC entry 263 (class 1259 OID 16645)
 -- Name: realm; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -989,7 +989,7 @@ CREATE TABLE keycloak.realm (
 ALTER TABLE keycloak.realm OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 16457)
+-- TOC entry 264 (class 1259 OID 16678)
 -- Name: realm_attribute; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1003,7 +1003,7 @@ CREATE TABLE keycloak.realm_attribute (
 ALTER TABLE keycloak.realm_attribute OWNER TO postgres;
 
 --
--- TOC entry 268 (class 1259 OID 17214)
+-- TOC entry 265 (class 1259 OID 16683)
 -- Name: realm_default_groups; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1016,7 +1016,7 @@ CREATE TABLE keycloak.realm_default_groups (
 ALTER TABLE keycloak.realm_default_groups OWNER TO postgres;
 
 --
--- TOC entry 245 (class 1259 OID 16910)
+-- TOC entry 266 (class 1259 OID 16686)
 -- Name: realm_enabled_event_types; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1029,7 +1029,7 @@ CREATE TABLE keycloak.realm_enabled_event_types (
 ALTER TABLE keycloak.realm_enabled_event_types OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 16465)
+-- TOC entry 267 (class 1259 OID 16689)
 -- Name: realm_events_listeners; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1042,7 +1042,7 @@ CREATE TABLE keycloak.realm_events_listeners (
 ALTER TABLE keycloak.realm_events_listeners OWNER TO postgres;
 
 --
--- TOC entry 301 (class 1259 OID 17916)
+-- TOC entry 268 (class 1259 OID 16692)
 -- Name: realm_localizations; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1056,7 +1056,7 @@ CREATE TABLE keycloak.realm_localizations (
 ALTER TABLE keycloak.realm_localizations OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 16468)
+-- TOC entry 269 (class 1259 OID 16697)
 -- Name: realm_required_credential; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1072,7 +1072,7 @@ CREATE TABLE keycloak.realm_required_credential (
 ALTER TABLE keycloak.realm_required_credential OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 16475)
+-- TOC entry 270 (class 1259 OID 16704)
 -- Name: realm_smtp_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1086,7 +1086,7 @@ CREATE TABLE keycloak.realm_smtp_config (
 ALTER TABLE keycloak.realm_smtp_config OWNER TO postgres;
 
 --
--- TOC entry 243 (class 1259 OID 16826)
+-- TOC entry 271 (class 1259 OID 16709)
 -- Name: realm_supported_locales; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1099,7 +1099,7 @@ CREATE TABLE keycloak.realm_supported_locales (
 ALTER TABLE keycloak.realm_supported_locales OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 16485)
+-- TOC entry 272 (class 1259 OID 16712)
 -- Name: redirect_uris; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1112,7 +1112,7 @@ CREATE TABLE keycloak.redirect_uris (
 ALTER TABLE keycloak.redirect_uris OWNER TO postgres;
 
 --
--- TOC entry 261 (class 1259 OID 17149)
+-- TOC entry 273 (class 1259 OID 16715)
 -- Name: required_action_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1126,7 +1126,7 @@ CREATE TABLE keycloak.required_action_config (
 ALTER TABLE keycloak.required_action_config OWNER TO postgres;
 
 --
--- TOC entry 260 (class 1259 OID 17142)
+-- TOC entry 274 (class 1259 OID 16720)
 -- Name: required_action_provider; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1145,7 +1145,7 @@ CREATE TABLE keycloak.required_action_provider (
 ALTER TABLE keycloak.required_action_provider OWNER TO postgres;
 
 --
--- TOC entry 298 (class 1259 OID 17847)
+-- TOC entry 275 (class 1259 OID 16727)
 -- Name: resource_attribute; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1160,7 +1160,7 @@ CREATE TABLE keycloak.resource_attribute (
 ALTER TABLE keycloak.resource_attribute OWNER TO postgres;
 
 --
--- TOC entry 278 (class 1259 OID 17431)
+-- TOC entry 276 (class 1259 OID 16733)
 -- Name: resource_policy; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1173,7 +1173,7 @@ CREATE TABLE keycloak.resource_policy (
 ALTER TABLE keycloak.resource_policy OWNER TO postgres;
 
 --
--- TOC entry 277 (class 1259 OID 17416)
+-- TOC entry 277 (class 1259 OID 16736)
 -- Name: resource_scope; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1186,7 +1186,7 @@ CREATE TABLE keycloak.resource_scope (
 ALTER TABLE keycloak.resource_scope OWNER TO postgres;
 
 --
--- TOC entry 272 (class 1259 OID 17354)
+-- TOC entry 278 (class 1259 OID 16739)
 -- Name: resource_server; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1201,7 +1201,7 @@ CREATE TABLE keycloak.resource_server (
 ALTER TABLE keycloak.resource_server OWNER TO postgres;
 
 --
--- TOC entry 297 (class 1259 OID 17823)
+-- TOC entry 279 (class 1259 OID 16744)
 -- Name: resource_server_perm_ticket; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1221,7 +1221,7 @@ CREATE TABLE keycloak.resource_server_perm_ticket (
 ALTER TABLE keycloak.resource_server_perm_ticket OWNER TO postgres;
 
 --
--- TOC entry 275 (class 1259 OID 17390)
+-- TOC entry 280 (class 1259 OID 16749)
 -- Name: resource_server_policy; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1240,7 +1240,7 @@ CREATE TABLE keycloak.resource_server_policy (
 ALTER TABLE keycloak.resource_server_policy OWNER TO postgres;
 
 --
--- TOC entry 273 (class 1259 OID 17362)
+-- TOC entry 281 (class 1259 OID 16754)
 -- Name: resource_server_resource; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1259,7 +1259,7 @@ CREATE TABLE keycloak.resource_server_resource (
 ALTER TABLE keycloak.resource_server_resource OWNER TO postgres;
 
 --
--- TOC entry 274 (class 1259 OID 17376)
+-- TOC entry 282 (class 1259 OID 16760)
 -- Name: resource_server_scope; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1275,7 +1275,7 @@ CREATE TABLE keycloak.resource_server_scope (
 ALTER TABLE keycloak.resource_server_scope OWNER TO postgres;
 
 --
--- TOC entry 299 (class 1259 OID 17865)
+-- TOC entry 283 (class 1259 OID 16765)
 -- Name: resource_uris; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1288,7 +1288,7 @@ CREATE TABLE keycloak.resource_uris (
 ALTER TABLE keycloak.resource_uris OWNER TO postgres;
 
 --
--- TOC entry 300 (class 1259 OID 17875)
+-- TOC entry 284 (class 1259 OID 16768)
 -- Name: role_attribute; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1303,7 +1303,7 @@ CREATE TABLE keycloak.role_attribute (
 ALTER TABLE keycloak.role_attribute OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 16488)
+-- TOC entry 285 (class 1259 OID 16773)
 -- Name: scope_mapping; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1316,7 +1316,7 @@ CREATE TABLE keycloak.scope_mapping (
 ALTER TABLE keycloak.scope_mapping OWNER TO postgres;
 
 --
--- TOC entry 279 (class 1259 OID 17446)
+-- TOC entry 286 (class 1259 OID 16776)
 -- Name: scope_policy; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1329,7 +1329,7 @@ CREATE TABLE keycloak.scope_policy (
 ALTER TABLE keycloak.scope_policy OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 16494)
+-- TOC entry 287 (class 1259 OID 16779)
 -- Name: user_attribute; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1344,7 +1344,7 @@ CREATE TABLE keycloak.user_attribute (
 ALTER TABLE keycloak.user_attribute OWNER TO postgres;
 
 --
--- TOC entry 249 (class 1259 OID 16931)
+-- TOC entry 288 (class 1259 OID 16785)
 -- Name: user_consent; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1362,7 +1362,7 @@ CREATE TABLE keycloak.user_consent (
 ALTER TABLE keycloak.user_consent OWNER TO postgres;
 
 --
--- TOC entry 295 (class 1259 OID 17798)
+-- TOC entry 289 (class 1259 OID 16790)
 -- Name: user_consent_client_scope; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1375,7 +1375,7 @@ CREATE TABLE keycloak.user_consent_client_scope (
 ALTER TABLE keycloak.user_consent_client_scope OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 16499)
+-- TOC entry 290 (class 1259 OID 16793)
 -- Name: user_entity; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1399,7 +1399,7 @@ CREATE TABLE keycloak.user_entity (
 ALTER TABLE keycloak.user_entity OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1259 OID 16507)
+-- TOC entry 291 (class 1259 OID 16801)
 -- Name: user_federation_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1413,7 +1413,7 @@ CREATE TABLE keycloak.user_federation_config (
 ALTER TABLE keycloak.user_federation_config OWNER TO postgres;
 
 --
--- TOC entry 256 (class 1259 OID 17043)
+-- TOC entry 292 (class 1259 OID 16806)
 -- Name: user_federation_mapper; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1429,7 +1429,7 @@ CREATE TABLE keycloak.user_federation_mapper (
 ALTER TABLE keycloak.user_federation_mapper OWNER TO postgres;
 
 --
--- TOC entry 257 (class 1259 OID 17048)
+-- TOC entry 293 (class 1259 OID 16811)
 -- Name: user_federation_mapper_config; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1443,7 +1443,7 @@ CREATE TABLE keycloak.user_federation_mapper_config (
 ALTER TABLE keycloak.user_federation_mapper_config OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 16512)
+-- TOC entry 294 (class 1259 OID 16816)
 -- Name: user_federation_provider; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1462,7 +1462,7 @@ CREATE TABLE keycloak.user_federation_provider (
 ALTER TABLE keycloak.user_federation_provider OWNER TO postgres;
 
 --
--- TOC entry 267 (class 1259 OID 17211)
+-- TOC entry 295 (class 1259 OID 16821)
 -- Name: user_group_membership; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1475,7 +1475,7 @@ CREATE TABLE keycloak.user_group_membership (
 ALTER TABLE keycloak.user_group_membership OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 16517)
+-- TOC entry 296 (class 1259 OID 16824)
 -- Name: user_required_action; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1488,7 +1488,7 @@ CREATE TABLE keycloak.user_required_action (
 ALTER TABLE keycloak.user_required_action OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 16520)
+-- TOC entry 297 (class 1259 OID 16828)
 -- Name: user_role_mapping; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1501,7 +1501,7 @@ CREATE TABLE keycloak.user_role_mapping (
 ALTER TABLE keycloak.user_role_mapping OWNER TO postgres;
 
 --
--- TOC entry 233 (class 1259 OID 16523)
+-- TOC entry 298 (class 1259 OID 16831)
 -- Name: user_session; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1524,7 +1524,7 @@ CREATE TABLE keycloak.user_session (
 ALTER TABLE keycloak.user_session OWNER TO postgres;
 
 --
--- TOC entry 244 (class 1259 OID 16829)
+-- TOC entry 299 (class 1259 OID 16837)
 -- Name: user_session_note; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1538,7 +1538,7 @@ CREATE TABLE keycloak.user_session_note (
 ALTER TABLE keycloak.user_session_note OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 16491)
+-- TOC entry 300 (class 1259 OID 16842)
 -- Name: username_login_failure; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1555,7 +1555,7 @@ CREATE TABLE keycloak.username_login_failure (
 ALTER TABLE keycloak.username_login_failure OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 16534)
+-- TOC entry 301 (class 1259 OID 16847)
 -- Name: web_origins; Type: TABLE; Schema: keycloak; Owner: postgres
 --
 
@@ -1568,24 +1568,24 @@ CREATE TABLE keycloak.web_origins (
 ALTER TABLE keycloak.web_origins OWNER TO postgres;
 
 --
--- TOC entry 4152 (class 0 OID 17018)
--- Dependencies: 251
+-- TOC entry 4111 (class 0 OID 16386)
+-- Dependencies: 210
 -- Data for Name: admin_event_entity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4181 (class 0 OID 17461)
--- Dependencies: 280
+-- TOC entry 4112 (class 0 OID 16391)
+-- Dependencies: 211
 -- Data for Name: associated_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4155 (class 0 OID 17033)
--- Dependencies: 254
+-- TOC entry 4113 (class 0 OID 16394)
+-- Dependencies: 212
 -- Data for Name: authentication_execution; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1686,8 +1686,8 @@ INSERT INTO keycloak.authentication_execution (id, alias, authenticator, realm_i
 
 
 --
--- TOC entry 4154 (class 0 OID 17028)
--- Dependencies: 253
+-- TOC entry 4114 (class 0 OID 16398)
+-- Dependencies: 213
 -- Data for Name: authentication_flow; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1734,8 +1734,8 @@ INSERT INTO keycloak.authentication_flow (id, alias, description, realm_id, prov
 
 
 --
--- TOC entry 4153 (class 0 OID 17023)
--- Dependencies: 252
+-- TOC entry 4115 (class 0 OID 16406)
+-- Dependencies: 214
 -- Data for Name: authenticator_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1746,8 +1746,8 @@ INSERT INTO keycloak.authenticator_config (id, alias, realm_id) VALUES ('8d4435c
 
 
 --
--- TOC entry 4156 (class 0 OID 17038)
--- Dependencies: 255
+-- TOC entry 4116 (class 0 OID 16409)
+-- Dependencies: 215
 -- Data for Name: authenticator_config_entry; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1758,16 +1758,16 @@ INSERT INTO keycloak.authenticator_config_entry (authenticator_id, value, name) 
 
 
 --
--- TOC entry 4182 (class 0 OID 17476)
--- Dependencies: 281
+-- TOC entry 4117 (class 0 OID 16414)
+-- Dependencies: 216
 -- Data for Name: broker_link; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4113 (class 0 OID 16399)
--- Dependencies: 212
+-- TOC entry 4118 (class 0 OID 16419)
+-- Dependencies: 217
 -- Data for Name: client; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1784,14 +1784,15 @@ INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_bef
 INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('2cf6cede-1b54-493c-afac-0b4582bbb9a2', true, false, 'broker', 0, false, NULL, NULL, true, NULL, false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', 0, false, false, '${client_broker}', false, 'client-secret', NULL, NULL, NULL, true, false, false, false);
 INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('8c80538e-486c-4b9d-87a2-1b034563f1c0', true, false, 'security-admin-console', 0, true, NULL, '/admin/microservices_realm/console/', false, NULL, false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', 0, false, false, '${client_security-admin-console}', false, 'client-secret', '${authAdminUrl}', NULL, NULL, true, false, false, false);
 INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('4b5c82f0-883a-49c6-806e-a785d83eef14', true, false, 'admin-cli', 0, true, NULL, NULL, false, NULL, false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', 0, false, false, '${client_admin-cli}', false, 'client-secret', NULL, NULL, NULL, false, false, true, false);
-INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', true, true, 'elastic-query-service', 0, false, 'lggO2Rygd6P9DvxL3HNM6NfA27ubh7Jq', 'http://localhost:8183/elastic-query-service', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', true, 'client-secret', '', '', NULL, true, false, true, false);
-INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', true, true, 'elastic-query-web-client', 0, false, '8iYqVnAFHNQK6V9Nldn32nVdWQbl0b5t', 'http://localhost:8184/elastic-query-web-client', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', true, 'client-secret', '', '', NULL, true, false, true, false);
-INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', true, true, 'elastic-query-web-client-2', 0, true, NULL, 'http://localhost:8184/elastic-query-web-client', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', false, 'client-secret', '', '', NULL, true, false, true, false);
+INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', true, true, 'elastic-query-web-client', 0, false, '8iYqVnAFHNQK6V9Nldn32nVdWQbl0b5t', 'http://elastic-query-web-client-1:8184/elastic-query-web-client', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', false, 'client-secret', '', '', NULL, true, false, true, false);
+INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', true, true, 'elastic-query-service-1', 0, false, 'lggO2Rygd6P9DvxL3HNM6NfA27ubh7Jq', 'http://elastic-query-service-1:8183/elastic-query-service', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', false, 'client-secret', '', '', NULL, true, false, true, false);
+INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', true, true, 'elastic-query-service-2', 0, false, 'lggO2Rygd6P9DvxL3HNM6NfA27ubh7Jq', 'http://elastic-query-service-2:8185/elastic-query-service', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', false, 'client-secret', '', '', NULL, true, false, true, false);
+INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', true, true, 'elastic-query-web-client-2', 0, false, 'j8mbzx15a4zJ78I498YnC5iJuHZWiTSx', 'http://elastic-query-web-client-2:8186/elastic-query-web-client', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', false, 'client-secret', '', '', NULL, true, false, true, false);
 
 
 --
--- TOC entry 4136 (class 0 OID 16757)
--- Dependencies: 235
+-- TOC entry 4119 (class 0 OID 16437)
+-- Dependencies: 218
 -- Data for Name: client_attributes; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1810,13 +1811,11 @@ INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b35
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'false', 'oidc.ciba.grant.enabled');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'true', 'backchannel.logout.session.required');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'false', 'backchannel.logout.revoke.offline.tokens');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://localhost:8184/elastic-query-web-client', 'post.logout.redirect.uris');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'false', 'display.on.consent.screen');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'false', 'oauth2.device.authorization.grant.enabled');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'false', 'oidc.ciba.grant.enabled');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'true', 'backchannel.logout.session.required');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'false', 'backchannel.logout.revoke.offline.tokens');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://localhost:8184/elastic-query-web-client', 'post.logout.redirect.uris');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'false', 'display.on.consent.screen');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'false', 'oauth2.device.authorization.grant.enabled');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'false', 'oidc.ciba.grant.enabled');
@@ -1824,36 +1823,46 @@ INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c9221
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'false', 'backchannel.logout.revoke.offline.tokens');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'false', 'display.on.consent.screen');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', '1662997735', 'client.secret.creation.time');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://localhost:8183/elastic-query-service', 'post.logout.redirect.uris');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', '1663315099', 'client.secret.creation.time');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://elastic-query-web-client-1:8184/elastic-query-web-client', 'post.logout.redirect.uris');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://elastic-query-service-1:8183/elastic-query-service', 'post.logout.redirect.uris');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'oidc.ciba.grant.enabled');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '1662997735', 'client.secret.creation.time');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'true', 'backchannel.logout.session.required');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'backchannel.logout.revoke.offline.tokens');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'http://elastic-query-service-2:8185/elastic-query-service', 'post.logout.redirect.uris');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'oauth2.device.authorization.grant.enabled');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'display.on.consent.screen');
+INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://elastic-query-web-client-2:8186/elastic-query-web-client', 'post.logout.redirect.uris');
 
 
 --
--- TOC entry 4193 (class 0 OID 17725)
--- Dependencies: 292
+-- TOC entry 4120 (class 0 OID 16442)
+-- Dependencies: 219
 -- Data for Name: client_auth_flow_bindings; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4192 (class 0 OID 17600)
--- Dependencies: 291
+-- TOC entry 4121 (class 0 OID 16445)
+-- Dependencies: 220
 -- Data for Name: client_initial_access; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4138 (class 0 OID 16767)
--- Dependencies: 237
+-- TOC entry 4122 (class 0 OID 16448)
+-- Dependencies: 221
 -- Data for Name: client_node_registrations; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4170 (class 0 OID 17266)
--- Dependencies: 269
+-- TOC entry 4123 (class 0 OID 16451)
+-- Dependencies: 222
 -- Data for Name: client_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1883,8 +1892,8 @@ INSERT INTO keycloak.client_scope (id, name, realm_id, description, protocol) VA
 
 
 --
--- TOC entry 4171 (class 0 OID 17280)
--- Dependencies: 270
+-- TOC entry 4124 (class 0 OID 16456)
+-- Dependencies: 223
 -- Data for Name: client_scope_attributes; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -1955,8 +1964,8 @@ INSERT INTO keycloak.client_scope_attributes (scope_id, value, name) VALUES ('b9
 
 
 --
--- TOC entry 4194 (class 0 OID 17766)
--- Dependencies: 293
+-- TOC entry 4125 (class 0 OID 16461)
+-- Dependencies: 224
 -- Data for Name: client_scope_client; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2104,11 +2113,23 @@ INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VA
 INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'b9e6df1b-a9e8-4844-8df0-509a774eedf7', true);
 INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'adcc6c78-e6a7-4097-b8fa-789fcb915bad', true);
 INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', '7e22b14c-e3fd-40ae-8a33-851d76ff512a', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '2f9ef4a8-19ed-4ad6-9b4f-4bb7dc65d589', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'de1986bc-c2d2-4f6e-8186-5ae6307563d0', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'adcc6c78-e6a7-4097-b8fa-789fcb915bad', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '7e22b14c-e3fd-40ae-8a33-851d76ff512a', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'b9e6df1b-a9e8-4844-8df0-509a774eedf7', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'bb8484c0-6abb-4349-b46c-c76542fe4622', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '47d79312-8b12-4772-9f20-ea1aa297b402', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '144f8c8d-c0f2-499f-b3c2-a3a48abcdecd', true);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '30c23fd3-3cf7-426a-be44-5ed7aa749ad3', false);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'eb4517ef-9aef-4f18-b4b2-61e9d5c6ece7', false);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'ebc7d485-5c73-4ca5-a17c-9d8b56b3ae0e', false);
+INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '1b132754-ea05-4574-9742-511d178e37b3', false);
 
 
 --
--- TOC entry 4172 (class 0 OID 17285)
--- Dependencies: 271
+-- TOC entry 4126 (class 0 OID 16467)
+-- Dependencies: 225
 -- Data for Name: client_scope_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2120,56 +2141,56 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4114 (class 0 OID 16410)
--- Dependencies: 213
+-- TOC entry 4127 (class 0 OID 16470)
+-- Dependencies: 226
 -- Data for Name: client_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4159 (class 0 OID 17056)
--- Dependencies: 258
+-- TOC entry 4128 (class 0 OID 16475)
+-- Dependencies: 227
 -- Data for Name: client_session_auth_status; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4137 (class 0 OID 16762)
--- Dependencies: 236
+-- TOC entry 4129 (class 0 OID 16478)
+-- Dependencies: 228
 -- Data for Name: client_session_note; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4151 (class 0 OID 16940)
--- Dependencies: 250
+-- TOC entry 4130 (class 0 OID 16483)
+-- Dependencies: 229
 -- Data for Name: client_session_prot_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4115 (class 0 OID 16415)
--- Dependencies: 214
+-- TOC entry 4131 (class 0 OID 16486)
+-- Dependencies: 230
 -- Data for Name: client_session_role; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4160 (class 0 OID 17137)
--- Dependencies: 259
+-- TOC entry 4132 (class 0 OID 16489)
+-- Dependencies: 231
 -- Data for Name: client_user_session_note; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4190 (class 0 OID 17521)
--- Dependencies: 289
+-- TOC entry 4133 (class 0 OID 16494)
+-- Dependencies: 232
 -- Data for Name: component; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2200,8 +2221,8 @@ INSERT INTO keycloak.component (id, name, parent_id, provider_id, provider_type,
 
 
 --
--- TOC entry 4189 (class 0 OID 17516)
--- Dependencies: 288
+-- TOC entry 4134 (class 0 OID 16499)
+-- Dependencies: 233
 -- Data for Name: component_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2282,8 +2303,8 @@ INSERT INTO keycloak.component_config (id, component_id, name, value) VALUES ('a
 
 
 --
--- TOC entry 4116 (class 0 OID 16418)
--- Dependencies: 215
+-- TOC entry 4135 (class 0 OID 16504)
+-- Dependencies: 234
 -- Data for Name: composite_role; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2366,20 +2387,20 @@ INSERT INTO keycloak.composite_role (composite, child_role) VALUES ('a61a7643-bd
 
 
 --
--- TOC entry 4117 (class 0 OID 16421)
--- Dependencies: 216
+-- TOC entry 4136 (class 0 OID 16507)
+-- Dependencies: 235
 -- Data for Name: credential; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 INSERT INTO keycloak.credential (id, salt, type, user_id, created_date, user_label, secret_data, credential_data, priority) VALUES ('a2afef81-86fa-4633-bc5e-3d88b367e8fe', NULL, 'password', 'd756c1f8-b20d-4e2d-9b51-91aade58a47b', 1662987645900, NULL, '{"value":"6fawDl/Vzq/wj7dtSALr1OeLolGewEz87meFyeYKyCVJS0J92TUv83/rIR9aNaT9+VKQq4t760hURsHTXVLl2Q==","salt":"BmyjHqcdMQP6U42LkgNJVA==","additionalParameters":{}}', '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}', 10);
-INSERT INTO keycloak.credential (id, salt, type, user_id, created_date, user_label, secret_data, credential_data, priority) VALUES ('6a112a74-6fac-4cb2-929d-b4d6b3c1c111', NULL, 'password', 'edd8fe96-cf80-4bcf-b39e-7428d83ca4c8', 1662989217295, 'My password', '{"value":"Owauc52q0ktsgjb3UvLc4YZIfqp4IQjDXnewnx4LXkwu6rSlJ3qyzEpw2RtpkxQkkDebZZ9v4uIRnHeGVHdVKQ==","salt":"XjaEwlj6U//OWxz54Dfyiw==","additionalParameters":{}}', '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}', 10);
 INSERT INTO keycloak.credential (id, salt, type, user_id, created_date, user_label, secret_data, credential_data, priority) VALUES ('9b6e74a2-3f66-4452-81ec-0ea2d84a9ce3', NULL, 'password', 'e41bd033-77df-4e07-8d38-eb5498998873', 1662989233510, 'My password', '{"value":"7sK5/4dy6Kd4W78Y5u+CpJukboPMT5j4qTycGXMCclvwbCPKK3CrjNmI04dfVM6GmiFhrRG3PGgUWB0QqWsang==","salt":"mAS52FAiLz0eZBCAkFetUw==","additionalParameters":{}}', '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}', 10);
 INSERT INTO keycloak.credential (id, salt, type, user_id, created_date, user_label, secret_data, credential_data, priority) VALUES ('f12798f4-4c91-4967-b5da-2bb09817fbdd', NULL, 'password', '388258cb-1542-4104-920d-87e04a0381d5', 1662989252262, 'My password', '{"value":"gTIRdvS5CbqzaIB99YQn/XoVPPHDy5esEoAUxNNVpSSGRJsAjyP+cEyTta4kftOV13L5bnMHRsjiqK2sXSOsEg==","salt":"9Icrja/Hl1lJdl122/kz/w==","additionalParameters":{}}', '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}', 10);
+INSERT INTO keycloak.credential (id, salt, type, user_id, created_date, user_label, secret_data, credential_data, priority) VALUES ('6a112a74-6fac-4cb2-929d-b4d6b3c1c111', NULL, 'password', 'edd8fe96-cf80-4bcf-b39e-7428d83ca4c8', 1663320519149, 'My password', '{"value":"NQdq+BanQ64jbj6K6r8M1HtbApQZIkvJXYcsndj9IsCmrKkVayV5kUNZ9NdXAZnW3vqldpQZhQz1hxEA/1M+Yw==","salt":"msrOnEQQNQtRTevYOOlBMw==","additionalParameters":{}}', '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}', 10);
 
 
 --
--- TOC entry 4112 (class 0 OID 16391)
--- Dependencies: 211
+-- TOC entry 4137 (class 0 OID 16512)
+-- Dependencies: 236
 -- Data for Name: databasechangelog; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2493,8 +2514,8 @@ INSERT INTO keycloak.databasechangelog (id, author, filename, dateexecuted, orde
 
 
 --
--- TOC entry 4111 (class 0 OID 16386)
--- Dependencies: 210
+-- TOC entry 4138 (class 0 OID 16517)
+-- Dependencies: 237
 -- Data for Name: databasechangeloglock; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2504,8 +2525,8 @@ INSERT INTO keycloak.databasechangeloglock (id, locked, lockgranted, lockedby) V
 
 
 --
--- TOC entry 4195 (class 0 OID 17782)
--- Dependencies: 294
+-- TOC entry 4139 (class 0 OID 16520)
+-- Dependencies: 238
 -- Data for Name: default_client_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2532,96 +2553,96 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4118 (class 0 OID 16426)
--- Dependencies: 217
+-- TOC entry 4140 (class 0 OID 16524)
+-- Dependencies: 239
 -- Data for Name: event_entity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4183 (class 0 OID 17481)
--- Dependencies: 282
+-- TOC entry 4141 (class 0 OID 16529)
+-- Dependencies: 240
 -- Data for Name: fed_user_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4184 (class 0 OID 17486)
--- Dependencies: 283
+-- TOC entry 4142 (class 0 OID 16534)
+-- Dependencies: 241
 -- Data for Name: fed_user_consent; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4197 (class 0 OID 17808)
--- Dependencies: 296
+-- TOC entry 4143 (class 0 OID 16539)
+-- Dependencies: 242
 -- Data for Name: fed_user_consent_cl_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4185 (class 0 OID 17495)
--- Dependencies: 284
+-- TOC entry 4144 (class 0 OID 16542)
+-- Dependencies: 243
 -- Data for Name: fed_user_credential; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4186 (class 0 OID 17504)
--- Dependencies: 285
+-- TOC entry 4145 (class 0 OID 16547)
+-- Dependencies: 244
 -- Data for Name: fed_user_group_membership; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4187 (class 0 OID 17507)
--- Dependencies: 286
+-- TOC entry 4146 (class 0 OID 16550)
+-- Dependencies: 245
 -- Data for Name: fed_user_required_action; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4188 (class 0 OID 17513)
--- Dependencies: 287
+-- TOC entry 4147 (class 0 OID 16556)
+-- Dependencies: 246
 -- Data for Name: fed_user_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4141 (class 0 OID 16803)
--- Dependencies: 240
+-- TOC entry 4148 (class 0 OID 16559)
+-- Dependencies: 247
 -- Data for Name: federated_identity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4191 (class 0 OID 17578)
--- Dependencies: 290
+-- TOC entry 4149 (class 0 OID 16564)
+-- Dependencies: 248
 -- Data for Name: federated_user; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4167 (class 0 OID 17205)
--- Dependencies: 266
+-- TOC entry 4150 (class 0 OID 16569)
+-- Dependencies: 249
 -- Data for Name: group_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4166 (class 0 OID 17202)
--- Dependencies: 265
+-- TOC entry 4151 (class 0 OID 16575)
+-- Dependencies: 250
 -- Data for Name: group_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2631,40 +2652,40 @@ INSERT INTO keycloak.group_role_mapping (role_id, group_id) VALUES ('edb6d233-6c
 
 
 --
--- TOC entry 4142 (class 0 OID 16808)
--- Dependencies: 241
+-- TOC entry 4152 (class 0 OID 16578)
+-- Dependencies: 251
 -- Data for Name: identity_provider; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4143 (class 0 OID 16817)
--- Dependencies: 242
+-- TOC entry 4153 (class 0 OID 16589)
+-- Dependencies: 252
 -- Data for Name: identity_provider_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4148 (class 0 OID 16921)
--- Dependencies: 247
+-- TOC entry 4154 (class 0 OID 16594)
+-- Dependencies: 253
 -- Data for Name: identity_provider_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4149 (class 0 OID 16926)
--- Dependencies: 248
+-- TOC entry 4155 (class 0 OID 16599)
+-- Dependencies: 254
 -- Data for Name: idp_mapper_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4165 (class 0 OID 17199)
--- Dependencies: 264
+-- TOC entry 4156 (class 0 OID 16604)
+-- Dependencies: 255
 -- Data for Name: keycloak_group; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2674,8 +2695,8 @@ INSERT INTO keycloak.keycloak_group (id, name, parent_group, realm_id) VALUES ('
 
 
 --
--- TOC entry 4119 (class 0 OID 16434)
--- Dependencies: 218
+-- TOC entry 4157 (class 0 OID 16607)
+-- Dependencies: 256
 -- Data for Name: keycloak_role; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2764,8 +2785,8 @@ INSERT INTO keycloak.keycloak_role (id, client_realm_constraint, client_role, de
 
 
 --
--- TOC entry 4147 (class 0 OID 16918)
--- Dependencies: 246
+-- TOC entry 4158 (class 0 OID 16613)
+-- Dependencies: 257
 -- Data for Name: migration_model; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2773,32 +2794,32 @@ INSERT INTO keycloak.migration_model (id, version, update_time) VALUES ('u8yhu',
 
 
 --
--- TOC entry 4164 (class 0 OID 17190)
--- Dependencies: 263
+-- TOC entry 4159 (class 0 OID 16617)
+-- Dependencies: 258
 -- Data for Name: offline_client_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4163 (class 0 OID 17185)
--- Dependencies: 262
+-- TOC entry 4160 (class 0 OID 16624)
+-- Dependencies: 259
 -- Data for Name: offline_user_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4177 (class 0 OID 17404)
--- Dependencies: 276
+-- TOC entry 4161 (class 0 OID 16630)
+-- Dependencies: 260
 -- Data for Name: policy_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4139 (class 0 OID 16792)
--- Dependencies: 238
+-- TOC entry 4162 (class 0 OID 16635)
+-- Dependencies: 261
 -- Data for Name: protocol_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -2876,11 +2897,17 @@ INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, 
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('0cdc434a-df83-48ff-b77b-ab56fcaa69e9', 'client-id', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('770225b9-b8fa-416f-bfa6-df5c84411391', 'client-host', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('e61a2cac-6302-4864-94d5-8b762203daa1', 'client-ip', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
+INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'client-id', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
+INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'kafka-streams-service', 'openid-connect', 'oidc-audience-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
+INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'microservices-groups', 'openid-connect', 'oidc-group-membership-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
+INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'analytics-service', 'openid-connect', 'oidc-audience-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
+INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'client-ip', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
+INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'client-host', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
 
 
 --
--- TOC entry 4140 (class 0 OID 16798)
--- Dependencies: 239
+-- TOC entry 4163 (class 0 OID 16640)
+-- Dependencies: 262
 -- Data for Name: protocol_mapper_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3250,11 +3277,42 @@ INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VA
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('e61a2cac-6302-4864-94d5-8b762203daa1', 'false', 'access.tokenResponse.claim');
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('770225b9-b8fa-416f-bfa6-df5c84411391', 'clientHost', 'user.session.note');
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('770225b9-b8fa-416f-bfa6-df5c84411391', 'clientHost', 'claim.name');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'false', 'id.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'true', 'access.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'kafka-streams-service', 'included.custom.audience');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'false', 'full.path');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'true', 'id.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'true', 'access.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'groups', 'claim.name');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'true', 'userinfo.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'clientIPAddress', 'user.session.note');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'true', 'id.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'true', 'access.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'clientIPAddress', 'claim.name');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'false', 'access.tokenResponse.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'false', 'id.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'true', 'access.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'analytics-service', 'included.custom.audience');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'clientHost', 'user.session.note');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'true', 'id.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'true', 'access.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'clientHost', 'claim.name');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'false', 'access.tokenResponse.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'true', 'userinfo.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'clientID', 'user.session.note');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'true', 'id.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'true', 'access.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'clientID', 'claim.name');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'false', 'access.tokenResponse.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'true', 'userinfo.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'false', 'userinfo.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'true', 'userinfo.token.claim');
+INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'false', 'userinfo.token.claim');
 
 
 --
--- TOC entry 4120 (class 0 OID 16440)
--- Dependencies: 219
+-- TOC entry 4164 (class 0 OID 16645)
+-- Dependencies: 263
 -- Data for Name: realm; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3263,8 +3321,8 @@ INSERT INTO keycloak.realm (id, access_code_lifespan, user_action_lifespan, acce
 
 
 --
--- TOC entry 4121 (class 0 OID 16457)
--- Dependencies: 220
+-- TOC entry 4165 (class 0 OID 16678)
+-- Dependencies: 264
 -- Data for Name: realm_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3336,24 +3394,24 @@ INSERT INTO keycloak.realm_attribute (name, realm_id, value) VALUES ('parRequest
 
 
 --
--- TOC entry 4169 (class 0 OID 17214)
--- Dependencies: 268
+-- TOC entry 4166 (class 0 OID 16683)
+-- Dependencies: 265
 -- Data for Name: realm_default_groups; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4146 (class 0 OID 16910)
--- Dependencies: 245
+-- TOC entry 4167 (class 0 OID 16686)
+-- Dependencies: 266
 -- Data for Name: realm_enabled_event_types; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4122 (class 0 OID 16465)
--- Dependencies: 221
+-- TOC entry 4168 (class 0 OID 16689)
+-- Dependencies: 267
 -- Data for Name: realm_events_listeners; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3362,16 +3420,16 @@ INSERT INTO keycloak.realm_events_listeners (realm_id, value) VALUES ('245617d4-
 
 
 --
--- TOC entry 4202 (class 0 OID 17916)
--- Dependencies: 301
+-- TOC entry 4169 (class 0 OID 16692)
+-- Dependencies: 268
 -- Data for Name: realm_localizations; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4123 (class 0 OID 16468)
--- Dependencies: 222
+-- TOC entry 4170 (class 0 OID 16697)
+-- Dependencies: 269
 -- Data for Name: realm_required_credential; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3380,24 +3438,24 @@ INSERT INTO keycloak.realm_required_credential (type, form_label, input, secret,
 
 
 --
--- TOC entry 4124 (class 0 OID 16475)
--- Dependencies: 223
+-- TOC entry 4171 (class 0 OID 16704)
+-- Dependencies: 270
 -- Data for Name: realm_smtp_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4144 (class 0 OID 16826)
--- Dependencies: 243
+-- TOC entry 4172 (class 0 OID 16709)
+-- Dependencies: 271
 -- Data for Name: realm_supported_locales; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4125 (class 0 OID 16485)
--- Dependencies: 224
+-- TOC entry 4173 (class 0 OID 16712)
+-- Dependencies: 272
 -- Data for Name: redirect_uris; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3407,22 +3465,23 @@ INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('8057dc12-4548-4b3
 INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('2652cd8c-5772-4dd4-85ec-efc910ac815e', '/realms/microservices_realm/account/*');
 INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('8b5e3db7-a356-4f97-aedc-6709aac6899e', '/realms/microservices_realm/account/*');
 INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('8c80538e-486c-4b9d-87a2-1b034563f1c0', '/admin/microservices_realm/console/*');
-INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://localhost:8184/elastic-query-web-client/login/oauth2/code/keycloak');
-INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://localhost:8184/elastic-query-web-client/login/oauth2/code/keycloak');
-INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://localhost:8183/elastic-query-service/login/oauth2/code/keycloak');
+INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://elastic-query-web-client-1:8184/elastic-query-web-client/login/oauth2/code/keycloak');
+INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://elastic-query-service-1:8183/elastic-query-service/login/oauth2/code/keycloak');
+INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'http://elastic-query-service-2:8185/elastic-query-service/login/oauth2/code/keycloak');
+INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://elastic-query-web-client-2:8186/elastic-query-web-client/login/oauth2/code/keycloak');
 
 
 --
--- TOC entry 4162 (class 0 OID 17149)
--- Dependencies: 261
+-- TOC entry 4174 (class 0 OID 16715)
+-- Dependencies: 273
 -- Data for Name: required_action_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4161 (class 0 OID 17142)
--- Dependencies: 260
+-- TOC entry 4175 (class 0 OID 16720)
+-- Dependencies: 274
 -- Data for Name: required_action_provider; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3447,23 +3506,23 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4199 (class 0 OID 17847)
--- Dependencies: 298
+-- TOC entry 4176 (class 0 OID 16727)
+-- Dependencies: 275
 -- Data for Name: resource_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4179 (class 0 OID 17431)
--- Dependencies: 278
+-- TOC entry 4177 (class 0 OID 16733)
+-- Dependencies: 276
 -- Data for Name: resource_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4178 (class 0 OID 17416)
+-- TOC entry 4178 (class 0 OID 16736)
 -- Dependencies: 277
 -- Data for Name: resource_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3471,64 +3530,64 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4173 (class 0 OID 17354)
--- Dependencies: 272
+-- TOC entry 4179 (class 0 OID 16739)
+-- Dependencies: 278
 -- Data for Name: resource_server; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4198 (class 0 OID 17823)
--- Dependencies: 297
+-- TOC entry 4180 (class 0 OID 16744)
+-- Dependencies: 279
 -- Data for Name: resource_server_perm_ticket; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4176 (class 0 OID 17390)
--- Dependencies: 275
+-- TOC entry 4181 (class 0 OID 16749)
+-- Dependencies: 280
 -- Data for Name: resource_server_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4174 (class 0 OID 17362)
--- Dependencies: 273
+-- TOC entry 4182 (class 0 OID 16754)
+-- Dependencies: 281
 -- Data for Name: resource_server_resource; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4175 (class 0 OID 17376)
--- Dependencies: 274
+-- TOC entry 4183 (class 0 OID 16760)
+-- Dependencies: 282
 -- Data for Name: resource_server_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4200 (class 0 OID 17865)
--- Dependencies: 299
+-- TOC entry 4184 (class 0 OID 16765)
+-- Dependencies: 283
 -- Data for Name: resource_uris; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4201 (class 0 OID 17875)
--- Dependencies: 300
+-- TOC entry 4185 (class 0 OID 16768)
+-- Dependencies: 284
 -- Data for Name: role_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4126 (class 0 OID 16488)
--- Dependencies: 225
+-- TOC entry 4186 (class 0 OID 16773)
+-- Dependencies: 285
 -- Data for Name: scope_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3537,40 +3596,40 @@ INSERT INTO keycloak.scope_mapping (client_id, role_id) VALUES ('8b5e3db7-a356-4
 
 
 --
--- TOC entry 4180 (class 0 OID 17446)
--- Dependencies: 279
+-- TOC entry 4187 (class 0 OID 16776)
+-- Dependencies: 286
 -- Data for Name: scope_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4128 (class 0 OID 16494)
--- Dependencies: 227
+-- TOC entry 4188 (class 0 OID 16779)
+-- Dependencies: 287
 -- Data for Name: user_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4150 (class 0 OID 16931)
--- Dependencies: 249
+-- TOC entry 4189 (class 0 OID 16785)
+-- Dependencies: 288
 -- Data for Name: user_consent; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4196 (class 0 OID 17798)
--- Dependencies: 295
+-- TOC entry 4190 (class 0 OID 16790)
+-- Dependencies: 289
 -- Data for Name: user_consent_client_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4129 (class 0 OID 16499)
--- Dependencies: 228
+-- TOC entry 4191 (class 0 OID 16793)
+-- Dependencies: 290
 -- Data for Name: user_entity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3578,45 +3637,43 @@ INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, e
 INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('edd8fe96-cf80-4bcf-b39e-7428d83ca4c8', NULL, '0f80b22e-ecb2-4e26-905c-aec98c5cbc29', false, true, NULL, '', '', '245617d4-22a0-4661-9450-5c17c04f2d8c', 'app_user', 1662989210725, NULL, 0);
 INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('e41bd033-77df-4e07-8d38-eb5498998873', NULL, 'bbbe063a-9e2d-490b-8df2-342aed373831', false, true, NULL, '', '', '245617d4-22a0-4661-9450-5c17c04f2d8c', 'app_admin', 1662989225250, NULL, 0);
 INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('388258cb-1542-4104-920d-87e04a0381d5', NULL, '8e80488c-43e2-480d-8eb9-287bd4439551', false, true, NULL, '', '', '245617d4-22a0-4661-9450-5c17c04f2d8c', 'app_super_user', 1662989243519, NULL, 0);
-INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('97ddde35-2d60-43eb-8b06-e2b200724e5c', NULL, '1e9fb8f5-6715-4824-b322-aa2d2e266902', false, true, NULL, NULL, NULL, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'service-account-elastic-query-web-client', 1662996983770, '7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 0);
-INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('2c07b3a3-a9b2-4187-8150-fbeda1855f90', NULL, 'be5d53fb-f389-4828-8f0a-cad20a515fb8', false, true, NULL, NULL, NULL, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'service-account-elastic-query-service', 1662997918654, '56c92216-f221-49bf-bb61-1333c553624a', 0);
 
 
 --
--- TOC entry 4130 (class 0 OID 16507)
--- Dependencies: 229
+-- TOC entry 4192 (class 0 OID 16801)
+-- Dependencies: 291
 -- Data for Name: user_federation_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4157 (class 0 OID 17043)
--- Dependencies: 256
+-- TOC entry 4193 (class 0 OID 16806)
+-- Dependencies: 292
 -- Data for Name: user_federation_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4158 (class 0 OID 17048)
--- Dependencies: 257
+-- TOC entry 4194 (class 0 OID 16811)
+-- Dependencies: 293
 -- Data for Name: user_federation_mapper_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4131 (class 0 OID 16512)
--- Dependencies: 230
+-- TOC entry 4195 (class 0 OID 16816)
+-- Dependencies: 294
 -- Data for Name: user_federation_provider; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4168 (class 0 OID 17211)
--- Dependencies: 267
+-- TOC entry 4196 (class 0 OID 16821)
+-- Dependencies: 295
 -- Data for Name: user_group_membership; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3626,16 +3683,16 @@ INSERT INTO keycloak.user_group_membership (group_id, user_id) VALUES ('651125c8
 
 
 --
--- TOC entry 4132 (class 0 OID 16517)
--- Dependencies: 231
+-- TOC entry 4197 (class 0 OID 16824)
+-- Dependencies: 296
 -- Data for Name: user_required_action; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4133 (class 0 OID 16520)
--- Dependencies: 232
+-- TOC entry 4198 (class 0 OID 16828)
+-- Dependencies: 297
 -- Data for Name: user_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
@@ -3661,49 +3718,48 @@ INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('b53bc85c-21ab
 INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', 'edd8fe96-cf80-4bcf-b39e-7428d83ca4c8');
 INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', 'e41bd033-77df-4e07-8d38-eb5498998873');
 INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', '388258cb-1542-4104-920d-87e04a0381d5');
-INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', '97ddde35-2d60-43eb-8b06-e2b200724e5c');
-INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', '2c07b3a3-a9b2-4187-8150-fbeda1855f90');
 
 
 --
--- TOC entry 4134 (class 0 OID 16523)
--- Dependencies: 233
+-- TOC entry 4199 (class 0 OID 16831)
+-- Dependencies: 298
 -- Data for Name: user_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4145 (class 0 OID 16829)
--- Dependencies: 244
+-- TOC entry 4200 (class 0 OID 16837)
+-- Dependencies: 299
 -- Data for Name: user_session_note; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4127 (class 0 OID 16491)
--- Dependencies: 226
+-- TOC entry 4201 (class 0 OID 16842)
+-- Dependencies: 300
 -- Data for Name: username_login_failure; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4135 (class 0 OID 16534)
--- Dependencies: 234
+-- TOC entry 4202 (class 0 OID 16847)
+-- Dependencies: 301
 -- Data for Name: web_origins; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
 
 INSERT INTO keycloak.web_origins (client_id, value) VALUES ('8057dc12-4548-4b3c-abac-d9e569cab7fc', '+');
 INSERT INTO keycloak.web_origins (client_id, value) VALUES ('8c80538e-486c-4b9d-87a2-1b034563f1c0', '+');
-INSERT INTO keycloak.web_origins (client_id, value) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://localhost:8184/elastic-query-web-client');
-INSERT INTO keycloak.web_origins (client_id, value) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://localhost:8184');
-INSERT INTO keycloak.web_origins (client_id, value) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://localhost:8183');
+INSERT INTO keycloak.web_origins (client_id, value) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://elastic-query-web-client-1:8184');
+INSERT INTO keycloak.web_origins (client_id, value) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://elastic-query-service-1:8183');
+INSERT INTO keycloak.web_origins (client_id, value) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'http://elastic-query-service-2:8185');
+INSERT INTO keycloak.web_origins (client_id, value) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://elastic-query-web-client-2:8186');
 
 
 --
--- TOC entry 3655 (class 2606 OID 17590)
+-- TOC entry 3894 (class 2606 OID 16851)
 -- Name: username_login_failure CONSTRAINT_17-2; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3712,7 +3768,7 @@ ALTER TABLE ONLY keycloak.username_login_failure
 
 
 --
--- TOC entry 3628 (class 2606 OID 17899)
+-- TOC entry 3747 (class 2606 OID 16853)
 -- Name: keycloak_role UK_J3RWUVD56ONTGSUHOGM184WW2-2; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3721,7 +3777,7 @@ ALTER TABLE ONLY keycloak.keycloak_role
 
 
 --
--- TOC entry 3871 (class 2606 OID 17729)
+-- TOC entry 3634 (class 2606 OID 16855)
 -- Name: client_auth_flow_bindings c_cli_flow_bind; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3730,7 +3786,7 @@ ALTER TABLE ONLY keycloak.client_auth_flow_bindings
 
 
 --
--- TOC entry 3873 (class 2606 OID 17928)
+-- TOC entry 3649 (class 2606 OID 16857)
 -- Name: client_scope_client c_cli_scope_bind; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3739,7 +3795,7 @@ ALTER TABLE ONLY keycloak.client_scope_client
 
 
 --
--- TOC entry 3868 (class 2606 OID 17604)
+-- TOC entry 3636 (class 2606 OID 16859)
 -- Name: client_initial_access cnstr_client_init_acc_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3748,7 +3804,7 @@ ALTER TABLE ONLY keycloak.client_initial_access
 
 
 --
--- TOC entry 3785 (class 2606 OID 17252)
+-- TOC entry 3782 (class 2606 OID 16861)
 -- Name: realm_default_groups con_group_id_def_groups; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3757,7 +3813,7 @@ ALTER TABLE ONLY keycloak.realm_default_groups
 
 
 --
--- TOC entry 3833 (class 2606 OID 17527)
+-- TOC entry 3624 (class 2606 OID 16863)
 -- Name: broker_link constr_broker_link_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3766,7 +3822,7 @@ ALTER TABLE ONLY keycloak.broker_link
 
 
 --
--- TOC entry 3755 (class 2606 OID 17161)
+-- TOC entry 3668 (class 2606 OID 16865)
 -- Name: client_user_session_note constr_cl_usr_ses_note; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3775,7 +3831,7 @@ ALTER TABLE ONLY keycloak.client_user_session_note
 
 
 --
--- TOC entry 3859 (class 2606 OID 17547)
+-- TOC entry 3674 (class 2606 OID 16867)
 -- Name: component_config constr_component_config_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3784,7 +3840,7 @@ ALTER TABLE ONLY keycloak.component_config
 
 
 --
--- TOC entry 3862 (class 2606 OID 17545)
+-- TOC entry 3670 (class 2606 OID 16869)
 -- Name: component constr_component_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3793,7 +3849,7 @@ ALTER TABLE ONLY keycloak.component
 
 
 --
--- TOC entry 3851 (class 2606 OID 17543)
+-- TOC entry 3711 (class 2606 OID 16871)
 -- Name: fed_user_required_action constr_fed_required_action; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3802,7 +3858,7 @@ ALTER TABLE ONLY keycloak.fed_user_required_action
 
 
 --
--- TOC entry 3835 (class 2606 OID 17529)
+-- TOC entry 3693 (class 2606 OID 16873)
 -- Name: fed_user_attribute constr_fed_user_attr_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3811,7 +3867,7 @@ ALTER TABLE ONLY keycloak.fed_user_attribute
 
 
 --
--- TOC entry 3838 (class 2606 OID 17531)
+-- TOC entry 3696 (class 2606 OID 16875)
 -- Name: fed_user_consent constr_fed_user_consent_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3820,7 +3876,7 @@ ALTER TABLE ONLY keycloak.fed_user_consent
 
 
 --
--- TOC entry 3843 (class 2606 OID 17537)
+-- TOC entry 3703 (class 2606 OID 16877)
 -- Name: fed_user_credential constr_fed_user_cred_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3829,7 +3885,7 @@ ALTER TABLE ONLY keycloak.fed_user_credential
 
 
 --
--- TOC entry 3847 (class 2606 OID 17539)
+-- TOC entry 3707 (class 2606 OID 16879)
 -- Name: fed_user_group_membership constr_fed_user_group; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3838,7 +3894,7 @@ ALTER TABLE ONLY keycloak.fed_user_group_membership
 
 
 --
--- TOC entry 3855 (class 2606 OID 17541)
+-- TOC entry 3715 (class 2606 OID 16881)
 -- Name: fed_user_role_mapping constr_fed_user_role; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3847,7 +3903,7 @@ ALTER TABLE ONLY keycloak.fed_user_role_mapping
 
 
 --
--- TOC entry 3866 (class 2606 OID 17584)
+-- TOC entry 3723 (class 2606 OID 16883)
 -- Name: federated_user constr_federated_user; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3856,7 +3912,7 @@ ALTER TABLE ONLY keycloak.federated_user
 
 
 --
--- TOC entry 3787 (class 2606 OID 17688)
+-- TOC entry 3784 (class 2606 OID 16885)
 -- Name: realm_default_groups constr_realm_default_groups; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3865,7 +3921,7 @@ ALTER TABLE ONLY keycloak.realm_default_groups
 
 
 --
--- TOC entry 3714 (class 2606 OID 17705)
+-- TOC entry 3787 (class 2606 OID 16887)
 -- Name: realm_enabled_event_types constr_realm_enabl_event_types; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3874,7 +3930,7 @@ ALTER TABLE ONLY keycloak.realm_enabled_event_types
 
 
 --
--- TOC entry 3642 (class 2606 OID 17707)
+-- TOC entry 3790 (class 2606 OID 16889)
 -- Name: realm_events_listeners constr_realm_events_listeners; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3883,7 +3939,7 @@ ALTER TABLE ONLY keycloak.realm_events_listeners
 
 
 --
--- TOC entry 3709 (class 2606 OID 17709)
+-- TOC entry 3799 (class 2606 OID 16891)
 -- Name: realm_supported_locales constr_realm_supported_locales; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3892,7 +3948,7 @@ ALTER TABLE ONLY keycloak.realm_supported_locales
 
 
 --
--- TOC entry 3702 (class 2606 OID 16838)
+-- TOC entry 3731 (class 2606 OID 16893)
 -- Name: identity_provider constraint_2b; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3901,7 +3957,7 @@ ALTER TABLE ONLY keycloak.identity_provider
 
 
 --
--- TOC entry 3685 (class 2606 OID 16772)
+-- TOC entry 3631 (class 2606 OID 16895)
 -- Name: client_attributes constraint_3c; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3910,7 +3966,7 @@ ALTER TABLE ONLY keycloak.client_attributes
 
 
 --
--- TOC entry 3625 (class 2606 OID 16546)
+-- TOC entry 3690 (class 2606 OID 16897)
 -- Name: event_entity constraint_4; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3919,7 +3975,7 @@ ALTER TABLE ONLY keycloak.event_entity
 
 
 --
--- TOC entry 3698 (class 2606 OID 16840)
+-- TOC entry 3719 (class 2606 OID 16899)
 -- Name: federated_identity constraint_40; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3928,7 +3984,7 @@ ALTER TABLE ONLY keycloak.federated_identity
 
 
 --
--- TOC entry 3634 (class 2606 OID 16548)
+-- TOC entry 3774 (class 2606 OID 16901)
 -- Name: realm constraint_4a; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3937,7 +3993,7 @@ ALTER TABLE ONLY keycloak.realm
 
 
 --
--- TOC entry 3616 (class 2606 OID 16550)
+-- TOC entry 3666 (class 2606 OID 16903)
 -- Name: client_session_role constraint_5; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3946,7 +4002,7 @@ ALTER TABLE ONLY keycloak.client_session_role
 
 
 --
--- TOC entry 3680 (class 2606 OID 16552)
+-- TOC entry 3890 (class 2606 OID 16905)
 -- Name: user_session constraint_57; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3955,7 +4011,7 @@ ALTER TABLE ONLY keycloak.user_session
 
 
 --
--- TOC entry 3671 (class 2606 OID 16554)
+-- TOC entry 3878 (class 2606 OID 16907)
 -- Name: user_federation_provider constraint_5c; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3964,7 +4020,7 @@ ALTER TABLE ONLY keycloak.user_federation_provider
 
 
 --
--- TOC entry 3688 (class 2606 OID 16774)
+-- TOC entry 3662 (class 2606 OID 16909)
 -- Name: client_session_note constraint_5e; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3973,7 +4029,7 @@ ALTER TABLE ONLY keycloak.client_session_note
 
 
 --
--- TOC entry 3608 (class 2606 OID 16558)
+-- TOC entry 3626 (class 2606 OID 16911)
 -- Name: client constraint_7; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3982,7 +4038,7 @@ ALTER TABLE ONLY keycloak.client
 
 
 --
--- TOC entry 3613 (class 2606 OID 16560)
+-- TOC entry 3657 (class 2606 OID 16913)
 -- Name: client_session constraint_8; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -3991,7 +4047,7 @@ ALTER TABLE ONLY keycloak.client_session
 
 
 --
--- TOC entry 3652 (class 2606 OID 16562)
+-- TOC entry 3844 (class 2606 OID 16915)
 -- Name: scope_mapping constraint_81; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4000,7 +4056,7 @@ ALTER TABLE ONLY keycloak.scope_mapping
 
 
 --
--- TOC entry 3690 (class 2606 OID 16776)
+-- TOC entry 3639 (class 2606 OID 16917)
 -- Name: client_node_registrations constraint_84; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4009,7 +4065,7 @@ ALTER TABLE ONLY keycloak.client_node_registrations
 
 
 --
--- TOC entry 3639 (class 2606 OID 16564)
+-- TOC entry 3779 (class 2606 OID 16919)
 -- Name: realm_attribute constraint_9; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4018,7 +4074,7 @@ ALTER TABLE ONLY keycloak.realm_attribute
 
 
 --
--- TOC entry 3645 (class 2606 OID 16566)
+-- TOC entry 3795 (class 2606 OID 16921)
 -- Name: realm_required_credential constraint_92; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4027,7 +4083,7 @@ ALTER TABLE ONLY keycloak.realm_required_credential
 
 
 --
--- TOC entry 3630 (class 2606 OID 16568)
+-- TOC entry 3749 (class 2606 OID 16923)
 -- Name: keycloak_role constraint_a; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4036,7 +4092,7 @@ ALTER TABLE ONLY keycloak.keycloak_role
 
 
 --
--- TOC entry 3732 (class 2606 OID 17692)
+-- TOC entry 3606 (class 2606 OID 16925)
 -- Name: admin_event_entity constraint_admin_event_entity; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4045,7 +4101,7 @@ ALTER TABLE ONLY keycloak.admin_event_entity
 
 
 --
--- TOC entry 3745 (class 2606 OID 17069)
+-- TOC entry 3622 (class 2606 OID 16927)
 -- Name: authenticator_config_entry constraint_auth_cfg_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4054,7 +4110,7 @@ ALTER TABLE ONLY keycloak.authenticator_config_entry
 
 
 --
--- TOC entry 3741 (class 2606 OID 17067)
+-- TOC entry 3612 (class 2606 OID 16929)
 -- Name: authentication_execution constraint_auth_exec_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4063,7 +4119,7 @@ ALTER TABLE ONLY keycloak.authentication_execution
 
 
 --
--- TOC entry 3738 (class 2606 OID 17065)
+-- TOC entry 3616 (class 2606 OID 16931)
 -- Name: authentication_flow constraint_auth_flow_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4072,7 +4128,7 @@ ALTER TABLE ONLY keycloak.authentication_flow
 
 
 --
--- TOC entry 3735 (class 2606 OID 17063)
+-- TOC entry 3619 (class 2606 OID 16933)
 -- Name: authenticator_config constraint_auth_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4081,7 +4137,7 @@ ALTER TABLE ONLY keycloak.authenticator_config
 
 
 --
--- TOC entry 3753 (class 2606 OID 17073)
+-- TOC entry 3660 (class 2606 OID 16935)
 -- Name: client_session_auth_status constraint_auth_status_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4090,7 +4146,7 @@ ALTER TABLE ONLY keycloak.client_session_auth_status
 
 
 --
--- TOC entry 3677 (class 2606 OID 16570)
+-- TOC entry 3887 (class 2606 OID 16937)
 -- Name: user_role_mapping constraint_c; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4099,7 +4155,7 @@ ALTER TABLE ONLY keycloak.user_role_mapping
 
 
 --
--- TOC entry 3618 (class 2606 OID 17686)
+-- TOC entry 3677 (class 2606 OID 16939)
 -- Name: composite_role constraint_composite_role; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4108,7 +4164,7 @@ ALTER TABLE ONLY keycloak.composite_role
 
 
 --
--- TOC entry 3730 (class 2606 OID 16956)
+-- TOC entry 3664 (class 2606 OID 16941)
 -- Name: client_session_prot_mapper constraint_cs_pmp_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4117,7 +4173,7 @@ ALTER TABLE ONLY keycloak.client_session_prot_mapper
 
 
 --
--- TOC entry 3707 (class 2606 OID 16842)
+-- TOC entry 3736 (class 2606 OID 16943)
 -- Name: identity_provider_config constraint_d; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4126,7 +4182,7 @@ ALTER TABLE ONLY keycloak.identity_provider_config
 
 
 --
--- TOC entry 3819 (class 2606 OID 17410)
+-- TOC entry 3766 (class 2606 OID 16945)
 -- Name: policy_config constraint_dpc; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4135,7 +4191,7 @@ ALTER TABLE ONLY keycloak.policy_config
 
 
 --
--- TOC entry 3647 (class 2606 OID 16572)
+-- TOC entry 3797 (class 2606 OID 16947)
 -- Name: realm_smtp_config constraint_e; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4144,7 +4200,7 @@ ALTER TABLE ONLY keycloak.realm_smtp_config
 
 
 --
--- TOC entry 3622 (class 2606 OID 16574)
+-- TOC entry 3681 (class 2606 OID 16949)
 -- Name: credential constraint_f; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4153,7 +4209,7 @@ ALTER TABLE ONLY keycloak.credential
 
 
 --
--- TOC entry 3669 (class 2606 OID 16576)
+-- TOC entry 3870 (class 2606 OID 16951)
 -- Name: user_federation_config constraint_f9; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4162,7 +4218,7 @@ ALTER TABLE ONLY keycloak.user_federation_config
 
 
 --
--- TOC entry 3886 (class 2606 OID 17827)
+-- TOC entry 3820 (class 2606 OID 16953)
 -- Name: resource_server_perm_ticket constraint_fapmt; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4171,7 +4227,7 @@ ALTER TABLE ONLY keycloak.resource_server_perm_ticket
 
 
 --
--- TOC entry 3804 (class 2606 OID 17368)
+-- TOC entry 3829 (class 2606 OID 16955)
 -- Name: resource_server_resource constraint_farsr; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4180,7 +4236,7 @@ ALTER TABLE ONLY keycloak.resource_server_resource
 
 
 --
--- TOC entry 3814 (class 2606 OID 17396)
+-- TOC entry 3824 (class 2606 OID 16957)
 -- Name: resource_server_policy constraint_farsrp; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4189,7 +4245,7 @@ ALTER TABLE ONLY keycloak.resource_server_policy
 
 
 --
--- TOC entry 3830 (class 2606 OID 17465)
+-- TOC entry 3609 (class 2606 OID 16959)
 -- Name: associated_policy constraint_farsrpap; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4198,7 +4254,7 @@ ALTER TABLE ONLY keycloak.associated_policy
 
 
 --
--- TOC entry 3824 (class 2606 OID 17435)
+-- TOC entry 3812 (class 2606 OID 16961)
 -- Name: resource_policy constraint_farsrpp; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4207,7 +4263,7 @@ ALTER TABLE ONLY keycloak.resource_policy
 
 
 --
--- TOC entry 3809 (class 2606 OID 17382)
+-- TOC entry 3834 (class 2606 OID 16963)
 -- Name: resource_server_scope constraint_farsrs; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4216,7 +4272,7 @@ ALTER TABLE ONLY keycloak.resource_server_scope
 
 
 --
--- TOC entry 3821 (class 2606 OID 17420)
+-- TOC entry 3815 (class 2606 OID 16965)
 -- Name: resource_scope constraint_farsrsp; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4225,7 +4281,7 @@ ALTER TABLE ONLY keycloak.resource_scope
 
 
 --
--- TOC entry 3827 (class 2606 OID 17450)
+-- TOC entry 3847 (class 2606 OID 16967)
 -- Name: scope_policy constraint_farsrsps; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4234,7 +4290,7 @@ ALTER TABLE ONLY keycloak.scope_policy
 
 
 --
--- TOC entry 3661 (class 2606 OID 16578)
+-- TOC entry 3862 (class 2606 OID 16969)
 -- Name: user_entity constraint_fb; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4243,7 +4299,7 @@ ALTER TABLE ONLY keycloak.user_entity
 
 
 --
--- TOC entry 3751 (class 2606 OID 17077)
+-- TOC entry 3876 (class 2606 OID 16971)
 -- Name: user_federation_mapper_config constraint_fedmapper_cfg_pm; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4252,7 +4308,7 @@ ALTER TABLE ONLY keycloak.user_federation_mapper_config
 
 
 --
--- TOC entry 3747 (class 2606 OID 17075)
+-- TOC entry 3872 (class 2606 OID 16973)
 -- Name: user_federation_mapper constraint_fedmapperpm; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4261,7 +4317,7 @@ ALTER TABLE ONLY keycloak.user_federation_mapper
 
 
 --
--- TOC entry 3884 (class 2606 OID 17812)
+-- TOC entry 3701 (class 2606 OID 16975)
 -- Name: fed_user_consent_cl_scope constraint_fgrntcsnt_clsc_pm; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4270,7 +4326,7 @@ ALTER TABLE ONLY keycloak.fed_user_consent_cl_scope
 
 
 --
--- TOC entry 3881 (class 2606 OID 17802)
+-- TOC entry 3859 (class 2606 OID 16977)
 -- Name: user_consent_client_scope constraint_grntcsnt_clsc_pm; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4279,7 +4335,7 @@ ALTER TABLE ONLY keycloak.user_consent_client_scope
 
 
 --
--- TOC entry 3725 (class 2606 OID 16950)
+-- TOC entry 3854 (class 2606 OID 16979)
 -- Name: user_consent constraint_grntcsnt_pm; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4288,7 +4344,7 @@ ALTER TABLE ONLY keycloak.user_consent
 
 
 --
--- TOC entry 3772 (class 2606 OID 17219)
+-- TOC entry 3743 (class 2606 OID 16981)
 -- Name: keycloak_group constraint_group; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4297,7 +4353,7 @@ ALTER TABLE ONLY keycloak.keycloak_group
 
 
 --
--- TOC entry 3779 (class 2606 OID 17226)
+-- TOC entry 3725 (class 2606 OID 16983)
 -- Name: group_attribute constraint_group_attribute_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4306,7 +4362,7 @@ ALTER TABLE ONLY keycloak.group_attribute
 
 
 --
--- TOC entry 3776 (class 2606 OID 17240)
+-- TOC entry 3728 (class 2606 OID 16985)
 -- Name: group_role_mapping constraint_group_role; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4315,7 +4371,7 @@ ALTER TABLE ONLY keycloak.group_role_mapping
 
 
 --
--- TOC entry 3720 (class 2606 OID 16946)
+-- TOC entry 3738 (class 2606 OID 16987)
 -- Name: identity_provider_mapper constraint_idpm; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4324,7 +4380,7 @@ ALTER TABLE ONLY keycloak.identity_provider_mapper
 
 
 --
--- TOC entry 3723 (class 2606 OID 17126)
+-- TOC entry 3741 (class 2606 OID 16989)
 -- Name: idp_mapper_config constraint_idpmconfig; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4333,7 +4389,7 @@ ALTER TABLE ONLY keycloak.idp_mapper_config
 
 
 --
--- TOC entry 3717 (class 2606 OID 16944)
+-- TOC entry 3753 (class 2606 OID 16991)
 -- Name: migration_model constraint_migmod; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4342,7 +4398,7 @@ ALTER TABLE ONLY keycloak.migration_model
 
 
 --
--- TOC entry 3768 (class 2606 OID 17905)
+-- TOC entry 3756 (class 2606 OID 16993)
 -- Name: offline_client_session constraint_offl_cl_ses_pk3; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4351,7 +4407,7 @@ ALTER TABLE ONLY keycloak.offline_client_session
 
 
 --
--- TOC entry 3762 (class 2606 OID 17196)
+-- TOC entry 3760 (class 2606 OID 16995)
 -- Name: offline_user_session constraint_offl_us_ses_pk2; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4360,7 +4416,7 @@ ALTER TABLE ONLY keycloak.offline_user_session
 
 
 --
--- TOC entry 3692 (class 2606 OID 16836)
+-- TOC entry 3768 (class 2606 OID 16997)
 -- Name: protocol_mapper constraint_pcm; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4369,7 +4425,7 @@ ALTER TABLE ONLY keycloak.protocol_mapper
 
 
 --
--- TOC entry 3696 (class 2606 OID 17119)
+-- TOC entry 3772 (class 2606 OID 16999)
 -- Name: protocol_mapper_config constraint_pmconfig; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4378,7 +4434,7 @@ ALTER TABLE ONLY keycloak.protocol_mapper_config
 
 
 --
--- TOC entry 3649 (class 2606 OID 17711)
+-- TOC entry 3802 (class 2606 OID 17001)
 -- Name: redirect_uris constraint_redirect_uris; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4387,7 +4443,7 @@ ALTER TABLE ONLY keycloak.redirect_uris
 
 
 --
--- TOC entry 3760 (class 2606 OID 17159)
+-- TOC entry 3805 (class 2606 OID 17003)
 -- Name: required_action_config constraint_req_act_cfg_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4396,7 +4452,7 @@ ALTER TABLE ONLY keycloak.required_action_config
 
 
 --
--- TOC entry 3757 (class 2606 OID 17157)
+-- TOC entry 3807 (class 2606 OID 17005)
 -- Name: required_action_provider constraint_req_act_prv_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4405,7 +4461,7 @@ ALTER TABLE ONLY keycloak.required_action_provider
 
 
 --
--- TOC entry 3674 (class 2606 OID 17071)
+-- TOC entry 3884 (class 2606 OID 17007)
 -- Name: user_required_action constraint_required_action; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4414,7 +4470,7 @@ ALTER TABLE ONLY keycloak.user_required_action
 
 
 --
--- TOC entry 3892 (class 2606 OID 17874)
+-- TOC entry 3839 (class 2606 OID 17009)
 -- Name: resource_uris constraint_resour_uris_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4423,7 +4479,7 @@ ALTER TABLE ONLY keycloak.resource_uris
 
 
 --
--- TOC entry 3894 (class 2606 OID 17881)
+-- TOC entry 3841 (class 2606 OID 17011)
 -- Name: role_attribute constraint_role_attribute_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4432,7 +4488,7 @@ ALTER TABLE ONLY keycloak.role_attribute
 
 
 --
--- TOC entry 3657 (class 2606 OID 17155)
+-- TOC entry 3850 (class 2606 OID 17013)
 -- Name: user_attribute constraint_user_attribute_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4441,7 +4497,7 @@ ALTER TABLE ONLY keycloak.user_attribute
 
 
 --
--- TOC entry 3782 (class 2606 OID 17233)
+-- TOC entry 3881 (class 2606 OID 17015)
 -- Name: user_group_membership constraint_user_group; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4450,7 +4506,7 @@ ALTER TABLE ONLY keycloak.user_group_membership
 
 
 --
--- TOC entry 3712 (class 2606 OID 16846)
+-- TOC entry 3892 (class 2606 OID 17017)
 -- Name: user_session_note constraint_usn_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4459,7 +4515,7 @@ ALTER TABLE ONLY keycloak.user_session_note
 
 
 --
--- TOC entry 3682 (class 2606 OID 17713)
+-- TOC entry 3896 (class 2606 OID 17019)
 -- Name: web_origins constraint_web_origins; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4468,7 +4524,7 @@ ALTER TABLE ONLY keycloak.web_origins
 
 
 --
--- TOC entry 3606 (class 2606 OID 16390)
+-- TOC entry 3684 (class 2606 OID 17021)
 -- Name: databasechangeloglock databasechangeloglock_pkey; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4477,7 +4533,7 @@ ALTER TABLE ONLY keycloak.databasechangeloglock
 
 
 --
--- TOC entry 3796 (class 2606 OID 17336)
+-- TOC entry 3647 (class 2606 OID 17023)
 -- Name: client_scope_attributes pk_cl_tmpl_attr; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4486,7 +4542,7 @@ ALTER TABLE ONLY keycloak.client_scope_attributes
 
 
 --
--- TOC entry 3791 (class 2606 OID 17295)
+-- TOC entry 3642 (class 2606 OID 17025)
 -- Name: client_scope pk_cli_template; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4495,7 +4551,7 @@ ALTER TABLE ONLY keycloak.client_scope
 
 
 --
--- TOC entry 3802 (class 2606 OID 17666)
+-- TOC entry 3818 (class 2606 OID 17027)
 -- Name: resource_server pk_resource_server; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4504,7 +4560,7 @@ ALTER TABLE ONLY keycloak.resource_server
 
 
 --
--- TOC entry 3800 (class 2606 OID 17324)
+-- TOC entry 3655 (class 2606 OID 17029)
 -- Name: client_scope_role_mapping pk_template_scope; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4513,7 +4569,7 @@ ALTER TABLE ONLY keycloak.client_scope_role_mapping
 
 
 --
--- TOC entry 3879 (class 2606 OID 17787)
+-- TOC entry 3688 (class 2606 OID 17031)
 -- Name: default_client_scope r_def_cli_scope_bind; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4522,7 +4578,7 @@ ALTER TABLE ONLY keycloak.default_client_scope
 
 
 --
--- TOC entry 3897 (class 2606 OID 17922)
+-- TOC entry 3793 (class 2606 OID 17033)
 -- Name: realm_localizations realm_localizations_pkey; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4531,7 +4587,7 @@ ALTER TABLE ONLY keycloak.realm_localizations
 
 
 --
--- TOC entry 3890 (class 2606 OID 17854)
+-- TOC entry 3810 (class 2606 OID 17035)
 -- Name: resource_attribute res_attr_pk; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4540,7 +4596,7 @@ ALTER TABLE ONLY keycloak.resource_attribute
 
 
 --
--- TOC entry 3774 (class 2606 OID 17596)
+-- TOC entry 3745 (class 2606 OID 17037)
 -- Name: keycloak_group sibling_names; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4549,7 +4605,7 @@ ALTER TABLE ONLY keycloak.keycloak_group
 
 
 --
--- TOC entry 3705 (class 2606 OID 16893)
+-- TOC entry 3734 (class 2606 OID 17039)
 -- Name: identity_provider uk_2daelwnibji49avxsrtuf6xj33; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4558,7 +4614,7 @@ ALTER TABLE ONLY keycloak.identity_provider
 
 
 --
--- TOC entry 3611 (class 2606 OID 16582)
+-- TOC entry 3629 (class 2606 OID 17041)
 -- Name: client uk_b71cjlbenv945rb6gcon438at; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4567,7 +4623,7 @@ ALTER TABLE ONLY keycloak.client
 
 
 --
--- TOC entry 3793 (class 2606 OID 17740)
+-- TOC entry 3644 (class 2606 OID 17043)
 -- Name: client_scope uk_cli_scope; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4576,7 +4632,7 @@ ALTER TABLE ONLY keycloak.client_scope
 
 
 --
--- TOC entry 3665 (class 2606 OID 16586)
+-- TOC entry 3866 (class 2606 OID 17045)
 -- Name: user_entity uk_dykn684sl8up1crfei6eckhd7; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4585,7 +4641,7 @@ ALTER TABLE ONLY keycloak.user_entity
 
 
 --
--- TOC entry 3807 (class 2606 OID 17913)
+-- TOC entry 3832 (class 2606 OID 17047)
 -- Name: resource_server_resource uk_frsr6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4594,7 +4650,7 @@ ALTER TABLE ONLY keycloak.resource_server_resource
 
 
 --
--- TOC entry 3888 (class 2606 OID 17909)
+-- TOC entry 3822 (class 2606 OID 17049)
 -- Name: resource_server_perm_ticket uk_frsr6t700s9v50bu18ws5pmt; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4603,7 +4659,7 @@ ALTER TABLE ONLY keycloak.resource_server_perm_ticket
 
 
 --
--- TOC entry 3817 (class 2606 OID 17657)
+-- TOC entry 3827 (class 2606 OID 17051)
 -- Name: resource_server_policy uk_frsrpt700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4612,7 +4668,7 @@ ALTER TABLE ONLY keycloak.resource_server_policy
 
 
 --
--- TOC entry 3812 (class 2606 OID 17661)
+-- TOC entry 3837 (class 2606 OID 17053)
 -- Name: resource_server_scope uk_frsrst700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4621,7 +4677,7 @@ ALTER TABLE ONLY keycloak.resource_server_scope
 
 
 --
--- TOC entry 3728 (class 2606 OID 17901)
+-- TOC entry 3857 (class 2606 OID 17055)
 -- Name: user_consent uk_jkuwuvd56ontgsuhogm8uewrt; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4630,7 +4686,7 @@ ALTER TABLE ONLY keycloak.user_consent
 
 
 --
--- TOC entry 3637 (class 2606 OID 16594)
+-- TOC entry 3777 (class 2606 OID 17057)
 -- Name: realm uk_orvsdmla56612eaefiq6wl5oi; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4639,7 +4695,7 @@ ALTER TABLE ONLY keycloak.realm
 
 
 --
--- TOC entry 3667 (class 2606 OID 17586)
+-- TOC entry 3868 (class 2606 OID 17059)
 -- Name: user_entity uk_ru8tt6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -4648,7 +4704,7 @@ ALTER TABLE ONLY keycloak.user_entity
 
 
 --
--- TOC entry 3733 (class 1259 OID 17938)
+-- TOC entry 3607 (class 1259 OID 17060)
 -- Name: idx_admin_event_time; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4656,7 +4712,7 @@ CREATE INDEX idx_admin_event_time ON keycloak.admin_event_entity USING btree (re
 
 
 --
--- TOC entry 3831 (class 1259 OID 17610)
+-- TOC entry 3610 (class 1259 OID 17061)
 -- Name: idx_assoc_pol_assoc_pol_id; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4664,7 +4720,7 @@ CREATE INDEX idx_assoc_pol_assoc_pol_id ON keycloak.associated_policy USING btre
 
 
 --
--- TOC entry 3736 (class 1259 OID 17614)
+-- TOC entry 3620 (class 1259 OID 17062)
 -- Name: idx_auth_config_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4672,7 +4728,7 @@ CREATE INDEX idx_auth_config_realm ON keycloak.authenticator_config USING btree 
 
 
 --
--- TOC entry 3742 (class 1259 OID 17612)
+-- TOC entry 3613 (class 1259 OID 17063)
 -- Name: idx_auth_exec_flow; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4680,7 +4736,7 @@ CREATE INDEX idx_auth_exec_flow ON keycloak.authentication_execution USING btree
 
 
 --
--- TOC entry 3743 (class 1259 OID 17611)
+-- TOC entry 3614 (class 1259 OID 17064)
 -- Name: idx_auth_exec_realm_flow; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4688,7 +4744,7 @@ CREATE INDEX idx_auth_exec_realm_flow ON keycloak.authentication_execution USING
 
 
 --
--- TOC entry 3739 (class 1259 OID 17613)
+-- TOC entry 3617 (class 1259 OID 17065)
 -- Name: idx_auth_flow_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4696,7 +4752,7 @@ CREATE INDEX idx_auth_flow_realm ON keycloak.authentication_flow USING btree (re
 
 
 --
--- TOC entry 3874 (class 1259 OID 17929)
+-- TOC entry 3650 (class 1259 OID 17066)
 -- Name: idx_cl_clscope; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4704,7 +4760,7 @@ CREATE INDEX idx_cl_clscope ON keycloak.client_scope_client USING btree (scope_i
 
 
 --
--- TOC entry 3686 (class 1259 OID 17935)
+-- TOC entry 3632 (class 1259 OID 17067)
 -- Name: idx_client_att_by_name_value; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4712,7 +4768,7 @@ CREATE INDEX idx_client_att_by_name_value ON keycloak.client_attributes USING bt
 
 
 --
--- TOC entry 3609 (class 1259 OID 17914)
+-- TOC entry 3627 (class 1259 OID 17068)
 -- Name: idx_client_id; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4720,7 +4776,7 @@ CREATE INDEX idx_client_id ON keycloak.client USING btree (client_id);
 
 
 --
--- TOC entry 3869 (class 1259 OID 17654)
+-- TOC entry 3637 (class 1259 OID 17069)
 -- Name: idx_client_init_acc_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4728,7 +4784,7 @@ CREATE INDEX idx_client_init_acc_realm ON keycloak.client_initial_access USING b
 
 
 --
--- TOC entry 3614 (class 1259 OID 17618)
+-- TOC entry 3658 (class 1259 OID 17070)
 -- Name: idx_client_session_session; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4736,7 +4792,7 @@ CREATE INDEX idx_client_session_session ON keycloak.client_session USING btree (
 
 
 --
--- TOC entry 3794 (class 1259 OID 17817)
+-- TOC entry 3645 (class 1259 OID 17071)
 -- Name: idx_clscope_attrs; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4744,7 +4800,7 @@ CREATE INDEX idx_clscope_attrs ON keycloak.client_scope_attributes USING btree (
 
 
 --
--- TOC entry 3875 (class 1259 OID 17926)
+-- TOC entry 3651 (class 1259 OID 17072)
 -- Name: idx_clscope_cl; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4752,7 +4808,7 @@ CREATE INDEX idx_clscope_cl ON keycloak.client_scope_client USING btree (client_
 
 
 --
--- TOC entry 3693 (class 1259 OID 17814)
+-- TOC entry 3769 (class 1259 OID 17073)
 -- Name: idx_clscope_protmap; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4760,7 +4816,7 @@ CREATE INDEX idx_clscope_protmap ON keycloak.protocol_mapper USING btree (client
 
 
 --
--- TOC entry 3797 (class 1259 OID 17815)
+-- TOC entry 3652 (class 1259 OID 17074)
 -- Name: idx_clscope_role; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4768,7 +4824,7 @@ CREATE INDEX idx_clscope_role ON keycloak.client_scope_role_mapping USING btree 
 
 
 --
--- TOC entry 3860 (class 1259 OID 17620)
+-- TOC entry 3675 (class 1259 OID 17075)
 -- Name: idx_compo_config_compo; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4776,7 +4832,7 @@ CREATE INDEX idx_compo_config_compo ON keycloak.component_config USING btree (co
 
 
 --
--- TOC entry 3863 (class 1259 OID 17888)
+-- TOC entry 3671 (class 1259 OID 17076)
 -- Name: idx_component_provider_type; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4784,7 +4840,7 @@ CREATE INDEX idx_component_provider_type ON keycloak.component USING btree (prov
 
 
 --
--- TOC entry 3864 (class 1259 OID 17619)
+-- TOC entry 3672 (class 1259 OID 17077)
 -- Name: idx_component_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4792,7 +4848,7 @@ CREATE INDEX idx_component_realm ON keycloak.component USING btree (realm_id);
 
 
 --
--- TOC entry 3619 (class 1259 OID 17621)
+-- TOC entry 3678 (class 1259 OID 17078)
 -- Name: idx_composite; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4800,7 +4856,7 @@ CREATE INDEX idx_composite ON keycloak.composite_role USING btree (composite);
 
 
 --
--- TOC entry 3620 (class 1259 OID 17622)
+-- TOC entry 3679 (class 1259 OID 17079)
 -- Name: idx_composite_child; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4808,7 +4864,7 @@ CREATE INDEX idx_composite_child ON keycloak.composite_role USING btree (child_r
 
 
 --
--- TOC entry 3876 (class 1259 OID 17820)
+-- TOC entry 3685 (class 1259 OID 17080)
 -- Name: idx_defcls_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4816,7 +4872,7 @@ CREATE INDEX idx_defcls_realm ON keycloak.default_client_scope USING btree (real
 
 
 --
--- TOC entry 3877 (class 1259 OID 17821)
+-- TOC entry 3686 (class 1259 OID 17081)
 -- Name: idx_defcls_scope; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4824,7 +4880,7 @@ CREATE INDEX idx_defcls_scope ON keycloak.default_client_scope USING btree (scop
 
 
 --
--- TOC entry 3626 (class 1259 OID 17915)
+-- TOC entry 3691 (class 1259 OID 17082)
 -- Name: idx_event_time; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4832,7 +4888,7 @@ CREATE INDEX idx_event_time ON keycloak.event_entity USING btree (realm_id, even
 
 
 --
--- TOC entry 3699 (class 1259 OID 17353)
+-- TOC entry 3720 (class 1259 OID 17083)
 -- Name: idx_fedidentity_feduser; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4840,7 +4896,7 @@ CREATE INDEX idx_fedidentity_feduser ON keycloak.federated_identity USING btree 
 
 
 --
--- TOC entry 3700 (class 1259 OID 17352)
+-- TOC entry 3721 (class 1259 OID 17084)
 -- Name: idx_fedidentity_user; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4848,7 +4904,7 @@ CREATE INDEX idx_fedidentity_user ON keycloak.federated_identity USING btree (us
 
 
 --
--- TOC entry 3836 (class 1259 OID 17714)
+-- TOC entry 3694 (class 1259 OID 17085)
 -- Name: idx_fu_attribute; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4856,7 +4912,7 @@ CREATE INDEX idx_fu_attribute ON keycloak.fed_user_attribute USING btree (user_i
 
 
 --
--- TOC entry 3839 (class 1259 OID 17734)
+-- TOC entry 3697 (class 1259 OID 17086)
 -- Name: idx_fu_cnsnt_ext; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4864,7 +4920,7 @@ CREATE INDEX idx_fu_cnsnt_ext ON keycloak.fed_user_consent USING btree (user_id,
 
 
 --
--- TOC entry 3840 (class 1259 OID 17897)
+-- TOC entry 3698 (class 1259 OID 17087)
 -- Name: idx_fu_consent; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4872,7 +4928,7 @@ CREATE INDEX idx_fu_consent ON keycloak.fed_user_consent USING btree (user_id, c
 
 
 --
--- TOC entry 3841 (class 1259 OID 17716)
+-- TOC entry 3699 (class 1259 OID 17088)
 -- Name: idx_fu_consent_ru; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4880,7 +4936,7 @@ CREATE INDEX idx_fu_consent_ru ON keycloak.fed_user_consent USING btree (realm_i
 
 
 --
--- TOC entry 3844 (class 1259 OID 17717)
+-- TOC entry 3704 (class 1259 OID 17089)
 -- Name: idx_fu_credential; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4888,7 +4944,7 @@ CREATE INDEX idx_fu_credential ON keycloak.fed_user_credential USING btree (user
 
 
 --
--- TOC entry 3845 (class 1259 OID 17718)
+-- TOC entry 3705 (class 1259 OID 17090)
 -- Name: idx_fu_credential_ru; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4896,7 +4952,7 @@ CREATE INDEX idx_fu_credential_ru ON keycloak.fed_user_credential USING btree (r
 
 
 --
--- TOC entry 3848 (class 1259 OID 17719)
+-- TOC entry 3708 (class 1259 OID 17091)
 -- Name: idx_fu_group_membership; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4904,7 +4960,7 @@ CREATE INDEX idx_fu_group_membership ON keycloak.fed_user_group_membership USING
 
 
 --
--- TOC entry 3849 (class 1259 OID 17720)
+-- TOC entry 3709 (class 1259 OID 17092)
 -- Name: idx_fu_group_membership_ru; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4912,7 +4968,7 @@ CREATE INDEX idx_fu_group_membership_ru ON keycloak.fed_user_group_membership US
 
 
 --
--- TOC entry 3852 (class 1259 OID 17721)
+-- TOC entry 3712 (class 1259 OID 17093)
 -- Name: idx_fu_required_action; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4920,7 +4976,7 @@ CREATE INDEX idx_fu_required_action ON keycloak.fed_user_required_action USING b
 
 
 --
--- TOC entry 3853 (class 1259 OID 17722)
+-- TOC entry 3713 (class 1259 OID 17094)
 -- Name: idx_fu_required_action_ru; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4928,7 +4984,7 @@ CREATE INDEX idx_fu_required_action_ru ON keycloak.fed_user_required_action USIN
 
 
 --
--- TOC entry 3856 (class 1259 OID 17723)
+-- TOC entry 3716 (class 1259 OID 17095)
 -- Name: idx_fu_role_mapping; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4936,7 +4992,7 @@ CREATE INDEX idx_fu_role_mapping ON keycloak.fed_user_role_mapping USING btree (
 
 
 --
--- TOC entry 3857 (class 1259 OID 17724)
+-- TOC entry 3717 (class 1259 OID 17096)
 -- Name: idx_fu_role_mapping_ru; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4944,7 +5000,7 @@ CREATE INDEX idx_fu_role_mapping_ru ON keycloak.fed_user_role_mapping USING btre
 
 
 --
--- TOC entry 3780 (class 1259 OID 17625)
+-- TOC entry 3726 (class 1259 OID 17097)
 -- Name: idx_group_attr_group; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4952,7 +5008,7 @@ CREATE INDEX idx_group_attr_group ON keycloak.group_attribute USING btree (group
 
 
 --
--- TOC entry 3777 (class 1259 OID 17626)
+-- TOC entry 3729 (class 1259 OID 17098)
 -- Name: idx_group_role_mapp_group; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4960,7 +5016,7 @@ CREATE INDEX idx_group_role_mapp_group ON keycloak.group_role_mapping USING btre
 
 
 --
--- TOC entry 3721 (class 1259 OID 17628)
+-- TOC entry 3739 (class 1259 OID 17099)
 -- Name: idx_id_prov_mapp_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4968,7 +5024,7 @@ CREATE INDEX idx_id_prov_mapp_realm ON keycloak.identity_provider_mapper USING b
 
 
 --
--- TOC entry 3703 (class 1259 OID 17627)
+-- TOC entry 3732 (class 1259 OID 17100)
 -- Name: idx_ident_prov_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4976,7 +5032,7 @@ CREATE INDEX idx_ident_prov_realm ON keycloak.identity_provider USING btree (rea
 
 
 --
--- TOC entry 3631 (class 1259 OID 17629)
+-- TOC entry 3750 (class 1259 OID 17101)
 -- Name: idx_keycloak_role_client; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4984,7 +5040,7 @@ CREATE INDEX idx_keycloak_role_client ON keycloak.keycloak_role USING btree (cli
 
 
 --
--- TOC entry 3632 (class 1259 OID 17630)
+-- TOC entry 3751 (class 1259 OID 17102)
 -- Name: idx_keycloak_role_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -4992,7 +5048,7 @@ CREATE INDEX idx_keycloak_role_realm ON keycloak.keycloak_role USING btree (real
 
 
 --
--- TOC entry 3769 (class 1259 OID 17932)
+-- TOC entry 3757 (class 1259 OID 17103)
 -- Name: idx_offline_css_preload; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5000,7 +5056,7 @@ CREATE INDEX idx_offline_css_preload ON keycloak.offline_client_session USING bt
 
 
 --
--- TOC entry 3763 (class 1259 OID 17933)
+-- TOC entry 3761 (class 1259 OID 17104)
 -- Name: idx_offline_uss_by_user; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5008,7 +5064,7 @@ CREATE INDEX idx_offline_uss_by_user ON keycloak.offline_user_session USING btre
 
 
 --
--- TOC entry 3764 (class 1259 OID 17934)
+-- TOC entry 3762 (class 1259 OID 17105)
 -- Name: idx_offline_uss_by_usersess; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5016,7 +5072,7 @@ CREATE INDEX idx_offline_uss_by_usersess ON keycloak.offline_user_session USING 
 
 
 --
--- TOC entry 3765 (class 1259 OID 17892)
+-- TOC entry 3763 (class 1259 OID 17106)
 -- Name: idx_offline_uss_createdon; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5024,7 +5080,7 @@ CREATE INDEX idx_offline_uss_createdon ON keycloak.offline_user_session USING bt
 
 
 --
--- TOC entry 3766 (class 1259 OID 17923)
+-- TOC entry 3764 (class 1259 OID 17107)
 -- Name: idx_offline_uss_preload; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5032,7 +5088,7 @@ CREATE INDEX idx_offline_uss_preload ON keycloak.offline_user_session USING btre
 
 
 --
--- TOC entry 3694 (class 1259 OID 17631)
+-- TOC entry 3770 (class 1259 OID 17108)
 -- Name: idx_protocol_mapper_client; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5040,7 +5096,7 @@ CREATE INDEX idx_protocol_mapper_client ON keycloak.protocol_mapper USING btree 
 
 
 --
--- TOC entry 3640 (class 1259 OID 17634)
+-- TOC entry 3780 (class 1259 OID 17109)
 -- Name: idx_realm_attr_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5048,7 +5104,7 @@ CREATE INDEX idx_realm_attr_realm ON keycloak.realm_attribute USING btree (realm
 
 
 --
--- TOC entry 3789 (class 1259 OID 17813)
+-- TOC entry 3640 (class 1259 OID 17110)
 -- Name: idx_realm_clscope; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5056,7 +5112,7 @@ CREATE INDEX idx_realm_clscope ON keycloak.client_scope USING btree (realm_id);
 
 
 --
--- TOC entry 3788 (class 1259 OID 17635)
+-- TOC entry 3785 (class 1259 OID 17111)
 -- Name: idx_realm_def_grp_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5064,7 +5120,7 @@ CREATE INDEX idx_realm_def_grp_realm ON keycloak.realm_default_groups USING btre
 
 
 --
--- TOC entry 3643 (class 1259 OID 17638)
+-- TOC entry 3791 (class 1259 OID 17112)
 -- Name: idx_realm_evt_list_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5072,7 +5128,7 @@ CREATE INDEX idx_realm_evt_list_realm ON keycloak.realm_events_listeners USING b
 
 
 --
--- TOC entry 3715 (class 1259 OID 17637)
+-- TOC entry 3788 (class 1259 OID 17113)
 -- Name: idx_realm_evt_types_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5080,7 +5136,7 @@ CREATE INDEX idx_realm_evt_types_realm ON keycloak.realm_enabled_event_types USI
 
 
 --
--- TOC entry 3635 (class 1259 OID 17633)
+-- TOC entry 3775 (class 1259 OID 17114)
 -- Name: idx_realm_master_adm_cli; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5088,7 +5144,7 @@ CREATE INDEX idx_realm_master_adm_cli ON keycloak.realm USING btree (master_admi
 
 
 --
--- TOC entry 3710 (class 1259 OID 17639)
+-- TOC entry 3800 (class 1259 OID 17115)
 -- Name: idx_realm_supp_local_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5096,7 +5152,7 @@ CREATE INDEX idx_realm_supp_local_realm ON keycloak.realm_supported_locales USIN
 
 
 --
--- TOC entry 3650 (class 1259 OID 17640)
+-- TOC entry 3803 (class 1259 OID 17116)
 -- Name: idx_redir_uri_client; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5104,7 +5160,7 @@ CREATE INDEX idx_redir_uri_client ON keycloak.redirect_uris USING btree (client_
 
 
 --
--- TOC entry 3758 (class 1259 OID 17641)
+-- TOC entry 3808 (class 1259 OID 17117)
 -- Name: idx_req_act_prov_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5112,7 +5168,7 @@ CREATE INDEX idx_req_act_prov_realm ON keycloak.required_action_provider USING b
 
 
 --
--- TOC entry 3825 (class 1259 OID 17642)
+-- TOC entry 3813 (class 1259 OID 17118)
 -- Name: idx_res_policy_policy; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5120,7 +5176,7 @@ CREATE INDEX idx_res_policy_policy ON keycloak.resource_policy USING btree (poli
 
 
 --
--- TOC entry 3822 (class 1259 OID 17643)
+-- TOC entry 3816 (class 1259 OID 17119)
 -- Name: idx_res_scope_scope; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5128,7 +5184,7 @@ CREATE INDEX idx_res_scope_scope ON keycloak.resource_scope USING btree (scope_i
 
 
 --
--- TOC entry 3815 (class 1259 OID 17662)
+-- TOC entry 3825 (class 1259 OID 17120)
 -- Name: idx_res_serv_pol_res_serv; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5136,7 +5192,7 @@ CREATE INDEX idx_res_serv_pol_res_serv ON keycloak.resource_server_policy USING 
 
 
 --
--- TOC entry 3805 (class 1259 OID 17663)
+-- TOC entry 3830 (class 1259 OID 17121)
 -- Name: idx_res_srv_res_res_srv; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5144,7 +5200,7 @@ CREATE INDEX idx_res_srv_res_res_srv ON keycloak.resource_server_resource USING 
 
 
 --
--- TOC entry 3810 (class 1259 OID 17664)
+-- TOC entry 3835 (class 1259 OID 17122)
 -- Name: idx_res_srv_scope_res_srv; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5152,7 +5208,7 @@ CREATE INDEX idx_res_srv_scope_res_srv ON keycloak.resource_server_scope USING b
 
 
 --
--- TOC entry 3895 (class 1259 OID 17887)
+-- TOC entry 3842 (class 1259 OID 17123)
 -- Name: idx_role_attribute; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5160,7 +5216,7 @@ CREATE INDEX idx_role_attribute ON keycloak.role_attribute USING btree (role_id)
 
 
 --
--- TOC entry 3798 (class 1259 OID 17816)
+-- TOC entry 3653 (class 1259 OID 17124)
 -- Name: idx_role_clscope; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5168,7 +5224,7 @@ CREATE INDEX idx_role_clscope ON keycloak.client_scope_role_mapping USING btree 
 
 
 --
--- TOC entry 3653 (class 1259 OID 17647)
+-- TOC entry 3845 (class 1259 OID 17125)
 -- Name: idx_scope_mapping_role; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5176,7 +5232,7 @@ CREATE INDEX idx_scope_mapping_role ON keycloak.scope_mapping USING btree (role_
 
 
 --
--- TOC entry 3828 (class 1259 OID 17648)
+-- TOC entry 3848 (class 1259 OID 17126)
 -- Name: idx_scope_policy_policy; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5184,7 +5240,7 @@ CREATE INDEX idx_scope_policy_policy ON keycloak.scope_policy USING btree (polic
 
 
 --
--- TOC entry 3718 (class 1259 OID 17895)
+-- TOC entry 3754 (class 1259 OID 17127)
 -- Name: idx_update_time; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5192,7 +5248,7 @@ CREATE INDEX idx_update_time ON keycloak.migration_model USING btree (update_tim
 
 
 --
--- TOC entry 3770 (class 1259 OID 17342)
+-- TOC entry 3758 (class 1259 OID 17128)
 -- Name: idx_us_sess_id_on_cl_sess; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5200,7 +5256,7 @@ CREATE INDEX idx_us_sess_id_on_cl_sess ON keycloak.offline_client_session USING 
 
 
 --
--- TOC entry 3882 (class 1259 OID 17822)
+-- TOC entry 3860 (class 1259 OID 17129)
 -- Name: idx_usconsent_clscope; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5208,7 +5264,7 @@ CREATE INDEX idx_usconsent_clscope ON keycloak.user_consent_client_scope USING b
 
 
 --
--- TOC entry 3658 (class 1259 OID 17349)
+-- TOC entry 3851 (class 1259 OID 17130)
 -- Name: idx_user_attribute; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5216,7 +5272,7 @@ CREATE INDEX idx_user_attribute ON keycloak.user_attribute USING btree (user_id)
 
 
 --
--- TOC entry 3659 (class 1259 OID 17936)
+-- TOC entry 3852 (class 1259 OID 17131)
 -- Name: idx_user_attribute_name; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5224,7 +5280,7 @@ CREATE INDEX idx_user_attribute_name ON keycloak.user_attribute USING btree (nam
 
 
 --
--- TOC entry 3726 (class 1259 OID 17346)
+-- TOC entry 3855 (class 1259 OID 17132)
 -- Name: idx_user_consent; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5232,7 +5288,7 @@ CREATE INDEX idx_user_consent ON keycloak.user_consent USING btree (user_id);
 
 
 --
--- TOC entry 3623 (class 1259 OID 17350)
+-- TOC entry 3682 (class 1259 OID 17133)
 -- Name: idx_user_credential; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5240,7 +5296,7 @@ CREATE INDEX idx_user_credential ON keycloak.credential USING btree (user_id);
 
 
 --
--- TOC entry 3662 (class 1259 OID 17343)
+-- TOC entry 3863 (class 1259 OID 17134)
 -- Name: idx_user_email; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5248,7 +5304,7 @@ CREATE INDEX idx_user_email ON keycloak.user_entity USING btree (email);
 
 
 --
--- TOC entry 3783 (class 1259 OID 17345)
+-- TOC entry 3882 (class 1259 OID 17135)
 -- Name: idx_user_group_mapping; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5256,7 +5312,7 @@ CREATE INDEX idx_user_group_mapping ON keycloak.user_group_membership USING btre
 
 
 --
--- TOC entry 3675 (class 1259 OID 17351)
+-- TOC entry 3885 (class 1259 OID 17136)
 -- Name: idx_user_reqactions; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5264,7 +5320,7 @@ CREATE INDEX idx_user_reqactions ON keycloak.user_required_action USING btree (u
 
 
 --
--- TOC entry 3678 (class 1259 OID 17344)
+-- TOC entry 3888 (class 1259 OID 17137)
 -- Name: idx_user_role_mapping; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5272,7 +5328,7 @@ CREATE INDEX idx_user_role_mapping ON keycloak.user_role_mapping USING btree (us
 
 
 --
--- TOC entry 3663 (class 1259 OID 17937)
+-- TOC entry 3864 (class 1259 OID 17138)
 -- Name: idx_user_service_account; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5280,7 +5336,7 @@ CREATE INDEX idx_user_service_account ON keycloak.user_entity USING btree (realm
 
 
 --
--- TOC entry 3748 (class 1259 OID 17650)
+-- TOC entry 3873 (class 1259 OID 17139)
 -- Name: idx_usr_fed_map_fed_prv; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5288,7 +5344,7 @@ CREATE INDEX idx_usr_fed_map_fed_prv ON keycloak.user_federation_mapper USING bt
 
 
 --
--- TOC entry 3749 (class 1259 OID 17651)
+-- TOC entry 3874 (class 1259 OID 17140)
 -- Name: idx_usr_fed_map_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5296,7 +5352,7 @@ CREATE INDEX idx_usr_fed_map_realm ON keycloak.user_federation_mapper USING btre
 
 
 --
--- TOC entry 3672 (class 1259 OID 17652)
+-- TOC entry 3879 (class 1259 OID 17141)
 -- Name: idx_usr_fed_prv_realm; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5304,7 +5360,7 @@ CREATE INDEX idx_usr_fed_prv_realm ON keycloak.user_federation_provider USING bt
 
 
 --
--- TOC entry 3683 (class 1259 OID 17653)
+-- TOC entry 3897 (class 1259 OID 17142)
 -- Name: idx_web_orig_client; Type: INDEX; Schema: keycloak; Owner: postgres
 --
 
@@ -5312,7 +5368,7 @@ CREATE INDEX idx_web_orig_client ON keycloak.web_origins USING btree (client_id)
 
 
 --
--- TOC entry 3939 (class 2606 OID 17078)
+-- TOC entry 3910 (class 2606 OID 17143)
 -- Name: client_session_auth_status auth_status_constraint; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5321,7 +5377,7 @@ ALTER TABLE ONLY keycloak.client_session_auth_status
 
 
 --
--- TOC entry 3923 (class 2606 OID 16847)
+-- TOC entry 3924 (class 2606 OID 17148)
 -- Name: identity_provider fk2b4ebc52ae5c3b34; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5330,7 +5386,7 @@ ALTER TABLE ONLY keycloak.identity_provider
 
 
 --
--- TOC entry 3916 (class 2606 OID 16777)
+-- TOC entry 3904 (class 2606 OID 17153)
 -- Name: client_attributes fk3c47c64beacca966; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5339,7 +5395,7 @@ ALTER TABLE ONLY keycloak.client_attributes
 
 
 --
--- TOC entry 3922 (class 2606 OID 16857)
+-- TOC entry 3921 (class 2606 OID 17158)
 -- Name: federated_identity fk404288b92ef007a6; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5348,7 +5404,7 @@ ALTER TABLE ONLY keycloak.federated_identity
 
 
 --
--- TOC entry 3918 (class 2606 OID 17004)
+-- TOC entry 3906 (class 2606 OID 17163)
 -- Name: client_node_registrations fk4129723ba992f594; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5357,7 +5413,7 @@ ALTER TABLE ONLY keycloak.client_node_registrations
 
 
 --
--- TOC entry 3917 (class 2606 OID 16782)
+-- TOC entry 3911 (class 2606 OID 17168)
 -- Name: client_session_note fk5edfb00ff51c2736; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5366,7 +5422,7 @@ ALTER TABLE ONLY keycloak.client_session_note
 
 
 --
--- TOC entry 3926 (class 2606 OID 16887)
+-- TOC entry 3970 (class 2606 OID 17173)
 -- Name: user_session_note fk5edfb00ff51d3472; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5375,7 +5431,7 @@ ALTER TABLE ONLY keycloak.user_session_note
 
 
 --
--- TOC entry 3899 (class 2606 OID 16597)
+-- TOC entry 3913 (class 2606 OID 17178)
 -- Name: client_session_role fk_11b7sgqw18i532811v7o2dv76; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5384,7 +5440,7 @@ ALTER TABLE ONLY keycloak.client_session_role
 
 
 --
--- TOC entry 3908 (class 2606 OID 16602)
+-- TOC entry 3940 (class 2606 OID 17183)
 -- Name: redirect_uris fk_1burs8pb4ouj97h5wuppahv9f; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5393,7 +5449,7 @@ ALTER TABLE ONLY keycloak.redirect_uris
 
 
 --
--- TOC entry 3912 (class 2606 OID 16607)
+-- TOC entry 3966 (class 2606 OID 17188)
 -- Name: user_federation_provider fk_1fj32f6ptolw2qy60cd8n01e8; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5402,7 +5458,7 @@ ALTER TABLE ONLY keycloak.user_federation_provider
 
 
 --
--- TOC entry 3931 (class 2606 OID 16982)
+-- TOC entry 3912 (class 2606 OID 17193)
 -- Name: client_session_prot_mapper fk_33a8sgqw18i532811v7o2dk89; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5411,7 +5467,7 @@ ALTER TABLE ONLY keycloak.client_session_prot_mapper
 
 
 --
--- TOC entry 3906 (class 2606 OID 16617)
+-- TOC entry 3937 (class 2606 OID 17198)
 -- Name: realm_required_credential fk_5hg65lybevavkqfki3kponh9v; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5420,7 +5476,7 @@ ALTER TABLE ONLY keycloak.realm_required_credential
 
 
 --
--- TOC entry 3969 (class 2606 OID 17855)
+-- TOC entry 3942 (class 2606 OID 17203)
 -- Name: resource_attribute fk_5hrm2vlf9ql5fu022kqepovbr; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5429,7 +5485,7 @@ ALTER TABLE ONLY keycloak.resource_attribute
 
 
 --
--- TOC entry 3910 (class 2606 OID 16622)
+-- TOC entry 3959 (class 2606 OID 17208)
 -- Name: user_attribute fk_5hrm2vlf9ql5fu043kqepovbr; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5438,7 +5494,7 @@ ALTER TABLE ONLY keycloak.user_attribute
 
 
 --
--- TOC entry 3913 (class 2606 OID 16632)
+-- TOC entry 3968 (class 2606 OID 17213)
 -- Name: user_required_action fk_6qj3w1jw9cvafhe19bwsiuvmd; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5447,7 +5503,7 @@ ALTER TABLE ONLY keycloak.user_required_action
 
 
 --
--- TOC entry 3903 (class 2606 OID 16637)
+-- TOC entry 3928 (class 2606 OID 17218)
 -- Name: keycloak_role fk_6vyqfe4cn4wlq8r6kt5vdsj5c; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5456,7 +5512,7 @@ ALTER TABLE ONLY keycloak.keycloak_role
 
 
 --
--- TOC entry 3907 (class 2606 OID 16642)
+-- TOC entry 3938 (class 2606 OID 17223)
 -- Name: realm_smtp_config fk_70ej8xdxgxd0b9hh6180irr0o; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5465,7 +5521,7 @@ ALTER TABLE ONLY keycloak.realm_smtp_config
 
 
 --
--- TOC entry 3904 (class 2606 OID 16657)
+-- TOC entry 3933 (class 2606 OID 17228)
 -- Name: realm_attribute fk_8shxd6l3e9atqukacxgpffptw; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5474,7 +5530,7 @@ ALTER TABLE ONLY keycloak.realm_attribute
 
 
 --
--- TOC entry 3900 (class 2606 OID 16662)
+-- TOC entry 3917 (class 2606 OID 17233)
 -- Name: composite_role fk_a63wvekftu8jo1pnj81e7mce2; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5483,7 +5539,7 @@ ALTER TABLE ONLY keycloak.composite_role
 
 
 --
--- TOC entry 3935 (class 2606 OID 17098)
+-- TOC entry 3900 (class 2606 OID 17238)
 -- Name: authentication_execution fk_auth_exec_flow; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5492,7 +5548,7 @@ ALTER TABLE ONLY keycloak.authentication_execution
 
 
 --
--- TOC entry 3934 (class 2606 OID 17093)
+-- TOC entry 3901 (class 2606 OID 17243)
 -- Name: authentication_execution fk_auth_exec_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5501,7 +5557,7 @@ ALTER TABLE ONLY keycloak.authentication_execution
 
 
 --
--- TOC entry 3933 (class 2606 OID 17088)
+-- TOC entry 3902 (class 2606 OID 17248)
 -- Name: authentication_flow fk_auth_flow_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5510,7 +5566,7 @@ ALTER TABLE ONLY keycloak.authentication_flow
 
 
 --
--- TOC entry 3932 (class 2606 OID 17083)
+-- TOC entry 3903 (class 2606 OID 17253)
 -- Name: authenticator_config fk_auth_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5519,7 +5575,7 @@ ALTER TABLE ONLY keycloak.authenticator_config
 
 
 --
--- TOC entry 3898 (class 2606 OID 16667)
+-- TOC entry 3909 (class 2606 OID 17258)
 -- Name: client_session fk_b4ao2vcvat6ukau74wbwtfqo1; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5528,7 +5584,7 @@ ALTER TABLE ONLY keycloak.client_session
 
 
 --
--- TOC entry 3914 (class 2606 OID 16672)
+-- TOC entry 3969 (class 2606 OID 17263)
 -- Name: user_role_mapping fk_c4fqv34p1mbylloxang7b1q3l; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5537,7 +5593,7 @@ ALTER TABLE ONLY keycloak.user_role_mapping
 
 
 --
--- TOC entry 3946 (class 2606 OID 17761)
+-- TOC entry 3907 (class 2606 OID 17268)
 -- Name: client_scope_attributes fk_cl_scope_attr_scope; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5546,7 +5602,7 @@ ALTER TABLE ONLY keycloak.client_scope_attributes
 
 
 --
--- TOC entry 3947 (class 2606 OID 17751)
+-- TOC entry 3908 (class 2606 OID 17273)
 -- Name: client_scope_role_mapping fk_cl_scope_rm_scope; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5555,7 +5611,7 @@ ALTER TABLE ONLY keycloak.client_scope_role_mapping
 
 
 --
--- TOC entry 3940 (class 2606 OID 17167)
+-- TOC entry 3914 (class 2606 OID 17278)
 -- Name: client_user_session_note fk_cl_usr_ses_note; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5564,7 +5620,7 @@ ALTER TABLE ONLY keycloak.client_user_session_note
 
 
 --
--- TOC entry 3920 (class 2606 OID 17746)
+-- TOC entry 3930 (class 2606 OID 17283)
 -- Name: protocol_mapper fk_cli_scope_mapper; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5573,7 +5629,7 @@ ALTER TABLE ONLY keycloak.protocol_mapper
 
 
 --
--- TOC entry 3962 (class 2606 OID 17605)
+-- TOC entry 3905 (class 2606 OID 17288)
 -- Name: client_initial_access fk_client_init_acc_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5582,7 +5638,7 @@ ALTER TABLE ONLY keycloak.client_initial_access
 
 
 --
--- TOC entry 3960 (class 2606 OID 17553)
+-- TOC entry 3916 (class 2606 OID 17293)
 -- Name: component_config fk_component_config; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5591,7 +5647,7 @@ ALTER TABLE ONLY keycloak.component_config
 
 
 --
--- TOC entry 3961 (class 2606 OID 17548)
+-- TOC entry 3915 (class 2606 OID 17298)
 -- Name: component fk_component_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5600,7 +5656,7 @@ ALTER TABLE ONLY keycloak.component
 
 
 --
--- TOC entry 3945 (class 2606 OID 17253)
+-- TOC entry 3934 (class 2606 OID 17303)
 -- Name: realm_default_groups fk_def_groups_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5609,7 +5665,7 @@ ALTER TABLE ONLY keycloak.realm_default_groups
 
 
 --
--- TOC entry 3938 (class 2606 OID 17113)
+-- TOC entry 3965 (class 2606 OID 17308)
 -- Name: user_federation_mapper_config fk_fedmapper_cfg; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5618,7 +5674,7 @@ ALTER TABLE ONLY keycloak.user_federation_mapper_config
 
 
 --
--- TOC entry 3937 (class 2606 OID 17108)
+-- TOC entry 3963 (class 2606 OID 17313)
 -- Name: user_federation_mapper fk_fedmapperpm_fedprv; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5627,7 +5683,7 @@ ALTER TABLE ONLY keycloak.user_federation_mapper
 
 
 --
--- TOC entry 3936 (class 2606 OID 17103)
+-- TOC entry 3964 (class 2606 OID 17318)
 -- Name: user_federation_mapper fk_fedmapperpm_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5636,7 +5692,7 @@ ALTER TABLE ONLY keycloak.user_federation_mapper
 
 
 --
--- TOC entry 3959 (class 2606 OID 17471)
+-- TOC entry 3898 (class 2606 OID 17323)
 -- Name: associated_policy fk_frsr5s213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5645,7 +5701,7 @@ ALTER TABLE ONLY keycloak.associated_policy
 
 
 --
--- TOC entry 3957 (class 2606 OID 17456)
+-- TOC entry 3957 (class 2606 OID 17328)
 -- Name: scope_policy fk_frsrasp13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5654,7 +5710,7 @@ ALTER TABLE ONLY keycloak.scope_policy
 
 
 --
--- TOC entry 3965 (class 2606 OID 17828)
+-- TOC entry 3947 (class 2606 OID 17333)
 -- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog82sspmt; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5663,7 +5719,7 @@ ALTER TABLE ONLY keycloak.resource_server_perm_ticket
 
 
 --
--- TOC entry 3948 (class 2606 OID 17672)
+-- TOC entry 3952 (class 2606 OID 17338)
 -- Name: resource_server_resource fk_frsrho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5672,7 +5728,7 @@ ALTER TABLE ONLY keycloak.resource_server_resource
 
 
 --
--- TOC entry 3966 (class 2606 OID 17833)
+-- TOC entry 3948 (class 2606 OID 17343)
 -- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog83sspmt; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5681,7 +5737,7 @@ ALTER TABLE ONLY keycloak.resource_server_perm_ticket
 
 
 --
--- TOC entry 3967 (class 2606 OID 17838)
+-- TOC entry 3949 (class 2606 OID 17348)
 -- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog84sspmt; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5690,7 +5746,7 @@ ALTER TABLE ONLY keycloak.resource_server_perm_ticket
 
 
 --
--- TOC entry 3958 (class 2606 OID 17466)
+-- TOC entry 3899 (class 2606 OID 17353)
 -- Name: associated_policy fk_frsrpas14xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5699,7 +5755,7 @@ ALTER TABLE ONLY keycloak.associated_policy
 
 
 --
--- TOC entry 3956 (class 2606 OID 17451)
+-- TOC entry 3958 (class 2606 OID 17358)
 -- Name: scope_policy fk_frsrpass3xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5708,7 +5764,7 @@ ALTER TABLE ONLY keycloak.scope_policy
 
 
 --
--- TOC entry 3968 (class 2606 OID 17860)
+-- TOC entry 3950 (class 2606 OID 17363)
 -- Name: resource_server_perm_ticket fk_frsrpo2128cx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5717,7 +5773,7 @@ ALTER TABLE ONLY keycloak.resource_server_perm_ticket
 
 
 --
--- TOC entry 3950 (class 2606 OID 17667)
+-- TOC entry 3951 (class 2606 OID 17368)
 -- Name: resource_server_policy fk_frsrpo213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5726,7 +5782,7 @@ ALTER TABLE ONLY keycloak.resource_server_policy
 
 
 --
--- TOC entry 3952 (class 2606 OID 17421)
+-- TOC entry 3945 (class 2606 OID 17373)
 -- Name: resource_scope fk_frsrpos13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5735,7 +5791,7 @@ ALTER TABLE ONLY keycloak.resource_scope
 
 
 --
--- TOC entry 3954 (class 2606 OID 17436)
+-- TOC entry 3943 (class 2606 OID 17378)
 -- Name: resource_policy fk_frsrpos53xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5744,7 +5800,7 @@ ALTER TABLE ONLY keycloak.resource_policy
 
 
 --
--- TOC entry 3955 (class 2606 OID 17441)
+-- TOC entry 3944 (class 2606 OID 17383)
 -- Name: resource_policy fk_frsrpp213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5753,7 +5809,7 @@ ALTER TABLE ONLY keycloak.resource_policy
 
 
 --
--- TOC entry 3953 (class 2606 OID 17426)
+-- TOC entry 3946 (class 2606 OID 17388)
 -- Name: resource_scope fk_frsrps213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5762,7 +5818,7 @@ ALTER TABLE ONLY keycloak.resource_scope
 
 
 --
--- TOC entry 3949 (class 2606 OID 17677)
+-- TOC entry 3953 (class 2606 OID 17393)
 -- Name: resource_server_scope fk_frsrso213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5771,7 +5827,7 @@ ALTER TABLE ONLY keycloak.resource_server_scope
 
 
 --
--- TOC entry 3901 (class 2606 OID 16687)
+-- TOC entry 3918 (class 2606 OID 17398)
 -- Name: composite_role fk_gr7thllb9lu8q4vqa4524jjy8; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5780,7 +5836,7 @@ ALTER TABLE ONLY keycloak.composite_role
 
 
 --
--- TOC entry 3964 (class 2606 OID 17803)
+-- TOC entry 3961 (class 2606 OID 17403)
 -- Name: user_consent_client_scope fk_grntcsnt_clsc_usc; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5789,7 +5845,7 @@ ALTER TABLE ONLY keycloak.user_consent_client_scope
 
 
 --
--- TOC entry 3930 (class 2606 OID 16967)
+-- TOC entry 3960 (class 2606 OID 17408)
 -- Name: user_consent fk_grntcsnt_user; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5798,7 +5854,7 @@ ALTER TABLE ONLY keycloak.user_consent
 
 
 --
--- TOC entry 3943 (class 2606 OID 17227)
+-- TOC entry 3922 (class 2606 OID 17413)
 -- Name: group_attribute fk_group_attribute_group; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5807,7 +5863,7 @@ ALTER TABLE ONLY keycloak.group_attribute
 
 
 --
--- TOC entry 3942 (class 2606 OID 17241)
+-- TOC entry 3923 (class 2606 OID 17418)
 -- Name: group_role_mapping fk_group_role_group; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5816,7 +5872,7 @@ ALTER TABLE ONLY keycloak.group_role_mapping
 
 
 --
--- TOC entry 3927 (class 2606 OID 16913)
+-- TOC entry 3935 (class 2606 OID 17423)
 -- Name: realm_enabled_event_types fk_h846o4h0w8epx5nwedrf5y69j; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5825,7 +5881,7 @@ ALTER TABLE ONLY keycloak.realm_enabled_event_types
 
 
 --
--- TOC entry 3905 (class 2606 OID 16697)
+-- TOC entry 3936 (class 2606 OID 17428)
 -- Name: realm_events_listeners fk_h846o4h0w8epx5nxev9f5y69j; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5834,7 +5890,7 @@ ALTER TABLE ONLY keycloak.realm_events_listeners
 
 
 --
--- TOC entry 3928 (class 2606 OID 16957)
+-- TOC entry 3926 (class 2606 OID 17433)
 -- Name: identity_provider_mapper fk_idpm_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5843,7 +5899,7 @@ ALTER TABLE ONLY keycloak.identity_provider_mapper
 
 
 --
--- TOC entry 3929 (class 2606 OID 17127)
+-- TOC entry 3927 (class 2606 OID 17438)
 -- Name: idp_mapper_config fk_idpmconfig; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5852,7 +5908,7 @@ ALTER TABLE ONLY keycloak.idp_mapper_config
 
 
 --
--- TOC entry 3915 (class 2606 OID 16707)
+-- TOC entry 3971 (class 2606 OID 17443)
 -- Name: web_origins fk_lojpho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5861,7 +5917,7 @@ ALTER TABLE ONLY keycloak.web_origins
 
 
 --
--- TOC entry 3909 (class 2606 OID 16717)
+-- TOC entry 3956 (class 2606 OID 17448)
 -- Name: scope_mapping fk_ouse064plmlr732lxjcn1q5f1; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5870,7 +5926,7 @@ ALTER TABLE ONLY keycloak.scope_mapping
 
 
 --
--- TOC entry 3919 (class 2606 OID 16852)
+-- TOC entry 3931 (class 2606 OID 17453)
 -- Name: protocol_mapper fk_pcm_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5879,7 +5935,7 @@ ALTER TABLE ONLY keycloak.protocol_mapper
 
 
 --
--- TOC entry 3902 (class 2606 OID 16732)
+-- TOC entry 3919 (class 2606 OID 17458)
 -- Name: credential fk_pfyr0glasqyl0dei3kl69r6v0; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5888,7 +5944,7 @@ ALTER TABLE ONLY keycloak.credential
 
 
 --
--- TOC entry 3921 (class 2606 OID 17120)
+-- TOC entry 3932 (class 2606 OID 17463)
 -- Name: protocol_mapper_config fk_pmconfig; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5897,7 +5953,7 @@ ALTER TABLE ONLY keycloak.protocol_mapper_config
 
 
 --
--- TOC entry 3963 (class 2606 OID 17788)
+-- TOC entry 3920 (class 2606 OID 17468)
 -- Name: default_client_scope fk_r_def_cli_scope_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5906,7 +5962,7 @@ ALTER TABLE ONLY keycloak.default_client_scope
 
 
 --
--- TOC entry 3941 (class 2606 OID 17162)
+-- TOC entry 3941 (class 2606 OID 17473)
 -- Name: required_action_provider fk_req_act_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5915,7 +5971,7 @@ ALTER TABLE ONLY keycloak.required_action_provider
 
 
 --
--- TOC entry 3970 (class 2606 OID 17868)
+-- TOC entry 3954 (class 2606 OID 17478)
 -- Name: resource_uris fk_resource_server_uris; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5924,7 +5980,7 @@ ALTER TABLE ONLY keycloak.resource_uris
 
 
 --
--- TOC entry 3971 (class 2606 OID 17882)
+-- TOC entry 3955 (class 2606 OID 17483)
 -- Name: role_attribute fk_role_attribute_id; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5933,7 +5989,7 @@ ALTER TABLE ONLY keycloak.role_attribute
 
 
 --
--- TOC entry 3925 (class 2606 OID 16882)
+-- TOC entry 3939 (class 2606 OID 17488)
 -- Name: realm_supported_locales fk_supported_locales_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5942,7 +5998,7 @@ ALTER TABLE ONLY keycloak.realm_supported_locales
 
 
 --
--- TOC entry 3911 (class 2606 OID 16752)
+-- TOC entry 3962 (class 2606 OID 17493)
 -- Name: user_federation_config fk_t13hpu1j94r2ebpekr39x5eu5; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5951,7 +6007,7 @@ ALTER TABLE ONLY keycloak.user_federation_config
 
 
 --
--- TOC entry 3944 (class 2606 OID 17234)
+-- TOC entry 3967 (class 2606 OID 17498)
 -- Name: user_group_membership fk_user_group_user; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5960,7 +6016,7 @@ ALTER TABLE ONLY keycloak.user_group_membership
 
 
 --
--- TOC entry 3951 (class 2606 OID 17411)
+-- TOC entry 3929 (class 2606 OID 17503)
 -- Name: policy_config fkdc34197cf864c4e43; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5969,7 +6025,7 @@ ALTER TABLE ONLY keycloak.policy_config
 
 
 --
--- TOC entry 3924 (class 2606 OID 16862)
+-- TOC entry 3925 (class 2606 OID 17508)
 -- Name: identity_provider_config fkdc4897cf864c4e43; Type: FK CONSTRAINT; Schema: keycloak; Owner: postgres
 --
 
@@ -5977,7 +6033,7 @@ ALTER TABLE ONLY keycloak.identity_provider_config
     ADD CONSTRAINT fkdc4897cf864c4e43 FOREIGN KEY (identity_provider_id) REFERENCES keycloak.identity_provider(internal_id);
 
 
--- Completed on 2022-09-13 13:11:52 CEST
+-- Completed on 2022-09-19 17:24:00 CEST
 
 --
 -- PostgreSQL database dump complete
