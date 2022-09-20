@@ -1,6 +1,18 @@
 elastic-query-service:
   version: v1
   custom-audience: elastic-query-service
+  webclient:
+    connect-timeout-ms: 10000
+    read-timeout-ms: 10000
+    write-timeout-ms: 10000
+    max-in-memory-size: 10485760 # 10MB
+    content-type: 'application/vnd.api.v1+json'
+    accept-type: 'application/vnd.api.v1+json'
+    query-type: 'ANALYTICS_DATABASE'
+  query-from-kafka-state-store:
+    method: GET
+    uri: "http://gateway-service/kafka-streams-service/get-word-count-by-word/{word}"
+    accept: ${elastic-query-service.webclient.accept-type}
 
 server:
   port: 8183
@@ -23,6 +35,20 @@ spring:
         jwt:
           issuer-uri: http://localhost:9091/realms/microservices_realm
           jwk-set-uri: http://localhost:9091/realms/microservices_realm/protocol/openid-connect/certs
+      client:
+        registration:
+          keycloak:
+            client-id: 'elastic-query-service'
+            client-secret: '8iYqVnAFHNQK6V9Nldn32nVdWQbl0b5t'
+            # instead of code flow (authorization_code like in the frontend services) we use client_Credentials that is used for machine to machine communication
+            # In our case because we want to call kafka streams service and get aggregated word count result from kafka streams service without user interaction
+            # so we just need the client id and the client secret in client credentials flow
+            authorizationGrantType: client_credentials
+        provider:
+          keycloak:
+            # We also set the token uri of keycloak to be able to obtain access token here
+            tokenUri: http://localhost:9091/realms/microservices_realm/protocol/openid-connect/token
+
   sql:
     init:
       mode: always

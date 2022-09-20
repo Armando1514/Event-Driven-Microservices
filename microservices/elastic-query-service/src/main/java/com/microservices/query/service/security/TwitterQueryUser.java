@@ -1,6 +1,5 @@
 package com.microservices.query.service.security;
 
-import com.microservices.query.Constants;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Map;
 
-import static com.microservices.query.Constants.NA;
+import static com.microservices.query.service.Constants.NA;
 
 @Builder
 @Getter

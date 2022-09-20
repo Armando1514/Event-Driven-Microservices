@@ -1,9 +1,9 @@
 package com.microservices.elastic.query.web.client.service.impl;
 
 import com.microservices.config.ElasticQueryWebClientConfigData;
+import com.microservices.elastic.query.client.model.ElasticQueryWebClientRequestModel;
+import com.microservices.elastic.query.client.model.ElasticQueryWebClientResponseModel;
 import com.microservices.elastic.query.web.client.exception.ElasticQueryWebClientException;
-import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
-import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
 import com.microservices.elastic.query.web.client.service.ElasticQueryWebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,12 +36,11 @@ public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
 
     @Override
     public List<ElasticQueryWebClientResponseModel> getDataByText(ElasticQueryWebClientRequestModel requestModel) {
-        LOG.info("Query by text {}", requestModel.getText());
+        LOG.info("Querying by text {}", requestModel.getText());
         return getWebClient(requestModel)
                 .bodyToFlux(ElasticQueryWebClientResponseModel.class)
                 .collectList()
                 .block();
-
     }
 
     private WebClient.ResponseSpec getWebClient(ElasticQueryWebClientRequestModel requestModel) {

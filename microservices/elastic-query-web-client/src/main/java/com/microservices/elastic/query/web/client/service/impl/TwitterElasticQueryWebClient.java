@@ -1,9 +1,9 @@
 package com.microservices.elastic.query.web.client.service.impl;
 
 import com.microservices.config.ElasticQueryWebClientConfigData;
+import com.microservices.elastic.query.client.model.ElasticQueryWebClientAnalyticsResponseModel;
+import com.microservices.elastic.query.client.model.ElasticQueryWebClientRequestModel;
 import com.microservices.elastic.query.web.client.exception.ElasticQueryWebClientException;
-import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
-import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientResponseModel;
 import com.microservices.elastic.query.web.client.service.ElasticQueryWebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 @Service
 public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
@@ -35,13 +33,12 @@ public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
     }
 
     @Override
-    public List<ElasticQueryWebClientResponseModel> getDataByText(ElasticQueryWebClientRequestModel requestModel) {
-        LOG.info("Query by text {}", requestModel.getText());
+    public ElasticQueryWebClientAnalyticsResponseModel getDataByText(ElasticQueryWebClientRequestModel requestModel) {
+        LOG.info("Querying by text {}", requestModel.getText());
         return getWebClient(requestModel)
-                .bodyToFlux(ElasticQueryWebClientResponseModel.class)
-                .collectList()
+                .bodyToMono(ElasticQueryWebClientAnalyticsResponseModel.class)
+                .log()//Logger
                 .block();
-
     }
 
     private WebClient.ResponseSpec getWebClient(ElasticQueryWebClientRequestModel requestModel) {

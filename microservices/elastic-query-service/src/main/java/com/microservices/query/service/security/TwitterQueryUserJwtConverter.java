@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.microservices.query.Constants.NA;
+import static com.microservices.query.service.Constants.NA;
 
 public class TwitterQueryUserJwtConverter implements Converter<Jwt, AbstractAuthenticationToken> {
     private static final String REALM_ACCESS_CLAIM = "realm_access";

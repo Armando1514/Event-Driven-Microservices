@@ -1,5 +1,6 @@
 package com.microservices.query.service.security;
 
+import com.microservices.query.service.model.ElasticQueryServiceAnalyticsResponseModel;
 import com.microservices.query.service.model.ElasticQueryServiceRequestModel;
 import com.microservices.query.service.model.ElasticQueryServiceResponseModel;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class QueryServicePermissionEvaluator implements PermissionEvaluator {
 
     @Override
     public boolean hasPermission(Authentication authentication,
-                                 Object targetDomainObject,
+                                 Object targetDomain,
                                  Object permission) {
 
 
@@ -39,19 +40,17 @@ public class QueryServicePermissionEvaluator implements PermissionEvaluator {
         if (isSuperUser()) {
             return true;
         }
-
-        if (targetDomainObject instanceof ElasticQueryServiceRequestModel)
-            return preAuthorize(authentication, ((ElasticQueryServiceRequestModel) targetDomainObject).getId(), permission);
-
-        if (targetDomainObject instanceof ResponseEntity || targetDomainObject == null) {
-            if (targetDomainObject == null) {
-                    return true;
-                }
-            List<ElasticQueryServiceResponseModel> responseBody =
-                        ((ResponseEntity<List<ElasticQueryServiceResponseModel>>) targetDomainObject).getBody();
-            Objects.requireNonNull(responseBody);
-            return postAuthorize(authentication, responseBody, permission);
+        if (targetDomain instanceof ElasticQueryServiceRequestModel) {
+            return preAuthorize(authentication, ((ElasticQueryServiceRequestModel) targetDomain).getId(), permission);
+        } else if (targetDomain instanceof ResponseEntity || targetDomain == null) {
+            if (targetDomain == null) {
+                return true;
             }
+            ElasticQueryServiceAnalyticsResponseModel responseBody =
+                    ((ResponseEntity<ElasticQueryServiceAnalyticsResponseModel>) targetDomain).getBody();
+            Objects.requireNonNull(responseBody);
+            return postAuthorize(authentication, responseBody.getQueryResponseModels(), permission);
+        }
         return false;
     }
 
