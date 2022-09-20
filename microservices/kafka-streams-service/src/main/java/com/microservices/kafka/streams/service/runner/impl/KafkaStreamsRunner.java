@@ -74,6 +74,7 @@ public class KafkaStreamsRunner implements StreamsRunner<String, Long> {
     public Long getValueByKey(String word) {
         if (kafkaStreams != null && kafkaStreams.state() == KafkaStreams.State.RUNNING) {
             if (keyValueStore == null) {
+                //singleton
                 synchronized (this) {
                     if (keyValueStore == null) {
                         keyValueStore = kafkaStreams.store(StoreQueryParameters
