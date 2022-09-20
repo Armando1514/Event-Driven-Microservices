@@ -1,0 +1,9 @@
+{"namespace": "com.microservices.kafka.avro.model",
+  "type": "record",
+  "name": "TwitterAnalyticsAvroModel",
+  "fields": [
+    {"name": "word", "type": ["null", "string"]},
+    {"name": "wordCount", "type": ["null", "long"]},
+    {"name": "createdAt", "type": ["null", "long"], "logicalType": ["null", "date"]}
+  ]
+}

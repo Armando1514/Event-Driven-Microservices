@@ -29,6 +29,7 @@ kafka-config:
   topic-name: twitter-topic
   topic-names-to-create:
     - twitter-topic
+    - twitter-analytics-topic
   num-of-partitions: 3
   replication-factor: 3
 

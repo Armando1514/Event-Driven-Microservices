@@ -19,7 +19,8 @@
 		<module>elastic-query-service</module>
 		<module>elastic-query-web-client</module>
 		<module>elastic-query-web-client-2</module>
-	</modules>
+        <module>kafka-streams-service</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -51,6 +52,7 @@
 		<openapi.ui.version>1.6.11</openapi.ui.version>
 		<spring.cloud.load.balancer.version>3.1.4</spring.cloud.load.balancer.version>
 		<postgresql.version>42.5.0</postgresql.version>
+		<kafka-streams-avro-serde.version>7.2.1</kafka-streams-avro-serde.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -129,6 +131,11 @@
 				<version>${project.version}</version>
 			</dependency>
 			<!-- END LOCAL -->
+			<dependency>
+				<groupId>io.confluent</groupId>
+				<artifactId>kafka-streams-avro-serde</artifactId>
+				<version>${kafka-streams-avro-serde.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
