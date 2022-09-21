@@ -1,8 +1,8 @@
 package com.microservices.elastic.query.web.client.service.impl;
 
 import com.microservices.config.ElasticQueryWebClientConfigData;
-import com.microservices.elastic.query.client.model.ElasticQueryWebClientAnalyticsResponseModel;
-import com.microservices.elastic.query.client.model.ElasticQueryWebClientRequestModel;
+import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientAnalyticsResponseModel;
+import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
 import com.microservices.elastic.query.web.client.exception.ElasticQueryWebClientException;
 import com.microservices.elastic.query.web.client.service.ElasticQueryWebClient;
 import org.slf4j.Logger;
@@ -27,9 +27,10 @@ public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
 
     private final ElasticQueryWebClientConfigData elasticQueryWebClientConfigData;
 
-    public TwitterElasticQueryWebClient(@Qualifier("webClientBuilder") WebClient.Builder webClientBuilder, ElasticQueryWebClientConfigData elasticQueryWebClientConfigData) {
-        this.webClientBuilder = webClientBuilder;
-        this.elasticQueryWebClientConfigData = elasticQueryWebClientConfigData;
+    public TwitterElasticQueryWebClient(@Qualifier("webClientBuilder") WebClient.Builder clientBuilder,
+                                        ElasticQueryWebClientConfigData webClientConfigData) {
+        this.webClientBuilder = clientBuilder;
+        this.elasticQueryWebClientConfigData = webClientConfigData;
     }
 
     @Override
@@ -67,3 +68,4 @@ public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
         };
     }
 }
+

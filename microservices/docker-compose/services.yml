@@ -117,7 +117,7 @@ services:
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888,http://config-server-ha:8889"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
-      - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://kafka-streams-service:8187/kafka-streams-service/get-word-count-by-word/{word}"
+      - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://kafka-streams-service:8187/get-word-count-by-word/{word}"
 
     networks:
       - ${GLOBAL_NETWORK:-services}
@@ -139,7 +139,7 @@ services:
       - keycloak-authorization-server
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5009 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
+      - "LOGGING_LEVEL_COM_MICROSERVICES=info"
       - "LOGGING_LEVEL_ROOT=info"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
@@ -148,7 +148,7 @@ services:
       - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN-URI=http://keycloak-authorization-server:9091/realms/microservices_realm/protocol/openid-connect/token"
       - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db_elastic_query_service/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true"
       - "SERVER_PORT=8185"
-      - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://kafka-streams-service:8187/kafka-streams-service/get-word-count-by-word/{word}"
+      - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://kafka-streams-service:8187/get-word-count-by-word/{word}"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
@@ -183,6 +183,8 @@ services:
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
       - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
       - "SECURITY_LOGOUT-SUCCESS-URL=http://elastic-query-web-client-1:8184/elastic-query-web-client"
+      - "SECURITY_DEFAULT-CLIENT-REGISTRATION-ID=keycloak"
+      - "LOG_APP-NAME=elastic-query-web-client"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-web-client-2:
@@ -213,7 +215,9 @@ services:
       - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_1_PORT=8185"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
       - "SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
-      - "SECURITY_LOGOUT-SUCCESS-URL=http://elastic-query-web-client-2:8184/elastic-query-web-client"
+      - "SECURITY_LOGOUT-SUCCESS-URL=http://elastic-query-web-client-2:8186/elastic-query-web-client"
+      - "SECURITY_DEFAULT-CLIENT-REGISTRATION-ID=keycloak"
+      - "LOG_APP-NAME=elastic-query-web-client"
     networks:
       - ${GLOBAL_NETWORK:-services}
   kafka-streams-service:
@@ -232,7 +236,7 @@ services:
       - twitter-to-kafka-service
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5012 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
+      - "LOGGING_LEVEL_COM_MICROSERVICES=info"
       - "LOGGING_LEVEL_ROOT=info"
       - "SERVER_PORT=8187"
       - "SERVER_SERVLET_CONTEXT-PATH=/"

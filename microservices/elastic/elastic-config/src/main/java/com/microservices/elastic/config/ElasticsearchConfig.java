@@ -29,7 +29,7 @@ public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
     @Override
     @Bean
     public RestHighLevelClient elasticsearchClient() {
-        System.out.println(elasticConfigData.toString());
+        System.out.println("cazzo" + elasticConfigData.toString());
         UriComponents serverUri = UriComponentsBuilder.fromHttpUrl(elasticConfigData.getConnectionUrl()).build();
         return new RestHighLevelClient(
                 RestClient.builder(new HttpHost(

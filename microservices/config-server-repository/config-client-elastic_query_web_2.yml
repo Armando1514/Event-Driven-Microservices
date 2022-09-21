@@ -1,5 +1,5 @@
 server:
-  port: 8185
+  port: 8186
   servlet:
     context-path: /elastic-query-web-client
 
@@ -22,6 +22,7 @@ elastic-query-web-client:
         id: elastic-query-service-2
         host: localhost
         port: 8185
+
   query-by-text:
     method: POST
     uri: "/get-document-by-text"
@@ -43,7 +44,7 @@ spring:
             issuerUri: http://localhost:9091/realms/microservices_realm
 
 security:
-  logout-success-url: http://localhost:8185/elastic-query-web-client/
+  logout-success-url: http://localhost:8184/elastic-query-web-client/
   default-client-registration-id: keycloak
 
 user-config:

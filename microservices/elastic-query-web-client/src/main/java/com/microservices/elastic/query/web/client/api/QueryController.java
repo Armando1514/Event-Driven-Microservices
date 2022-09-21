@@ -1,8 +1,7 @@
 package com.microservices.elastic.query.web.client.api;
 
-import com.microservices.elastic.query.client.model.ElasticQueryWebClientAnalyticsResponseModel;
-import com.microservices.elastic.query.client.model.ElasticQueryWebClientRequestModel;
-import com.microservices.elastic.query.client.model.ElasticQueryWebClientResponseModel;
+import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientAnalyticsResponseModel;
+import com.microservices.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
 import com.microservices.elastic.query.web.client.service.ElasticQueryWebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
-import java.util.List;
 
 
 @Controller
@@ -22,22 +20,22 @@ public class QueryController {
 
     private final ElasticQueryWebClient elasticQueryWebClient;
 
-    public QueryController(ElasticQueryWebClient elasticQueryWebClient) {
-        this.elasticQueryWebClient = elasticQueryWebClient;
+    public QueryController(ElasticQueryWebClient webClient) {
+        this.elasticQueryWebClient = webClient;
     }
 
     @GetMapping("")
-    public String index(){
+    public String index() {
         return "index";
     }
 
     @GetMapping("/error")
-    public String error(){
+    public String error() {
         return "error";
     }
 
     @GetMapping("/home")
-    public String home(Model model){
+    public String home(Model model) {
         model.addAttribute("elasticQueryWebClientRequestModel",
                 ElasticQueryWebClientRequestModel.builder().build());
         return "home";
@@ -57,4 +55,5 @@ public class QueryController {
                 ElasticQueryWebClientRequestModel.builder().build());
         return "home";
     }
+
 }

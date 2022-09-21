@@ -8,10 +8,10 @@ elastic-query-service:
     max-in-memory-size: 10485760 # 10MB
     content-type: 'application/vnd.api.v1+json'
     accept-type: 'application/vnd.api.v1+json'
-    query-type: 'ANALYTICS_DATABASE'
+    query-type: 'KAFKA_STATE_STORE'
   query-from-kafka-state-store:
     method: GET
-    uri: "http://gateway-service/kafka-streams-service/get-word-count-by-word/{word}"
+    uri: "http://kafka-streams-service/get-word-count-by-word/{word}"
     accept: ${elastic-query-service.webclient.accept-type}
 
 server:
@@ -38,8 +38,8 @@ spring:
       client:
         registration:
           keycloak:
-            client-id: 'elastic-query-service'
-            client-secret: '8iYqVnAFHNQK6V9Nldn32nVdWQbl0b5t'
+            client-id: 'elastic-query-service-1'
+            client-secret: 'lggO2Rygd6P9DvxL3HNM6NfA27ubh7Jq'
             # instead of code flow (authorization_code like in the frontend services) we use client_Credentials that is used for machine to machine communication
             # In our case because we want to call kafka streams service and get aggregated word count result from kafka streams service without user interaction
             # so we just need the client id and the client secret in client credentials flow
