@@ -1,5 +1,8 @@
 -- START IMPORT FOR ELASTIC-QUERY-SERVICE
 
+
+
+
 DROP TABLE IF EXISTS public.users CASCADE;
 
 CREATE TABLE public.users
@@ -103,6 +106,29 @@ values (uuid_generate_v4(), '388258cb-1542-4104-920d-87e04a0381d5', 'c1df7d01-4b
 
 
 
-
-
 -- END IMPORT FOR ELASTIC-QUERY-SERVICE
+
+-- START IMPORT FOR ANALYTICS SERVICE
+CREATE SCHEMA analytics;
+
+
+ALTER SCHEMA analytics OWNER TO postgres;
+
+CREATE TABLE analytics.twitter_analytics (
+                                             id uuid NOT NULL,
+                                             word character varying NOT NULL,
+                                             word_count bigint NOT NULL,
+                                             record_date time with time zone NOT NULL
+);
+
+
+
+ALTER TABLE analytics.twitter_analytics OWNER TO postgres;
+
+CREATE INDEX "INDEX_WORD_BY_DATE"
+    ON analytics.twitter_analytics USING btree
+    (word COLLATE pg_catalog."default" ASC NULLS LAST, record_date DESC NULLS LAST)
+
+
+
+-- END IMPORT FOR ANALYTICS SERVICE

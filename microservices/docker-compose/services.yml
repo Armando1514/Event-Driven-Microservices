@@ -102,6 +102,7 @@ services:
       - elastic-1
       - elastic-2
       - elastic-3
+      - analytics-service
       - keycloak-authorization-server
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5008 -Xms128m -Xmx256m"
@@ -115,10 +116,11 @@ services:
       - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db_elastic_query_service/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true"
       - "SERVER_PORT=8183"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
-      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888,http://config-server-ha:8889"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
       - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://kafka-streams-service:8187/get-word-count-by-word/{word}"
-
+      - "ELASTIC-QUERY-SERVICE_QUERY-FROM-ANALYTICS-DATABASE_URI=http://analytics-service:8188/get-word-count-by-word/{word}"
+      - "ELASTIC-QUERY-SERVICE_WEBCLIENT_QUERY-TYPE=ANALYTICS_DATABASE"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-service-2:
@@ -136,6 +138,7 @@ services:
       - elastic-1
       - elastic-2
       - elastic-3
+      - analytics-service
       - keycloak-authorization-server
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5009 -Xms128m -Xmx256m"
@@ -152,7 +155,8 @@ services:
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
-      - "ELASTIC-QUERY-SERVICE_WEBCLIENT_QUERY-TYPE: 'ANALYTICS_DATABASE'"
+      - "ELASTIC-QUERY-SERVICE_QUERY-FROM-ANALYTICS-DATABASE_URI=http://analytics-service:8188/get-word-count-by-word/{word}"
+      - "ELASTIC-QUERY-SERVICE_WEBCLIENT_QUERY-TYPE=ANALYTICS_DATABASE"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-web-client-1:
@@ -241,7 +245,7 @@ services:
       - "LOGGING_LEVEL_ROOT=info"
       - "SERVER_PORT=8187"
       - "SERVER_SERVLET_CONTEXT-PATH=/"
-      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888,http://config-server-ha:8889"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
       - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:9091/realms/microservices_realm/protocol/openid-connect/certs"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
@@ -251,3 +255,34 @@ services:
       - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
     networks:
       - ${GLOBAL_NETWORK:-services}
+  analytics-service:
+    image: ${GROUP_ID}/analytics.service:${SERVICE_VERSION:-latest}
+    ports:
+      - "5013:5013"
+      - "8188:8188"
+    volumes:
+      - "./docker-logs:/workspace/analytics-service/logs"
+      - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+      - "./check-keycloak-server-started.sh:/usr/local/bin/check-keycloak-server-started.sh"
+    user: root
+    entrypoint: [ "check-config-server-started.sh" ]
+    depends_on:
+      - config-server
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5013 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES=info"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "SERVER_PORT=8188"
+      - "SERVER_SERVLET_CONTEXT-PATH=/"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://keycloak-authorization-server:9091/realms/microservices_realm"
+      - "SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI=http://keycloak-authorization-server:9091/realms/microservices_realm/protocol/openid-connect/certs"
+      - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db_elastic_query_service/postgres?currentSchema=analytics&binaryTransfer=true&reWriteBatchedInserts=true"
+      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
+      - "LOG_APP-NAME=analytics-service"
+      - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+

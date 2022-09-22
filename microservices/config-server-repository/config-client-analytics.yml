@@ -28,13 +28,18 @@ spring:
         # with order_inserts and updates we configured hibernate to put inserts and updates in order separately to be able to use batching
         order_inserts: true
         order_updates: true
-
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=analytics&binaryTransfer=true&reWriteBatchedInserts=true
     username: postgres
-    password: admin
+    password: postgres
     driver-class-name: org.postgresql.Driver
     platform: postgres
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
@@ -44,8 +49,12 @@ kafka-config:
   topic-names-to-create:
     - twitter-analytics-topic
 
+
+security:
+  paths-to-ignore: /api-docs, /actuator/**
+
 kafka-consumer-config:
-  key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+  key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
   consumer-group-id: twitter-topic-consumer
   auto-offset-reset: earliest

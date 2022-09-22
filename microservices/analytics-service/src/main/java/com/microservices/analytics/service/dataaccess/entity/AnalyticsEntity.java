@@ -1,14 +1,9 @@
 package com.microservices.analytics.service.dataaccess.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -24,7 +19,9 @@ import java.util.UUID;
 public class AnalyticsEntity implements BaseEntity<UUID> {
 
     @Id
-    @NotNull
+    /*
+    Auto-generated columns require to obtain the id during insert operation and because of that it will break the batch operation
+     */
     @Column(name = "id", columnDefinition = "uuid")
     private UUID id;
 
