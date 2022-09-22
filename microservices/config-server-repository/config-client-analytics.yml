@@ -1,0 +1,70 @@
+server:
+  port: 8188
+  servlet:
+    context-path: /
+
+analytics-service:
+  version: v2
+  custom-audience: analytics-service
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9091/auth/realms/myrealm
+          jwk-set-uri: http://localhost:9091/auth/realms/myrealm/protocol/openid-connect/certs
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        use_sql_comments: false
+        format_sql: true
+        # that means we want to batch the records by 50 before sending them to the database
+        jdbc.batch_size: 50
+        # with order_inserts and updates we configured hibernate to put inserts and updates in order separately to be able to use batching
+        order_inserts: true
+        order_updates: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=analytics&binaryTransfer=true&reWriteBatchedInserts=true
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+
+kafka-config:
+  bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
+  schema-registry-url-key: schema.registry.url
+  schema-registry-url: http://localhost:8081
+  topic-name: twitter-analytics-topic
+  topic-names-to-create:
+    - twitter-analytics-topic
+
+kafka-consumer-config:
+  key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+  value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+  consumer-group-id: twitter-topic-consumer
+  auto-offset-reset: earliest
+  specific-avro-reader-key: specific.avro.reader
+  specific-avro-reader: true
+  batch-listener: true
+  auto-startup: false
+  concurrency-level: 3
+  session-timeout-ms: 10000
+  heartbeat-interval-ms: 3000
+  max-poll-interval-ms: 300000
+  max-poll-records: 500
+  max-partition-fetch-bytes-default: 1048576
+  max-partition-fetch-bytes-boost-factor: 1
+  poll-timeout-ms: 150
+
+retry-config:
+  initial-interval-ms: 1000
+  max-interval-ms: 10000
+  multiplier: 2.0
+  maxAttempts: 3
+  sleep-time-ms: 2000

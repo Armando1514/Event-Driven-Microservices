@@ -13,6 +13,10 @@ elastic-query-service:
     method: GET
     uri: "http://kafka-streams-service/get-word-count-by-word/{word}"
     accept: ${elastic-query-service.webclient.accept-type}
+  query-from-analytics-database:
+    method: GET
+    uri: "http://analytics-service/get-word-count-by-word/{word}"
+    accept: ${elastic-query-service.webclient.accept-type}
 
 server:
   port: 8183

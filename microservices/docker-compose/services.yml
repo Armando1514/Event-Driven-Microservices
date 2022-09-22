@@ -152,6 +152,7 @@ services:
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+      - "ELASTIC-QUERY-SERVICE_WEBCLIENT_QUERY-TYPE: 'ANALYTICS_DATABASE'"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-web-client-1:

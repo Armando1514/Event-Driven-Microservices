@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: analytics-service
+  profiles:
+    active: analytics
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      name: analytics-service, config-client
+      username: spring_cloud_user
+      password: '1234'
+
+log:
+  app-name: analytics-service
