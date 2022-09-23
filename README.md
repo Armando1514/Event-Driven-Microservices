@@ -1,6 +1,6 @@
 ## Architecture Overview
 
-![generalArchitecture](./generalArchitecture.png)
+![generalArchitecture](./doc/generalArchitecture.png)
 
 ### Kafka Folders
 
