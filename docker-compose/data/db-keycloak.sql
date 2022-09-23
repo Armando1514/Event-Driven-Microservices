@@ -5,7 +5,7 @@
 -- Dumped from database version 14.5 (Debian 14.5-1.pgdg110+1)
 -- Dumped by pg_dump version 14.4
 
--- Started on 2022-09-21 22:37:25 CEST
+-- Started on 2022-09-23 16:35:34 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -17,6 +17,7 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
+
 
 
 \connect keycloak
@@ -52,18 +53,18 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE keycloak.admin_event_entity (
-                                             id character varying(36) NOT NULL,
-                                             admin_event_time bigint,
-                                             realm_id character varying(255),
-                                             operation_type character varying(255),
-                                             auth_realm_id character varying(255),
-                                             auth_client_id character varying(255),
-                                             auth_user_id character varying(255),
-                                             ip_address character varying(255),
-                                             resource_path character varying(2550),
-                                             representation text,
-                                             error character varying(255),
-                                             resource_type character varying(64)
+    id character varying(36) NOT NULL,
+    admin_event_time bigint,
+    realm_id character varying(255),
+    operation_type character varying(255),
+    auth_realm_id character varying(255),
+    auth_client_id character varying(255),
+    auth_user_id character varying(255),
+    ip_address character varying(255),
+    resource_path character varying(2550),
+    representation text,
+    error character varying(255),
+    resource_type character varying(64)
 );
 
 
@@ -75,8 +76,8 @@ ALTER TABLE keycloak.admin_event_entity OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.associated_policy (
-                                            policy_id character varying(36) NOT NULL,
-                                            associated_policy_id character varying(36) NOT NULL
+    policy_id character varying(36) NOT NULL,
+    associated_policy_id character varying(36) NOT NULL
 );
 
 
@@ -88,16 +89,16 @@ ALTER TABLE keycloak.associated_policy OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.authentication_execution (
-                                                   id character varying(36) NOT NULL,
-                                                   alias character varying(255),
-                                                   authenticator character varying(36),
-                                                   realm_id character varying(36),
-                                                   flow_id character varying(36),
-                                                   requirement integer,
-                                                   priority integer,
-                                                   authenticator_flow boolean DEFAULT false NOT NULL,
-                                                   auth_flow_id character varying(36),
-                                                   auth_config character varying(36)
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    authenticator character varying(36),
+    realm_id character varying(36),
+    flow_id character varying(36),
+    requirement integer,
+    priority integer,
+    authenticator_flow boolean DEFAULT false NOT NULL,
+    auth_flow_id character varying(36),
+    auth_config character varying(36)
 );
 
 
@@ -109,13 +110,13 @@ ALTER TABLE keycloak.authentication_execution OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.authentication_flow (
-                                              id character varying(36) NOT NULL,
-                                              alias character varying(255),
-                                              description character varying(255),
-                                              realm_id character varying(36),
-                                              provider_id character varying(36) DEFAULT 'basic-flow'::character varying NOT NULL,
-                                              top_level boolean DEFAULT false NOT NULL,
-                                              built_in boolean DEFAULT false NOT NULL
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    description character varying(255),
+    realm_id character varying(36),
+    provider_id character varying(36) DEFAULT 'basic-flow'::character varying NOT NULL,
+    top_level boolean DEFAULT false NOT NULL,
+    built_in boolean DEFAULT false NOT NULL
 );
 
 
@@ -127,9 +128,9 @@ ALTER TABLE keycloak.authentication_flow OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.authenticator_config (
-                                               id character varying(36) NOT NULL,
-                                               alias character varying(255),
-                                               realm_id character varying(36)
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    realm_id character varying(36)
 );
 
 
@@ -141,9 +142,9 @@ ALTER TABLE keycloak.authenticator_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.authenticator_config_entry (
-                                                     authenticator_id character varying(36) NOT NULL,
-                                                     value text,
-                                                     name character varying(255) NOT NULL
+    authenticator_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
 );
 
 
@@ -155,13 +156,13 @@ ALTER TABLE keycloak.authenticator_config_entry OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.broker_link (
-                                      identity_provider character varying(255) NOT NULL,
-                                      storage_provider_id character varying(255),
-                                      realm_id character varying(36) NOT NULL,
-                                      broker_user_id character varying(255),
-                                      broker_username character varying(255),
-                                      token text,
-                                      user_id character varying(255) NOT NULL
+    identity_provider character varying(255) NOT NULL,
+    storage_provider_id character varying(255),
+    realm_id character varying(36) NOT NULL,
+    broker_user_id character varying(255),
+    broker_username character varying(255),
+    token text,
+    user_id character varying(255) NOT NULL
 );
 
 
@@ -173,32 +174,32 @@ ALTER TABLE keycloak.broker_link OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client (
-                                 id character varying(36) NOT NULL,
-                                 enabled boolean DEFAULT false NOT NULL,
-                                 full_scope_allowed boolean DEFAULT false NOT NULL,
-                                 client_id character varying(255),
-                                 not_before integer,
-                                 public_client boolean DEFAULT false NOT NULL,
-                                 secret character varying(255),
-                                 base_url character varying(255),
-                                 bearer_only boolean DEFAULT false NOT NULL,
-                                 management_url character varying(255),
-                                 surrogate_auth_required boolean DEFAULT false NOT NULL,
-                                 realm_id character varying(36),
-                                 protocol character varying(255),
-                                 node_rereg_timeout integer DEFAULT 0,
-                                 frontchannel_logout boolean DEFAULT false NOT NULL,
-                                 consent_required boolean DEFAULT false NOT NULL,
-                                 name character varying(255),
-                                 service_accounts_enabled boolean DEFAULT false NOT NULL,
-                                 client_authenticator_type character varying(255),
-                                 root_url character varying(255),
-                                 description character varying(255),
-                                 registration_token character varying(255),
-                                 standard_flow_enabled boolean DEFAULT true NOT NULL,
-                                 implicit_flow_enabled boolean DEFAULT false NOT NULL,
-                                 direct_access_grants_enabled boolean DEFAULT false NOT NULL,
-                                 always_display_in_console boolean DEFAULT false NOT NULL
+    id character varying(36) NOT NULL,
+    enabled boolean DEFAULT false NOT NULL,
+    full_scope_allowed boolean DEFAULT false NOT NULL,
+    client_id character varying(255),
+    not_before integer,
+    public_client boolean DEFAULT false NOT NULL,
+    secret character varying(255),
+    base_url character varying(255),
+    bearer_only boolean DEFAULT false NOT NULL,
+    management_url character varying(255),
+    surrogate_auth_required boolean DEFAULT false NOT NULL,
+    realm_id character varying(36),
+    protocol character varying(255),
+    node_rereg_timeout integer DEFAULT 0,
+    frontchannel_logout boolean DEFAULT false NOT NULL,
+    consent_required boolean DEFAULT false NOT NULL,
+    name character varying(255),
+    service_accounts_enabled boolean DEFAULT false NOT NULL,
+    client_authenticator_type character varying(255),
+    root_url character varying(255),
+    description character varying(255),
+    registration_token character varying(255),
+    standard_flow_enabled boolean DEFAULT true NOT NULL,
+    implicit_flow_enabled boolean DEFAULT false NOT NULL,
+    direct_access_grants_enabled boolean DEFAULT false NOT NULL,
+    always_display_in_console boolean DEFAULT false NOT NULL
 );
 
 
@@ -210,9 +211,9 @@ ALTER TABLE keycloak.client OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_attributes (
-                                            client_id character varying(36) NOT NULL,
-                                            value character varying(4000),
-                                            name character varying(255) NOT NULL
+    client_id character varying(36) NOT NULL,
+    value character varying(4000),
+    name character varying(255) NOT NULL
 );
 
 
@@ -224,9 +225,9 @@ ALTER TABLE keycloak.client_attributes OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_auth_flow_bindings (
-                                                    client_id character varying(36) NOT NULL,
-                                                    flow_id character varying(36),
-                                                    binding_name character varying(255) NOT NULL
+    client_id character varying(36) NOT NULL,
+    flow_id character varying(36),
+    binding_name character varying(255) NOT NULL
 );
 
 
@@ -238,12 +239,12 @@ ALTER TABLE keycloak.client_auth_flow_bindings OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_initial_access (
-                                                id character varying(36) NOT NULL,
-                                                realm_id character varying(36) NOT NULL,
-                                                "timestamp" integer,
-                                                expiration integer,
-                                                count integer,
-                                                remaining_count integer
+    id character varying(36) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    "timestamp" integer,
+    expiration integer,
+    count integer,
+    remaining_count integer
 );
 
 
@@ -255,9 +256,9 @@ ALTER TABLE keycloak.client_initial_access OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_node_registrations (
-                                                    client_id character varying(36) NOT NULL,
-                                                    value integer,
-                                                    name character varying(255) NOT NULL
+    client_id character varying(36) NOT NULL,
+    value integer,
+    name character varying(255) NOT NULL
 );
 
 
@@ -269,11 +270,11 @@ ALTER TABLE keycloak.client_node_registrations OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_scope (
-                                       id character varying(36) NOT NULL,
-                                       name character varying(255),
-                                       realm_id character varying(36),
-                                       description character varying(255),
-                                       protocol character varying(255)
+    id character varying(36) NOT NULL,
+    name character varying(255),
+    realm_id character varying(36),
+    description character varying(255),
+    protocol character varying(255)
 );
 
 
@@ -285,9 +286,9 @@ ALTER TABLE keycloak.client_scope OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_scope_attributes (
-                                                  scope_id character varying(36) NOT NULL,
-                                                  value character varying(2048),
-                                                  name character varying(255) NOT NULL
+    scope_id character varying(36) NOT NULL,
+    value character varying(2048),
+    name character varying(255) NOT NULL
 );
 
 
@@ -299,9 +300,9 @@ ALTER TABLE keycloak.client_scope_attributes OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_scope_client (
-                                              client_id character varying(255) NOT NULL,
-                                              scope_id character varying(255) NOT NULL,
-                                              default_scope boolean DEFAULT false NOT NULL
+    client_id character varying(255) NOT NULL,
+    scope_id character varying(255) NOT NULL,
+    default_scope boolean DEFAULT false NOT NULL
 );
 
 
@@ -313,8 +314,8 @@ ALTER TABLE keycloak.client_scope_client OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_scope_role_mapping (
-                                                    scope_id character varying(36) NOT NULL,
-                                                    role_id character varying(36) NOT NULL
+    scope_id character varying(36) NOT NULL,
+    role_id character varying(36) NOT NULL
 );
 
 
@@ -326,16 +327,16 @@ ALTER TABLE keycloak.client_scope_role_mapping OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_session (
-                                         id character varying(36) NOT NULL,
-                                         client_id character varying(36),
-                                         redirect_uri character varying(255),
-                                         state character varying(255),
-                                         "timestamp" integer,
-                                         session_id character varying(36),
-                                         auth_method character varying(255),
-                                         realm_id character varying(255),
-                                         auth_user_id character varying(36),
-                                         current_action character varying(36)
+    id character varying(36) NOT NULL,
+    client_id character varying(36),
+    redirect_uri character varying(255),
+    state character varying(255),
+    "timestamp" integer,
+    session_id character varying(36),
+    auth_method character varying(255),
+    realm_id character varying(255),
+    auth_user_id character varying(36),
+    current_action character varying(36)
 );
 
 
@@ -347,9 +348,9 @@ ALTER TABLE keycloak.client_session OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_session_auth_status (
-                                                     authenticator character varying(36) NOT NULL,
-                                                     status integer,
-                                                     client_session character varying(36) NOT NULL
+    authenticator character varying(36) NOT NULL,
+    status integer,
+    client_session character varying(36) NOT NULL
 );
 
 
@@ -361,9 +362,9 @@ ALTER TABLE keycloak.client_session_auth_status OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_session_note (
-                                              name character varying(255) NOT NULL,
-                                              value character varying(255),
-                                              client_session character varying(36) NOT NULL
+    name character varying(255) NOT NULL,
+    value character varying(255),
+    client_session character varying(36) NOT NULL
 );
 
 
@@ -375,8 +376,8 @@ ALTER TABLE keycloak.client_session_note OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_session_prot_mapper (
-                                                     protocol_mapper_id character varying(36) NOT NULL,
-                                                     client_session character varying(36) NOT NULL
+    protocol_mapper_id character varying(36) NOT NULL,
+    client_session character varying(36) NOT NULL
 );
 
 
@@ -388,8 +389,8 @@ ALTER TABLE keycloak.client_session_prot_mapper OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_session_role (
-                                              role_id character varying(255) NOT NULL,
-                                              client_session character varying(36) NOT NULL
+    role_id character varying(255) NOT NULL,
+    client_session character varying(36) NOT NULL
 );
 
 
@@ -401,9 +402,9 @@ ALTER TABLE keycloak.client_session_role OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.client_user_session_note (
-                                                   name character varying(255) NOT NULL,
-                                                   value character varying(2048),
-                                                   client_session character varying(36) NOT NULL
+    name character varying(255) NOT NULL,
+    value character varying(2048),
+    client_session character varying(36) NOT NULL
 );
 
 
@@ -415,13 +416,13 @@ ALTER TABLE keycloak.client_user_session_note OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.component (
-                                    id character varying(36) NOT NULL,
-                                    name character varying(255),
-                                    parent_id character varying(36),
-                                    provider_id character varying(36),
-                                    provider_type character varying(255),
-                                    realm_id character varying(36),
-                                    sub_type character varying(255)
+    id character varying(36) NOT NULL,
+    name character varying(255),
+    parent_id character varying(36),
+    provider_id character varying(36),
+    provider_type character varying(255),
+    realm_id character varying(36),
+    sub_type character varying(255)
 );
 
 
@@ -433,10 +434,10 @@ ALTER TABLE keycloak.component OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.component_config (
-                                           id character varying(36) NOT NULL,
-                                           component_id character varying(36) NOT NULL,
-                                           name character varying(255) NOT NULL,
-                                           value character varying(4000)
+    id character varying(36) NOT NULL,
+    component_id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(4000)
 );
 
 
@@ -448,8 +449,8 @@ ALTER TABLE keycloak.component_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.composite_role (
-                                         composite character varying(36) NOT NULL,
-                                         child_role character varying(36) NOT NULL
+    composite character varying(36) NOT NULL,
+    child_role character varying(36) NOT NULL
 );
 
 
@@ -461,15 +462,15 @@ ALTER TABLE keycloak.composite_role OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.credential (
-                                     id character varying(36) NOT NULL,
-                                     salt bytea,
-                                     type character varying(255),
-                                     user_id character varying(36),
-                                     created_date bigint,
-                                     user_label character varying(255),
-                                     secret_data text,
-                                     credential_data text,
-                                     priority integer
+    id character varying(36) NOT NULL,
+    salt bytea,
+    type character varying(255),
+    user_id character varying(36),
+    created_date bigint,
+    user_label character varying(255),
+    secret_data text,
+    credential_data text,
+    priority integer
 );
 
 
@@ -481,20 +482,20 @@ ALTER TABLE keycloak.credential OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.databasechangelog (
-                                            id character varying(255) NOT NULL,
-                                            author character varying(255) NOT NULL,
-                                            filename character varying(255) NOT NULL,
-                                            dateexecuted timestamp without time zone NOT NULL,
-                                            orderexecuted integer NOT NULL,
-                                            exectype character varying(10) NOT NULL,
-                                            md5sum character varying(35),
-                                            description character varying(255),
-                                            comments character varying(255),
-                                            tag character varying(255),
-                                            liquibase character varying(20),
-                                            contexts character varying(255),
-                                            labels character varying(255),
-                                            deployment_id character varying(10)
+    id character varying(255) NOT NULL,
+    author character varying(255) NOT NULL,
+    filename character varying(255) NOT NULL,
+    dateexecuted timestamp without time zone NOT NULL,
+    orderexecuted integer NOT NULL,
+    exectype character varying(10) NOT NULL,
+    md5sum character varying(35),
+    description character varying(255),
+    comments character varying(255),
+    tag character varying(255),
+    liquibase character varying(20),
+    contexts character varying(255),
+    labels character varying(255),
+    deployment_id character varying(10)
 );
 
 
@@ -506,10 +507,10 @@ ALTER TABLE keycloak.databasechangelog OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.databasechangeloglock (
-                                                id integer NOT NULL,
-                                                locked boolean NOT NULL,
-                                                lockgranted timestamp without time zone,
-                                                lockedby character varying(255)
+    id integer NOT NULL,
+    locked boolean NOT NULL,
+    lockgranted timestamp without time zone,
+    lockedby character varying(255)
 );
 
 
@@ -521,9 +522,9 @@ ALTER TABLE keycloak.databasechangeloglock OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.default_client_scope (
-                                               realm_id character varying(36) NOT NULL,
-                                               scope_id character varying(36) NOT NULL,
-                                               default_scope boolean DEFAULT false NOT NULL
+    realm_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL,
+    default_scope boolean DEFAULT false NOT NULL
 );
 
 
@@ -535,16 +536,16 @@ ALTER TABLE keycloak.default_client_scope OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.event_entity (
-                                       id character varying(36) NOT NULL,
-                                       client_id character varying(255),
-                                       details_json character varying(2550),
-                                       error character varying(255),
-                                       ip_address character varying(255),
-                                       realm_id character varying(255),
-                                       session_id character varying(255),
-                                       event_time bigint,
-                                       type character varying(255),
-                                       user_id character varying(255)
+    id character varying(36) NOT NULL,
+    client_id character varying(255),
+    details_json character varying(2550),
+    error character varying(255),
+    ip_address character varying(255),
+    realm_id character varying(255),
+    session_id character varying(255),
+    event_time bigint,
+    type character varying(255),
+    user_id character varying(255)
 );
 
 
@@ -556,12 +557,12 @@ ALTER TABLE keycloak.event_entity OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.fed_user_attribute (
-                                             id character varying(36) NOT NULL,
-                                             name character varying(255) NOT NULL,
-                                             user_id character varying(255) NOT NULL,
-                                             realm_id character varying(36) NOT NULL,
-                                             storage_provider_id character varying(36),
-                                             value character varying(2024)
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36),
+    value character varying(2024)
 );
 
 
@@ -573,15 +574,15 @@ ALTER TABLE keycloak.fed_user_attribute OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.fed_user_consent (
-                                           id character varying(36) NOT NULL,
-                                           client_id character varying(255),
-                                           user_id character varying(255) NOT NULL,
-                                           realm_id character varying(36) NOT NULL,
-                                           storage_provider_id character varying(36),
-                                           created_date bigint,
-                                           last_updated_date bigint,
-                                           client_storage_provider character varying(36),
-                                           external_client_id character varying(255)
+    id character varying(36) NOT NULL,
+    client_id character varying(255),
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36),
+    created_date bigint,
+    last_updated_date bigint,
+    client_storage_provider character varying(36),
+    external_client_id character varying(255)
 );
 
 
@@ -593,8 +594,8 @@ ALTER TABLE keycloak.fed_user_consent OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.fed_user_consent_cl_scope (
-                                                    user_consent_id character varying(36) NOT NULL,
-                                                    scope_id character varying(36) NOT NULL
+    user_consent_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL
 );
 
 
@@ -606,17 +607,17 @@ ALTER TABLE keycloak.fed_user_consent_cl_scope OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.fed_user_credential (
-                                              id character varying(36) NOT NULL,
-                                              salt bytea,
-                                              type character varying(255),
-                                              created_date bigint,
-                                              user_id character varying(255) NOT NULL,
-                                              realm_id character varying(36) NOT NULL,
-                                              storage_provider_id character varying(36),
-                                              user_label character varying(255),
-                                              secret_data text,
-                                              credential_data text,
-                                              priority integer
+    id character varying(36) NOT NULL,
+    salt bytea,
+    type character varying(255),
+    created_date bigint,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36),
+    user_label character varying(255),
+    secret_data text,
+    credential_data text,
+    priority integer
 );
 
 
@@ -628,10 +629,10 @@ ALTER TABLE keycloak.fed_user_credential OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.fed_user_group_membership (
-                                                    group_id character varying(36) NOT NULL,
-                                                    user_id character varying(255) NOT NULL,
-                                                    realm_id character varying(36) NOT NULL,
-                                                    storage_provider_id character varying(36)
+    group_id character varying(36) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36)
 );
 
 
@@ -643,10 +644,10 @@ ALTER TABLE keycloak.fed_user_group_membership OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.fed_user_required_action (
-                                                   required_action character varying(255) DEFAULT ' '::character varying NOT NULL,
-                                                   user_id character varying(255) NOT NULL,
-                                                   realm_id character varying(36) NOT NULL,
-                                                   storage_provider_id character varying(36)
+    required_action character varying(255) DEFAULT ' '::character varying NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36)
 );
 
 
@@ -658,10 +659,10 @@ ALTER TABLE keycloak.fed_user_required_action OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.fed_user_role_mapping (
-                                                role_id character varying(36) NOT NULL,
-                                                user_id character varying(255) NOT NULL,
-                                                realm_id character varying(36) NOT NULL,
-                                                storage_provider_id character varying(36)
+    role_id character varying(36) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36)
 );
 
 
@@ -673,12 +674,12 @@ ALTER TABLE keycloak.fed_user_role_mapping OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.federated_identity (
-                                             identity_provider character varying(255) NOT NULL,
-                                             realm_id character varying(36),
-                                             federated_user_id character varying(255),
-                                             federated_username character varying(255),
-                                             token text,
-                                             user_id character varying(36) NOT NULL
+    identity_provider character varying(255) NOT NULL,
+    realm_id character varying(36),
+    federated_user_id character varying(255),
+    federated_username character varying(255),
+    token text,
+    user_id character varying(36) NOT NULL
 );
 
 
@@ -690,9 +691,9 @@ ALTER TABLE keycloak.federated_identity OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.federated_user (
-                                         id character varying(255) NOT NULL,
-                                         storage_provider_id character varying(255),
-                                         realm_id character varying(36) NOT NULL
+    id character varying(255) NOT NULL,
+    storage_provider_id character varying(255),
+    realm_id character varying(36) NOT NULL
 );
 
 
@@ -704,10 +705,10 @@ ALTER TABLE keycloak.federated_user OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.group_attribute (
-                                          id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL,
-                                          name character varying(255) NOT NULL,
-                                          value character varying(255),
-                                          group_id character varying(36) NOT NULL
+    id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(255),
+    group_id character varying(36) NOT NULL
 );
 
 
@@ -719,8 +720,8 @@ ALTER TABLE keycloak.group_attribute OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.group_role_mapping (
-                                             role_id character varying(36) NOT NULL,
-                                             group_id character varying(36) NOT NULL
+    role_id character varying(36) NOT NULL,
+    group_id character varying(36) NOT NULL
 );
 
 
@@ -732,19 +733,19 @@ ALTER TABLE keycloak.group_role_mapping OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.identity_provider (
-                                            internal_id character varying(36) NOT NULL,
-                                            enabled boolean DEFAULT false NOT NULL,
-                                            provider_alias character varying(255),
-                                            provider_id character varying(255),
-                                            store_token boolean DEFAULT false NOT NULL,
-                                            authenticate_by_default boolean DEFAULT false NOT NULL,
-                                            realm_id character varying(36),
-                                            add_token_role boolean DEFAULT true NOT NULL,
-                                            trust_email boolean DEFAULT false NOT NULL,
-                                            first_broker_login_flow_id character varying(36),
-                                            post_broker_login_flow_id character varying(36),
-                                            provider_display_name character varying(255),
-                                            link_only boolean DEFAULT false NOT NULL
+    internal_id character varying(36) NOT NULL,
+    enabled boolean DEFAULT false NOT NULL,
+    provider_alias character varying(255),
+    provider_id character varying(255),
+    store_token boolean DEFAULT false NOT NULL,
+    authenticate_by_default boolean DEFAULT false NOT NULL,
+    realm_id character varying(36),
+    add_token_role boolean DEFAULT true NOT NULL,
+    trust_email boolean DEFAULT false NOT NULL,
+    first_broker_login_flow_id character varying(36),
+    post_broker_login_flow_id character varying(36),
+    provider_display_name character varying(255),
+    link_only boolean DEFAULT false NOT NULL
 );
 
 
@@ -756,9 +757,9 @@ ALTER TABLE keycloak.identity_provider OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.identity_provider_config (
-                                                   identity_provider_id character varying(36) NOT NULL,
-                                                   value text,
-                                                   name character varying(255) NOT NULL
+    identity_provider_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
 );
 
 
@@ -770,11 +771,11 @@ ALTER TABLE keycloak.identity_provider_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.identity_provider_mapper (
-                                                   id character varying(36) NOT NULL,
-                                                   name character varying(255) NOT NULL,
-                                                   idp_alias character varying(255) NOT NULL,
-                                                   idp_mapper_name character varying(255) NOT NULL,
-                                                   realm_id character varying(36) NOT NULL
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    idp_alias character varying(255) NOT NULL,
+    idp_mapper_name character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL
 );
 
 
@@ -786,9 +787,9 @@ ALTER TABLE keycloak.identity_provider_mapper OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.idp_mapper_config (
-                                            idp_mapper_id character varying(36) NOT NULL,
-                                            value text,
-                                            name character varying(255) NOT NULL
+    idp_mapper_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
 );
 
 
@@ -800,10 +801,10 @@ ALTER TABLE keycloak.idp_mapper_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.keycloak_group (
-                                         id character varying(36) NOT NULL,
-                                         name character varying(255),
-                                         parent_group character varying(36) NOT NULL,
-                                         realm_id character varying(36)
+    id character varying(36) NOT NULL,
+    name character varying(255),
+    parent_group character varying(36) NOT NULL,
+    realm_id character varying(36)
 );
 
 
@@ -815,14 +816,14 @@ ALTER TABLE keycloak.keycloak_group OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.keycloak_role (
-                                        id character varying(36) NOT NULL,
-                                        client_realm_constraint character varying(255),
-                                        client_role boolean DEFAULT false NOT NULL,
-                                        description character varying(255),
-                                        name character varying(255),
-                                        realm_id character varying(255),
-                                        client character varying(36),
-                                        realm character varying(36)
+    id character varying(36) NOT NULL,
+    client_realm_constraint character varying(255),
+    client_role boolean DEFAULT false NOT NULL,
+    description character varying(255),
+    name character varying(255),
+    realm_id character varying(255),
+    client character varying(36),
+    realm character varying(36)
 );
 
 
@@ -834,9 +835,9 @@ ALTER TABLE keycloak.keycloak_role OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.migration_model (
-                                          id character varying(36) NOT NULL,
-                                          version character varying(36),
-                                          update_time bigint DEFAULT 0 NOT NULL
+    id character varying(36) NOT NULL,
+    version character varying(36),
+    update_time bigint DEFAULT 0 NOT NULL
 );
 
 
@@ -848,13 +849,13 @@ ALTER TABLE keycloak.migration_model OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.offline_client_session (
-                                                 user_session_id character varying(36) NOT NULL,
-                                                 client_id character varying(255) NOT NULL,
-                                                 offline_flag character varying(4) NOT NULL,
-                                                 "timestamp" integer,
-                                                 data text,
-                                                 client_storage_provider character varying(36) DEFAULT 'local'::character varying NOT NULL,
-                                                 external_client_id character varying(255) DEFAULT 'local'::character varying NOT NULL
+    user_session_id character varying(36) NOT NULL,
+    client_id character varying(255) NOT NULL,
+    offline_flag character varying(4) NOT NULL,
+    "timestamp" integer,
+    data text,
+    client_storage_provider character varying(36) DEFAULT 'local'::character varying NOT NULL,
+    external_client_id character varying(255) DEFAULT 'local'::character varying NOT NULL
 );
 
 
@@ -866,13 +867,13 @@ ALTER TABLE keycloak.offline_client_session OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.offline_user_session (
-                                               user_session_id character varying(36) NOT NULL,
-                                               user_id character varying(255) NOT NULL,
-                                               realm_id character varying(36) NOT NULL,
-                                               created_on integer NOT NULL,
-                                               offline_flag character varying(4) NOT NULL,
-                                               data text,
-                                               last_session_refresh integer DEFAULT 0 NOT NULL
+    user_session_id character varying(36) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    created_on integer NOT NULL,
+    offline_flag character varying(4) NOT NULL,
+    data text,
+    last_session_refresh integer DEFAULT 0 NOT NULL
 );
 
 
@@ -884,9 +885,9 @@ ALTER TABLE keycloak.offline_user_session OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.policy_config (
-                                        policy_id character varying(36) NOT NULL,
-                                        name character varying(255) NOT NULL,
-                                        value text
+    policy_id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value text
 );
 
 
@@ -898,12 +899,12 @@ ALTER TABLE keycloak.policy_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.protocol_mapper (
-                                          id character varying(36) NOT NULL,
-                                          name character varying(255) NOT NULL,
-                                          protocol character varying(255) NOT NULL,
-                                          protocol_mapper_name character varying(255) NOT NULL,
-                                          client_id character varying(36),
-                                          client_scope_id character varying(36)
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    protocol character varying(255) NOT NULL,
+    protocol_mapper_name character varying(255) NOT NULL,
+    client_id character varying(36),
+    client_scope_id character varying(36)
 );
 
 
@@ -915,9 +916,9 @@ ALTER TABLE keycloak.protocol_mapper OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.protocol_mapper_config (
-                                                 protocol_mapper_id character varying(36) NOT NULL,
-                                                 value text,
-                                                 name character varying(255) NOT NULL
+    protocol_mapper_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
 );
 
 
@@ -929,59 +930,59 @@ ALTER TABLE keycloak.protocol_mapper_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm (
-                                id character varying(36) NOT NULL,
-                                access_code_lifespan integer,
-                                user_action_lifespan integer,
-                                access_token_lifespan integer,
-                                account_theme character varying(255),
-                                admin_theme character varying(255),
-                                email_theme character varying(255),
-                                enabled boolean DEFAULT false NOT NULL,
-                                events_enabled boolean DEFAULT false NOT NULL,
-                                events_expiration bigint,
-                                login_theme character varying(255),
-                                name character varying(255),
-                                not_before integer,
-                                password_policy character varying(2550),
-                                registration_allowed boolean DEFAULT false NOT NULL,
-                                remember_me boolean DEFAULT false NOT NULL,
-                                reset_password_allowed boolean DEFAULT false NOT NULL,
-                                social boolean DEFAULT false NOT NULL,
-                                ssl_required character varying(255),
-                                sso_idle_timeout integer,
-                                sso_max_lifespan integer,
-                                update_profile_on_soc_login boolean DEFAULT false NOT NULL,
-                                verify_email boolean DEFAULT false NOT NULL,
-                                master_admin_client character varying(36),
-                                login_lifespan integer,
-                                internationalization_enabled boolean DEFAULT false NOT NULL,
-                                default_locale character varying(255),
-                                reg_email_as_username boolean DEFAULT false NOT NULL,
-                                admin_events_enabled boolean DEFAULT false NOT NULL,
-                                admin_events_details_enabled boolean DEFAULT false NOT NULL,
-                                edit_username_allowed boolean DEFAULT false NOT NULL,
-                                otp_policy_counter integer DEFAULT 0,
-                                otp_policy_window integer DEFAULT 1,
-                                otp_policy_period integer DEFAULT 30,
-                                otp_policy_digits integer DEFAULT 6,
-                                otp_policy_alg character varying(36) DEFAULT 'HmacSHA1'::character varying,
-                                otp_policy_type character varying(36) DEFAULT 'totp'::character varying,
-                                browser_flow character varying(36),
-                                registration_flow character varying(36),
-                                direct_grant_flow character varying(36),
-                                reset_credentials_flow character varying(36),
-                                client_auth_flow character varying(36),
-                                offline_session_idle_timeout integer DEFAULT 0,
-                                revoke_refresh_token boolean DEFAULT false NOT NULL,
-                                access_token_life_implicit integer DEFAULT 0,
-                                login_with_email_allowed boolean DEFAULT true NOT NULL,
-                                duplicate_emails_allowed boolean DEFAULT false NOT NULL,
-                                docker_auth_flow character varying(36),
-                                refresh_token_max_reuse integer DEFAULT 0,
-                                allow_user_managed_access boolean DEFAULT false NOT NULL,
-                                sso_max_lifespan_remember_me integer DEFAULT 0 NOT NULL,
-                                sso_idle_timeout_remember_me integer DEFAULT 0 NOT NULL,
-                                default_role character varying(255)
+    id character varying(36) NOT NULL,
+    access_code_lifespan integer,
+    user_action_lifespan integer,
+    access_token_lifespan integer,
+    account_theme character varying(255),
+    admin_theme character varying(255),
+    email_theme character varying(255),
+    enabled boolean DEFAULT false NOT NULL,
+    events_enabled boolean DEFAULT false NOT NULL,
+    events_expiration bigint,
+    login_theme character varying(255),
+    name character varying(255),
+    not_before integer,
+    password_policy character varying(2550),
+    registration_allowed boolean DEFAULT false NOT NULL,
+    remember_me boolean DEFAULT false NOT NULL,
+    reset_password_allowed boolean DEFAULT false NOT NULL,
+    social boolean DEFAULT false NOT NULL,
+    ssl_required character varying(255),
+    sso_idle_timeout integer,
+    sso_max_lifespan integer,
+    update_profile_on_soc_login boolean DEFAULT false NOT NULL,
+    verify_email boolean DEFAULT false NOT NULL,
+    master_admin_client character varying(36),
+    login_lifespan integer,
+    internationalization_enabled boolean DEFAULT false NOT NULL,
+    default_locale character varying(255),
+    reg_email_as_username boolean DEFAULT false NOT NULL,
+    admin_events_enabled boolean DEFAULT false NOT NULL,
+    admin_events_details_enabled boolean DEFAULT false NOT NULL,
+    edit_username_allowed boolean DEFAULT false NOT NULL,
+    otp_policy_counter integer DEFAULT 0,
+    otp_policy_window integer DEFAULT 1,
+    otp_policy_period integer DEFAULT 30,
+    otp_policy_digits integer DEFAULT 6,
+    otp_policy_alg character varying(36) DEFAULT 'HmacSHA1'::character varying,
+    otp_policy_type character varying(36) DEFAULT 'totp'::character varying,
+    browser_flow character varying(36),
+    registration_flow character varying(36),
+    direct_grant_flow character varying(36),
+    reset_credentials_flow character varying(36),
+    client_auth_flow character varying(36),
+    offline_session_idle_timeout integer DEFAULT 0,
+    revoke_refresh_token boolean DEFAULT false NOT NULL,
+    access_token_life_implicit integer DEFAULT 0,
+    login_with_email_allowed boolean DEFAULT true NOT NULL,
+    duplicate_emails_allowed boolean DEFAULT false NOT NULL,
+    docker_auth_flow character varying(36),
+    refresh_token_max_reuse integer DEFAULT 0,
+    allow_user_managed_access boolean DEFAULT false NOT NULL,
+    sso_max_lifespan_remember_me integer DEFAULT 0 NOT NULL,
+    sso_idle_timeout_remember_me integer DEFAULT 0 NOT NULL,
+    default_role character varying(255)
 );
 
 
@@ -993,9 +994,9 @@ ALTER TABLE keycloak.realm OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_attribute (
-                                          name character varying(255) NOT NULL,
-                                          realm_id character varying(36) NOT NULL,
-                                          value text
+    name character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    value text
 );
 
 
@@ -1007,8 +1008,8 @@ ALTER TABLE keycloak.realm_attribute OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_default_groups (
-                                               realm_id character varying(36) NOT NULL,
-                                               group_id character varying(36) NOT NULL
+    realm_id character varying(36) NOT NULL,
+    group_id character varying(36) NOT NULL
 );
 
 
@@ -1020,8 +1021,8 @@ ALTER TABLE keycloak.realm_default_groups OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_enabled_event_types (
-                                                    realm_id character varying(36) NOT NULL,
-                                                    value character varying(255) NOT NULL
+    realm_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
 );
 
 
@@ -1033,8 +1034,8 @@ ALTER TABLE keycloak.realm_enabled_event_types OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_events_listeners (
-                                                 realm_id character varying(36) NOT NULL,
-                                                 value character varying(255) NOT NULL
+    realm_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
 );
 
 
@@ -1046,9 +1047,9 @@ ALTER TABLE keycloak.realm_events_listeners OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_localizations (
-                                              realm_id character varying(255) NOT NULL,
-                                              locale character varying(255) NOT NULL,
-                                              texts text NOT NULL
+    realm_id character varying(255) NOT NULL,
+    locale character varying(255) NOT NULL,
+    texts text NOT NULL
 );
 
 
@@ -1060,11 +1061,11 @@ ALTER TABLE keycloak.realm_localizations OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_required_credential (
-                                                    type character varying(255) NOT NULL,
-                                                    form_label character varying(255),
-                                                    input boolean DEFAULT false NOT NULL,
-                                                    secret boolean DEFAULT false NOT NULL,
-                                                    realm_id character varying(36) NOT NULL
+    type character varying(255) NOT NULL,
+    form_label character varying(255),
+    input boolean DEFAULT false NOT NULL,
+    secret boolean DEFAULT false NOT NULL,
+    realm_id character varying(36) NOT NULL
 );
 
 
@@ -1076,9 +1077,9 @@ ALTER TABLE keycloak.realm_required_credential OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_smtp_config (
-                                            realm_id character varying(36) NOT NULL,
-                                            value character varying(255),
-                                            name character varying(255) NOT NULL
+    realm_id character varying(36) NOT NULL,
+    value character varying(255),
+    name character varying(255) NOT NULL
 );
 
 
@@ -1090,8 +1091,8 @@ ALTER TABLE keycloak.realm_smtp_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.realm_supported_locales (
-                                                  realm_id character varying(36) NOT NULL,
-                                                  value character varying(255) NOT NULL
+    realm_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
 );
 
 
@@ -1103,8 +1104,8 @@ ALTER TABLE keycloak.realm_supported_locales OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.redirect_uris (
-                                        client_id character varying(36) NOT NULL,
-                                        value character varying(255) NOT NULL
+    client_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
 );
 
 
@@ -1116,9 +1117,9 @@ ALTER TABLE keycloak.redirect_uris OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.required_action_config (
-                                                 required_action_id character varying(36) NOT NULL,
-                                                 value text,
-                                                 name character varying(255) NOT NULL
+    required_action_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
 );
 
 
@@ -1130,14 +1131,14 @@ ALTER TABLE keycloak.required_action_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.required_action_provider (
-                                                   id character varying(36) NOT NULL,
-                                                   alias character varying(255),
-                                                   name character varying(255),
-                                                   realm_id character varying(36),
-                                                   enabled boolean DEFAULT false NOT NULL,
-                                                   default_action boolean DEFAULT false NOT NULL,
-                                                   provider_id character varying(255),
-                                                   priority integer
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    name character varying(255),
+    realm_id character varying(36),
+    enabled boolean DEFAULT false NOT NULL,
+    default_action boolean DEFAULT false NOT NULL,
+    provider_id character varying(255),
+    priority integer
 );
 
 
@@ -1149,10 +1150,10 @@ ALTER TABLE keycloak.required_action_provider OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_attribute (
-                                             id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL,
-                                             name character varying(255) NOT NULL,
-                                             value character varying(255),
-                                             resource_id character varying(36) NOT NULL
+    id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(255),
+    resource_id character varying(36) NOT NULL
 );
 
 
@@ -1164,8 +1165,8 @@ ALTER TABLE keycloak.resource_attribute OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_policy (
-                                          resource_id character varying(36) NOT NULL,
-                                          policy_id character varying(36) NOT NULL
+    resource_id character varying(36) NOT NULL,
+    policy_id character varying(36) NOT NULL
 );
 
 
@@ -1177,8 +1178,8 @@ ALTER TABLE keycloak.resource_policy OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_scope (
-                                         resource_id character varying(36) NOT NULL,
-                                         scope_id character varying(36) NOT NULL
+    resource_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL
 );
 
 
@@ -1190,10 +1191,10 @@ ALTER TABLE keycloak.resource_scope OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_server (
-                                          id character varying(36) NOT NULL,
-                                          allow_rs_remote_mgmt boolean DEFAULT false NOT NULL,
-                                          policy_enforce_mode character varying(15) NOT NULL,
-                                          decision_strategy smallint DEFAULT 1 NOT NULL
+    id character varying(36) NOT NULL,
+    allow_rs_remote_mgmt boolean DEFAULT false NOT NULL,
+    policy_enforce_mode character varying(15) NOT NULL,
+    decision_strategy smallint DEFAULT 1 NOT NULL
 );
 
 
@@ -1205,15 +1206,15 @@ ALTER TABLE keycloak.resource_server OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_server_perm_ticket (
-                                                      id character varying(36) NOT NULL,
-                                                      owner character varying(255) NOT NULL,
-                                                      requester character varying(255) NOT NULL,
-                                                      created_timestamp bigint NOT NULL,
-                                                      granted_timestamp bigint,
-                                                      resource_id character varying(36) NOT NULL,
-                                                      scope_id character varying(36),
-                                                      resource_server_id character varying(36) NOT NULL,
-                                                      policy_id character varying(36)
+    id character varying(36) NOT NULL,
+    owner character varying(255) NOT NULL,
+    requester character varying(255) NOT NULL,
+    created_timestamp bigint NOT NULL,
+    granted_timestamp bigint,
+    resource_id character varying(36) NOT NULL,
+    scope_id character varying(36),
+    resource_server_id character varying(36) NOT NULL,
+    policy_id character varying(36)
 );
 
 
@@ -1225,14 +1226,14 @@ ALTER TABLE keycloak.resource_server_perm_ticket OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_server_policy (
-                                                 id character varying(36) NOT NULL,
-                                                 name character varying(255) NOT NULL,
-                                                 description character varying(255),
-                                                 type character varying(255) NOT NULL,
-                                                 decision_strategy character varying(20),
-                                                 logic character varying(20),
-                                                 resource_server_id character varying(36) NOT NULL,
-                                                 owner character varying(255)
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    description character varying(255),
+    type character varying(255) NOT NULL,
+    decision_strategy character varying(20),
+    logic character varying(20),
+    resource_server_id character varying(36) NOT NULL,
+    owner character varying(255)
 );
 
 
@@ -1244,14 +1245,14 @@ ALTER TABLE keycloak.resource_server_policy OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_server_resource (
-                                                   id character varying(36) NOT NULL,
-                                                   name character varying(255) NOT NULL,
-                                                   type character varying(255),
-                                                   icon_uri character varying(255),
-                                                   owner character varying(255) NOT NULL,
-                                                   resource_server_id character varying(36) NOT NULL,
-                                                   owner_managed_access boolean DEFAULT false NOT NULL,
-                                                   display_name character varying(255)
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    type character varying(255),
+    icon_uri character varying(255),
+    owner character varying(255) NOT NULL,
+    resource_server_id character varying(36) NOT NULL,
+    owner_managed_access boolean DEFAULT false NOT NULL,
+    display_name character varying(255)
 );
 
 
@@ -1263,11 +1264,11 @@ ALTER TABLE keycloak.resource_server_resource OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_server_scope (
-                                                id character varying(36) NOT NULL,
-                                                name character varying(255) NOT NULL,
-                                                icon_uri character varying(255),
-                                                resource_server_id character varying(36) NOT NULL,
-                                                display_name character varying(255)
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    icon_uri character varying(255),
+    resource_server_id character varying(36) NOT NULL,
+    display_name character varying(255)
 );
 
 
@@ -1279,8 +1280,8 @@ ALTER TABLE keycloak.resource_server_scope OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.resource_uris (
-                                        resource_id character varying(36) NOT NULL,
-                                        value character varying(255) NOT NULL
+    resource_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
 );
 
 
@@ -1292,10 +1293,10 @@ ALTER TABLE keycloak.resource_uris OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.role_attribute (
-                                         id character varying(36) NOT NULL,
-                                         role_id character varying(36) NOT NULL,
-                                         name character varying(255) NOT NULL,
-                                         value character varying(255)
+    id character varying(36) NOT NULL,
+    role_id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(255)
 );
 
 
@@ -1307,8 +1308,8 @@ ALTER TABLE keycloak.role_attribute OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.scope_mapping (
-                                        client_id character varying(36) NOT NULL,
-                                        role_id character varying(36) NOT NULL
+    client_id character varying(36) NOT NULL,
+    role_id character varying(36) NOT NULL
 );
 
 
@@ -1320,8 +1321,8 @@ ALTER TABLE keycloak.scope_mapping OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.scope_policy (
-                                       scope_id character varying(36) NOT NULL,
-                                       policy_id character varying(36) NOT NULL
+    scope_id character varying(36) NOT NULL,
+    policy_id character varying(36) NOT NULL
 );
 
 
@@ -1333,10 +1334,10 @@ ALTER TABLE keycloak.scope_policy OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_attribute (
-                                         name character varying(255) NOT NULL,
-                                         value character varying(255),
-                                         user_id character varying(36) NOT NULL,
-                                         id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL
+    name character varying(255) NOT NULL,
+    value character varying(255),
+    user_id character varying(36) NOT NULL,
+    id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL
 );
 
 
@@ -1348,13 +1349,13 @@ ALTER TABLE keycloak.user_attribute OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_consent (
-                                       id character varying(36) NOT NULL,
-                                       client_id character varying(255),
-                                       user_id character varying(36) NOT NULL,
-                                       created_date bigint,
-                                       last_updated_date bigint,
-                                       client_storage_provider character varying(36),
-                                       external_client_id character varying(255)
+    id character varying(36) NOT NULL,
+    client_id character varying(255),
+    user_id character varying(36) NOT NULL,
+    created_date bigint,
+    last_updated_date bigint,
+    client_storage_provider character varying(36),
+    external_client_id character varying(255)
 );
 
 
@@ -1366,8 +1367,8 @@ ALTER TABLE keycloak.user_consent OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_consent_client_scope (
-                                                    user_consent_id character varying(36) NOT NULL,
-                                                    scope_id character varying(36) NOT NULL
+    user_consent_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL
 );
 
 
@@ -1379,19 +1380,19 @@ ALTER TABLE keycloak.user_consent_client_scope OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_entity (
-                                      id character varying(36) NOT NULL,
-                                      email character varying(255),
-                                      email_constraint character varying(255),
-                                      email_verified boolean DEFAULT false NOT NULL,
-                                      enabled boolean DEFAULT false NOT NULL,
-                                      federation_link character varying(255),
-                                      first_name character varying(255),
-                                      last_name character varying(255),
-                                      realm_id character varying(255),
-                                      username character varying(255),
-                                      created_timestamp bigint,
-                                      service_account_client_link character varying(255),
-                                      not_before integer DEFAULT 0 NOT NULL
+    id character varying(36) NOT NULL,
+    email character varying(255),
+    email_constraint character varying(255),
+    email_verified boolean DEFAULT false NOT NULL,
+    enabled boolean DEFAULT false NOT NULL,
+    federation_link character varying(255),
+    first_name character varying(255),
+    last_name character varying(255),
+    realm_id character varying(255),
+    username character varying(255),
+    created_timestamp bigint,
+    service_account_client_link character varying(255),
+    not_before integer DEFAULT 0 NOT NULL
 );
 
 
@@ -1403,9 +1404,9 @@ ALTER TABLE keycloak.user_entity OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_federation_config (
-                                                 user_federation_provider_id character varying(36) NOT NULL,
-                                                 value character varying(255),
-                                                 name character varying(255) NOT NULL
+    user_federation_provider_id character varying(36) NOT NULL,
+    value character varying(255),
+    name character varying(255) NOT NULL
 );
 
 
@@ -1417,11 +1418,11 @@ ALTER TABLE keycloak.user_federation_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_federation_mapper (
-                                                 id character varying(36) NOT NULL,
-                                                 name character varying(255) NOT NULL,
-                                                 federation_provider_id character varying(36) NOT NULL,
-                                                 federation_mapper_type character varying(255) NOT NULL,
-                                                 realm_id character varying(36) NOT NULL
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    federation_provider_id character varying(36) NOT NULL,
+    federation_mapper_type character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL
 );
 
 
@@ -1433,9 +1434,9 @@ ALTER TABLE keycloak.user_federation_mapper OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_federation_mapper_config (
-                                                        user_federation_mapper_id character varying(36) NOT NULL,
-                                                        value character varying(255),
-                                                        name character varying(255) NOT NULL
+    user_federation_mapper_id character varying(36) NOT NULL,
+    value character varying(255),
+    name character varying(255) NOT NULL
 );
 
 
@@ -1447,14 +1448,14 @@ ALTER TABLE keycloak.user_federation_mapper_config OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_federation_provider (
-                                                   id character varying(36) NOT NULL,
-                                                   changed_sync_period integer,
-                                                   display_name character varying(255),
-                                                   full_sync_period integer,
-                                                   last_sync integer,
-                                                   priority integer,
-                                                   provider_name character varying(255),
-                                                   realm_id character varying(36)
+    id character varying(36) NOT NULL,
+    changed_sync_period integer,
+    display_name character varying(255),
+    full_sync_period integer,
+    last_sync integer,
+    priority integer,
+    provider_name character varying(255),
+    realm_id character varying(36)
 );
 
 
@@ -1466,8 +1467,8 @@ ALTER TABLE keycloak.user_federation_provider OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_group_membership (
-                                                group_id character varying(36) NOT NULL,
-                                                user_id character varying(36) NOT NULL
+    group_id character varying(36) NOT NULL,
+    user_id character varying(36) NOT NULL
 );
 
 
@@ -1479,8 +1480,8 @@ ALTER TABLE keycloak.user_group_membership OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_required_action (
-                                               user_id character varying(36) NOT NULL,
-                                               required_action character varying(255) DEFAULT ' '::character varying NOT NULL
+    user_id character varying(36) NOT NULL,
+    required_action character varying(255) DEFAULT ' '::character varying NOT NULL
 );
 
 
@@ -1492,8 +1493,8 @@ ALTER TABLE keycloak.user_required_action OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_role_mapping (
-                                            role_id character varying(255) NOT NULL,
-                                            user_id character varying(36) NOT NULL
+    role_id character varying(255) NOT NULL,
+    user_id character varying(36) NOT NULL
 );
 
 
@@ -1505,18 +1506,18 @@ ALTER TABLE keycloak.user_role_mapping OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_session (
-                                       id character varying(36) NOT NULL,
-                                       auth_method character varying(255),
-                                       ip_address character varying(255),
-                                       last_session_refresh integer,
-                                       login_username character varying(255),
-                                       realm_id character varying(255),
-                                       remember_me boolean DEFAULT false NOT NULL,
-                                       started integer,
-                                       user_id character varying(255),
-                                       user_session_state integer,
-                                       broker_session_id character varying(255),
-                                       broker_user_id character varying(255)
+    id character varying(36) NOT NULL,
+    auth_method character varying(255),
+    ip_address character varying(255),
+    last_session_refresh integer,
+    login_username character varying(255),
+    realm_id character varying(255),
+    remember_me boolean DEFAULT false NOT NULL,
+    started integer,
+    user_id character varying(255),
+    user_session_state integer,
+    broker_session_id character varying(255),
+    broker_user_id character varying(255)
 );
 
 
@@ -1528,9 +1529,9 @@ ALTER TABLE keycloak.user_session OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.user_session_note (
-                                            user_session character varying(36) NOT NULL,
-                                            name character varying(255) NOT NULL,
-                                            value character varying(2048)
+    user_session character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(2048)
 );
 
 
@@ -1542,12 +1543,12 @@ ALTER TABLE keycloak.user_session_note OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.username_login_failure (
-                                                 realm_id character varying(36) NOT NULL,
-                                                 username character varying(255) NOT NULL,
-                                                 failed_login_not_before integer,
-                                                 last_failure bigint,
-                                                 last_ip_failure character varying(255),
-                                                 num_failures integer
+    realm_id character varying(36) NOT NULL,
+    username character varying(255) NOT NULL,
+    failed_login_not_before integer,
+    last_failure bigint,
+    last_ip_failure character varying(255),
+    num_failures integer
 );
 
 
@@ -1559,16 +1560,31 @@ ALTER TABLE keycloak.username_login_failure OWNER TO postgres;
 --
 
 CREATE TABLE keycloak.web_origins (
-                                      client_id character varying(36) NOT NULL,
-                                      value character varying(255) NOT NULL
+    client_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
 );
 
 
 ALTER TABLE keycloak.web_origins OWNER TO postgres;
 
+--
+-- TOC entry 3744 (class 0 OID 16386)
+-- Dependencies: 210
+-- Data for Name: admin_event_entity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
+--
+
+
 
 --
--- TOC entry 4113 (class 0 OID 16394)
+-- TOC entry 3745 (class 0 OID 16391)
+-- Dependencies: 211
+-- Data for Name: associated_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 3746 (class 0 OID 16394)
 -- Dependencies: 212
 -- Data for Name: authentication_execution; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1670,7 +1686,7 @@ INSERT INTO keycloak.authentication_execution (id, alias, authenticator, realm_i
 
 
 --
--- TOC entry 4114 (class 0 OID 16398)
+-- TOC entry 3747 (class 0 OID 16398)
 -- Dependencies: 213
 -- Data for Name: authentication_flow; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1718,7 +1734,7 @@ INSERT INTO keycloak.authentication_flow (id, alias, description, realm_id, prov
 
 
 --
--- TOC entry 4115 (class 0 OID 16406)
+-- TOC entry 3748 (class 0 OID 16406)
 -- Dependencies: 214
 -- Data for Name: authenticator_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1730,7 +1746,7 @@ INSERT INTO keycloak.authenticator_config (id, alias, realm_id) VALUES ('8d4435c
 
 
 --
--- TOC entry 4116 (class 0 OID 16409)
+-- TOC entry 3749 (class 0 OID 16409)
 -- Dependencies: 215
 -- Data for Name: authenticator_config_entry; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1742,7 +1758,7 @@ INSERT INTO keycloak.authenticator_config_entry (authenticator_id, value, name) 
 
 
 --
--- TOC entry 4117 (class 0 OID 16414)
+-- TOC entry 3750 (class 0 OID 16414)
 -- Dependencies: 216
 -- Data for Name: broker_link; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1750,7 +1766,7 @@ INSERT INTO keycloak.authenticator_config_entry (authenticator_id, value, name) 
 
 
 --
--- TOC entry 4118 (class 0 OID 16419)
+-- TOC entry 3751 (class 0 OID 16419)
 -- Dependencies: 217
 -- Data for Name: client; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1771,11 +1787,10 @@ INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_bef
 INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', true, true, 'elastic-query-web-client-2', 0, false, 'j8mbzx15a4zJ78I498YnC5iJuHZWiTSx', 'http://elastic-query-web-client-2:8186/elastic-query-web-client', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', false, 'client-secret', '', '', NULL, true, false, true, false);
 INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', true, true, 'elastic-query-service-1', 0, false, 'lggO2Rygd6P9DvxL3HNM6NfA27ubh7Jq', 'http://elastic-query-service-1:8183/elastic-query-service', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', true, 'client-secret', '', '', NULL, true, false, true, false);
 INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', true, true, 'elastic-query-web-client', 0, false, '8iYqVnAFHNQK6V9Nldn32nVdWQbl0b5t', 'http://elastic-query-web-client-1:8184/elastic-query-web-client', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', false, 'client-secret', '', '', NULL, true, false, false, false);
-INSERT INTO keycloak.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', true, true, 'elastic-query-service-2', 0, false, 'lggO2Rygd6P9DvxL3HNM6NfA27ubh7Jq', 'http://elastic-query-service-2:8186/elastic-query-service', false, '', false, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'openid-connect', -1, true, false, '', true, 'client-secret', '', '', NULL, true, false, true, false);
 
 
 --
--- TOC entry 4119 (class 0 OID 16437)
+-- TOC entry 3752 (class 0 OID 16437)
 -- Dependencies: 218
 -- Data for Name: client_attributes; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1810,18 +1825,11 @@ INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c9221
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', '1663315099', 'client.secret.creation.time');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://elastic-query-web-client-1:8184/elastic-query-web-client', 'post.logout.redirect.uris');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://elastic-query-service-1:8183/elastic-query-service', 'post.logout.redirect.uris');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'oidc.ciba.grant.enabled');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '1662997735', 'client.secret.creation.time');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'true', 'backchannel.logout.session.required');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'backchannel.logout.revoke.offline.tokens');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'oauth2.device.authorization.grant.enabled');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'false', 'display.on.consent.screen');
 INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://elastic-query-web-client-2:8186/elastic-query-web-client', 'post.logout.redirect.uris');
-INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'http://elastic-query-service-2:81865/elastic-query-service', 'post.logout.redirect.uris');
 
 
 --
--- TOC entry 4120 (class 0 OID 16442)
+-- TOC entry 3753 (class 0 OID 16442)
 -- Dependencies: 219
 -- Data for Name: client_auth_flow_bindings; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1829,7 +1837,7 @@ INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490d
 
 
 --
--- TOC entry 4121 (class 0 OID 16445)
+-- TOC entry 3754 (class 0 OID 16445)
 -- Dependencies: 220
 -- Data for Name: client_initial_access; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1837,7 +1845,7 @@ INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490d
 
 
 --
--- TOC entry 4122 (class 0 OID 16448)
+-- TOC entry 3755 (class 0 OID 16448)
 -- Dependencies: 221
 -- Data for Name: client_node_registrations; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1845,7 +1853,7 @@ INSERT INTO keycloak.client_attributes (client_id, value, name) VALUES ('9f8490d
 
 
 --
--- TOC entry 4123 (class 0 OID 16451)
+-- TOC entry 3756 (class 0 OID 16451)
 -- Dependencies: 222
 -- Data for Name: client_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1876,7 +1884,7 @@ INSERT INTO keycloak.client_scope (id, name, realm_id, description, protocol) VA
 
 
 --
--- TOC entry 4124 (class 0 OID 16456)
+-- TOC entry 3757 (class 0 OID 16456)
 -- Dependencies: 223
 -- Data for Name: client_scope_attributes; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -1948,7 +1956,7 @@ INSERT INTO keycloak.client_scope_attributes (scope_id, value, name) VALUES ('b9
 
 
 --
--- TOC entry 4125 (class 0 OID 16461)
+-- TOC entry 3758 (class 0 OID 16461)
 -- Dependencies: 224
 -- Data for Name: client_scope_client; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2097,22 +2105,10 @@ INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VA
 INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'b9e6df1b-a9e8-4844-8df0-509a774eedf7', true);
 INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'adcc6c78-e6a7-4097-b8fa-789fcb915bad', true);
 INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', '7e22b14c-e3fd-40ae-8a33-851d76ff512a', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '2f9ef4a8-19ed-4ad6-9b4f-4bb7dc65d589', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'de1986bc-c2d2-4f6e-8186-5ae6307563d0', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'adcc6c78-e6a7-4097-b8fa-789fcb915bad', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '7e22b14c-e3fd-40ae-8a33-851d76ff512a', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'b9e6df1b-a9e8-4844-8df0-509a774eedf7', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'bb8484c0-6abb-4349-b46c-c76542fe4622', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '47d79312-8b12-4772-9f20-ea1aa297b402', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '144f8c8d-c0f2-499f-b3c2-a3a48abcdecd', true);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '30c23fd3-3cf7-426a-be44-5ed7aa749ad3', false);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'eb4517ef-9aef-4f18-b4b2-61e9d5c6ece7', false);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'ebc7d485-5c73-4ca5-a17c-9d8b56b3ae0e', false);
-INSERT INTO keycloak.client_scope_client (client_id, scope_id, default_scope) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', '1b132754-ea05-4574-9742-511d178e37b3', false);
 
 
 --
--- TOC entry 4126 (class 0 OID 16467)
+-- TOC entry 3759 (class 0 OID 16467)
 -- Dependencies: 225
 -- Data for Name: client_scope_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2125,7 +2121,7 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4127 (class 0 OID 16470)
+-- TOC entry 3760 (class 0 OID 16470)
 -- Dependencies: 226
 -- Data for Name: client_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2133,7 +2129,7 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4128 (class 0 OID 16475)
+-- TOC entry 3761 (class 0 OID 16475)
 -- Dependencies: 227
 -- Data for Name: client_session_auth_status; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2141,7 +2137,7 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4129 (class 0 OID 16478)
+-- TOC entry 3762 (class 0 OID 16478)
 -- Dependencies: 228
 -- Data for Name: client_session_note; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2149,7 +2145,7 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4130 (class 0 OID 16483)
+-- TOC entry 3763 (class 0 OID 16483)
 -- Dependencies: 229
 -- Data for Name: client_session_prot_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2157,7 +2153,7 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4131 (class 0 OID 16486)
+-- TOC entry 3764 (class 0 OID 16486)
 -- Dependencies: 230
 -- Data for Name: client_session_role; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2165,7 +2161,7 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4132 (class 0 OID 16489)
+-- TOC entry 3765 (class 0 OID 16489)
 -- Dependencies: 231
 -- Data for Name: client_user_session_note; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2173,7 +2169,7 @@ INSERT INTO keycloak.client_scope_role_mapping (scope_id, role_id) VALUES ('b9e6
 
 
 --
--- TOC entry 4133 (class 0 OID 16494)
+-- TOC entry 3766 (class 0 OID 16494)
 -- Dependencies: 232
 -- Data for Name: component; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2205,7 +2201,7 @@ INSERT INTO keycloak.component (id, name, parent_id, provider_id, provider_type,
 
 
 --
--- TOC entry 4134 (class 0 OID 16499)
+-- TOC entry 3767 (class 0 OID 16499)
 -- Dependencies: 233
 -- Data for Name: component_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2287,7 +2283,7 @@ INSERT INTO keycloak.component_config (id, component_id, name, value) VALUES ('a
 
 
 --
--- TOC entry 4135 (class 0 OID 16504)
+-- TOC entry 3768 (class 0 OID 16504)
 -- Dependencies: 234
 -- Data for Name: composite_role; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2371,7 +2367,7 @@ INSERT INTO keycloak.composite_role (composite, child_role) VALUES ('a61a7643-bd
 
 
 --
--- TOC entry 4136 (class 0 OID 16507)
+-- TOC entry 3769 (class 0 OID 16507)
 -- Dependencies: 235
 -- Data for Name: credential; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2383,7 +2379,7 @@ INSERT INTO keycloak.credential (id, salt, type, user_id, created_date, user_lab
 
 
 --
--- TOC entry 4137 (class 0 OID 16512)
+-- TOC entry 3770 (class 0 OID 16512)
 -- Dependencies: 236
 -- Data for Name: databasechangelog; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2498,7 +2494,7 @@ INSERT INTO keycloak.databasechangelog (id, author, filename, dateexecuted, orde
 
 
 --
--- TOC entry 4138 (class 0 OID 16517)
+-- TOC entry 3771 (class 0 OID 16517)
 -- Dependencies: 237
 -- Data for Name: databasechangeloglock; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2509,7 +2505,7 @@ INSERT INTO keycloak.databasechangeloglock (id, locked, lockgranted, lockedby) V
 
 
 --
--- TOC entry 4139 (class 0 OID 16520)
+-- TOC entry 3772 (class 0 OID 16520)
 -- Dependencies: 238
 -- Data for Name: default_client_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2537,7 +2533,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4140 (class 0 OID 16524)
+-- TOC entry 3773 (class 0 OID 16524)
 -- Dependencies: 239
 -- Data for Name: event_entity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2545,7 +2541,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4141 (class 0 OID 16529)
+-- TOC entry 3774 (class 0 OID 16529)
 -- Dependencies: 240
 -- Data for Name: fed_user_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2553,7 +2549,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4142 (class 0 OID 16534)
+-- TOC entry 3775 (class 0 OID 16534)
 -- Dependencies: 241
 -- Data for Name: fed_user_consent; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2561,7 +2557,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4143 (class 0 OID 16539)
+-- TOC entry 3776 (class 0 OID 16539)
 -- Dependencies: 242
 -- Data for Name: fed_user_consent_cl_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2569,7 +2565,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4144 (class 0 OID 16542)
+-- TOC entry 3777 (class 0 OID 16542)
 -- Dependencies: 243
 -- Data for Name: fed_user_credential; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2577,7 +2573,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4145 (class 0 OID 16547)
+-- TOC entry 3778 (class 0 OID 16547)
 -- Dependencies: 244
 -- Data for Name: fed_user_group_membership; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2585,7 +2581,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4146 (class 0 OID 16550)
+-- TOC entry 3779 (class 0 OID 16550)
 -- Dependencies: 245
 -- Data for Name: fed_user_required_action; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2593,7 +2589,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4147 (class 0 OID 16556)
+-- TOC entry 3780 (class 0 OID 16556)
 -- Dependencies: 246
 -- Data for Name: fed_user_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2601,7 +2597,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4148 (class 0 OID 16559)
+-- TOC entry 3781 (class 0 OID 16559)
 -- Dependencies: 247
 -- Data for Name: federated_identity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2609,7 +2605,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4149 (class 0 OID 16564)
+-- TOC entry 3782 (class 0 OID 16564)
 -- Dependencies: 248
 -- Data for Name: federated_user; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2617,7 +2613,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4150 (class 0 OID 16569)
+-- TOC entry 3783 (class 0 OID 16569)
 -- Dependencies: 249
 -- Data for Name: group_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2625,7 +2621,7 @@ INSERT INTO keycloak.default_client_scope (realm_id, scope_id, default_scope) VA
 
 
 --
--- TOC entry 4151 (class 0 OID 16575)
+-- TOC entry 3784 (class 0 OID 16575)
 -- Dependencies: 250
 -- Data for Name: group_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2636,7 +2632,7 @@ INSERT INTO keycloak.group_role_mapping (role_id, group_id) VALUES ('edb6d233-6c
 
 
 --
--- TOC entry 4152 (class 0 OID 16578)
+-- TOC entry 3785 (class 0 OID 16578)
 -- Dependencies: 251
 -- Data for Name: identity_provider; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2644,7 +2640,7 @@ INSERT INTO keycloak.group_role_mapping (role_id, group_id) VALUES ('edb6d233-6c
 
 
 --
--- TOC entry 4153 (class 0 OID 16589)
+-- TOC entry 3786 (class 0 OID 16589)
 -- Dependencies: 252
 -- Data for Name: identity_provider_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2652,7 +2648,7 @@ INSERT INTO keycloak.group_role_mapping (role_id, group_id) VALUES ('edb6d233-6c
 
 
 --
--- TOC entry 4154 (class 0 OID 16594)
+-- TOC entry 3787 (class 0 OID 16594)
 -- Dependencies: 253
 -- Data for Name: identity_provider_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2660,7 +2656,7 @@ INSERT INTO keycloak.group_role_mapping (role_id, group_id) VALUES ('edb6d233-6c
 
 
 --
--- TOC entry 4155 (class 0 OID 16599)
+-- TOC entry 3788 (class 0 OID 16599)
 -- Dependencies: 254
 -- Data for Name: idp_mapper_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2668,7 +2664,7 @@ INSERT INTO keycloak.group_role_mapping (role_id, group_id) VALUES ('edb6d233-6c
 
 
 --
--- TOC entry 4156 (class 0 OID 16604)
+-- TOC entry 3789 (class 0 OID 16604)
 -- Dependencies: 255
 -- Data for Name: keycloak_group; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2679,7 +2675,7 @@ INSERT INTO keycloak.keycloak_group (id, name, parent_group, realm_id) VALUES ('
 
 
 --
--- TOC entry 4157 (class 0 OID 16607)
+-- TOC entry 3790 (class 0 OID 16607)
 -- Dependencies: 256
 -- Data for Name: keycloak_role; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2769,7 +2765,7 @@ INSERT INTO keycloak.keycloak_role (id, client_realm_constraint, client_role, de
 
 
 --
--- TOC entry 4158 (class 0 OID 16613)
+-- TOC entry 3791 (class 0 OID 16613)
 -- Dependencies: 257
 -- Data for Name: migration_model; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2778,7 +2774,7 @@ INSERT INTO keycloak.migration_model (id, version, update_time) VALUES ('u8yhu',
 
 
 --
--- TOC entry 4159 (class 0 OID 16617)
+-- TOC entry 3792 (class 0 OID 16617)
 -- Dependencies: 258
 -- Data for Name: offline_client_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2786,7 +2782,7 @@ INSERT INTO keycloak.migration_model (id, version, update_time) VALUES ('u8yhu',
 
 
 --
--- TOC entry 4160 (class 0 OID 16624)
+-- TOC entry 3793 (class 0 OID 16624)
 -- Dependencies: 259
 -- Data for Name: offline_user_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2794,7 +2790,7 @@ INSERT INTO keycloak.migration_model (id, version, update_time) VALUES ('u8yhu',
 
 
 --
--- TOC entry 4161 (class 0 OID 16630)
+-- TOC entry 3794 (class 0 OID 16630)
 -- Dependencies: 260
 -- Data for Name: policy_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2802,7 +2798,7 @@ INSERT INTO keycloak.migration_model (id, version, update_time) VALUES ('u8yhu',
 
 
 --
--- TOC entry 4162 (class 0 OID 16635)
+-- TOC entry 3795 (class 0 OID 16635)
 -- Dependencies: 261
 -- Data for Name: protocol_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -2881,19 +2877,13 @@ INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, 
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('0cdc434a-df83-48ff-b77b-ab56fcaa69e9', 'client-id', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('770225b9-b8fa-416f-bfa6-df5c84411391', 'client-host', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('e61a2cac-6302-4864-94d5-8b762203daa1', 'client-ip', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
-INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'client-id', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
-INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'kafka-streams-service', 'openid-connect', 'oidc-audience-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
-INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'microservices-groups', 'openid-connect', 'oidc-group-membership-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
-INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'analytics-service', 'openid-connect', 'oidc-audience-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
-INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'client-ip', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
-INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'client-host', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '9f8490da-40cd-4870-94aa-b37127a2152a', NULL);
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('1c535fc4-e248-41a9-9540-c94049cff6ae', 'Client ID', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('400892d0-7981-4330-964a-013bfbeaadd3', 'Client Host', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
 INSERT INTO keycloak.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) VALUES ('90bd1263-b93f-4a45-8c8c-b54bbe06a4eb', 'Client IP Address', 'openid-connect', 'oidc-usersessionmodel-note-mapper', '56c92216-f221-49bf-bb61-1333c553624a', NULL);
 
 
 --
--- TOC entry 4163 (class 0 OID 16640)
+-- TOC entry 3796 (class 0 OID 16640)
 -- Dependencies: 262
 -- Data for Name: protocol_mapper_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3264,37 +3254,6 @@ INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VA
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('e61a2cac-6302-4864-94d5-8b762203daa1', 'false', 'access.tokenResponse.claim');
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('770225b9-b8fa-416f-bfa6-df5c84411391', 'clientHost', 'user.session.note');
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('770225b9-b8fa-416f-bfa6-df5c84411391', 'clientHost', 'claim.name');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'false', 'id.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'true', 'access.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'kafka-streams-service', 'included.custom.audience');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'false', 'full.path');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'true', 'id.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'true', 'access.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'groups', 'claim.name');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('5a1df7c4-b5a0-432c-8786-1fae7a327879', 'true', 'userinfo.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'clientIPAddress', 'user.session.note');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'true', 'id.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'true', 'access.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'clientIPAddress', 'claim.name');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'false', 'access.tokenResponse.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'false', 'id.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'true', 'access.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'analytics-service', 'included.custom.audience');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'clientHost', 'user.session.note');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'true', 'id.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'true', 'access.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'clientHost', 'claim.name');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'false', 'access.tokenResponse.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('bf321f25-1863-4bb5-8850-85f810f3f63c', 'true', 'userinfo.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'clientID', 'user.session.note');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'true', 'id.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'true', 'access.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'clientID', 'claim.name');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'false', 'access.tokenResponse.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('face0075-04c2-4e86-ab8a-669505441c44', 'true', 'userinfo.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('a0b742b5-676f-417a-996b-c883c970630f', 'false', 'userinfo.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('8d382cd4-461f-4afc-b549-e29b00a12727', 'true', 'userinfo.token.claim');
-INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('3137fb19-9a5c-4f75-88bb-36c9b1899977', 'false', 'userinfo.token.claim');
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('1c535fc4-e248-41a9-9540-c94049cff6ae', 'clientId', 'user.session.note');
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('1c535fc4-e248-41a9-9540-c94049cff6ae', 'true', 'id.token.claim');
 INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VALUES ('1c535fc4-e248-41a9-9540-c94049cff6ae', 'true', 'access.token.claim');
@@ -3313,7 +3272,7 @@ INSERT INTO keycloak.protocol_mapper_config (protocol_mapper_id, value, name) VA
 
 
 --
--- TOC entry 4164 (class 0 OID 16645)
+-- TOC entry 3797 (class 0 OID 16645)
 -- Dependencies: 263
 -- Data for Name: realm; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3323,7 +3282,7 @@ INSERT INTO keycloak.realm (id, access_code_lifespan, user_action_lifespan, acce
 
 
 --
--- TOC entry 4165 (class 0 OID 16678)
+-- TOC entry 3798 (class 0 OID 16678)
 -- Dependencies: 264
 -- Data for Name: realm_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3396,7 +3355,7 @@ INSERT INTO keycloak.realm_attribute (name, realm_id, value) VALUES ('parRequest
 
 
 --
--- TOC entry 4166 (class 0 OID 16683)
+-- TOC entry 3799 (class 0 OID 16683)
 -- Dependencies: 265
 -- Data for Name: realm_default_groups; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3404,7 +3363,7 @@ INSERT INTO keycloak.realm_attribute (name, realm_id, value) VALUES ('parRequest
 
 
 --
--- TOC entry 4167 (class 0 OID 16686)
+-- TOC entry 3800 (class 0 OID 16686)
 -- Dependencies: 266
 -- Data for Name: realm_enabled_event_types; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3412,7 +3371,7 @@ INSERT INTO keycloak.realm_attribute (name, realm_id, value) VALUES ('parRequest
 
 
 --
--- TOC entry 4168 (class 0 OID 16689)
+-- TOC entry 3801 (class 0 OID 16689)
 -- Dependencies: 267
 -- Data for Name: realm_events_listeners; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3422,7 +3381,7 @@ INSERT INTO keycloak.realm_events_listeners (realm_id, value) VALUES ('245617d4-
 
 
 --
--- TOC entry 4169 (class 0 OID 16692)
+-- TOC entry 3802 (class 0 OID 16692)
 -- Dependencies: 268
 -- Data for Name: realm_localizations; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3430,7 +3389,7 @@ INSERT INTO keycloak.realm_events_listeners (realm_id, value) VALUES ('245617d4-
 
 
 --
--- TOC entry 4170 (class 0 OID 16697)
+-- TOC entry 3803 (class 0 OID 16697)
 -- Dependencies: 269
 -- Data for Name: realm_required_credential; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3440,7 +3399,7 @@ INSERT INTO keycloak.realm_required_credential (type, form_label, input, secret,
 
 
 --
--- TOC entry 4171 (class 0 OID 16704)
+-- TOC entry 3804 (class 0 OID 16704)
 -- Dependencies: 270
 -- Data for Name: realm_smtp_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3448,7 +3407,7 @@ INSERT INTO keycloak.realm_required_credential (type, form_label, input, secret,
 
 
 --
--- TOC entry 4172 (class 0 OID 16709)
+-- TOC entry 3805 (class 0 OID 16709)
 -- Dependencies: 271
 -- Data for Name: realm_supported_locales; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3456,7 +3415,7 @@ INSERT INTO keycloak.realm_required_credential (type, form_label, input, secret,
 
 
 --
--- TOC entry 4173 (class 0 OID 16712)
+-- TOC entry 3806 (class 0 OID 16712)
 -- Dependencies: 272
 -- Data for Name: redirect_uris; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3470,11 +3429,10 @@ INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('8c80538e-486c-4b9
 INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://elastic-query-web-client-2:8186/elastic-query-web-client/login/oauth2/code/keycloak');
 INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://elastic-query-service-1:8183/elastic-query-service/login/oauth2/code/keycloak');
 INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://elastic-query-web-client-1:8184/elastic-query-web-client/login/oauth2/code/keycloak');
-INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'http://elastic-query-service-2:8186/elastic-query-service/login/oauth2/code/keycloak');
 
 
 --
--- TOC entry 4174 (class 0 OID 16715)
+-- TOC entry 3807 (class 0 OID 16715)
 -- Dependencies: 273
 -- Data for Name: required_action_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3482,7 +3440,7 @@ INSERT INTO keycloak.redirect_uris (client_id, value) VALUES ('9f8490da-40cd-487
 
 
 --
--- TOC entry 4175 (class 0 OID 16720)
+-- TOC entry 3808 (class 0 OID 16720)
 -- Dependencies: 274
 -- Data for Name: required_action_provider; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3508,7 +3466,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4176 (class 0 OID 16727)
+-- TOC entry 3809 (class 0 OID 16727)
 -- Dependencies: 275
 -- Data for Name: resource_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3516,7 +3474,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4177 (class 0 OID 16733)
+-- TOC entry 3810 (class 0 OID 16733)
 -- Dependencies: 276
 -- Data for Name: resource_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3524,7 +3482,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4178 (class 0 OID 16736)
+-- TOC entry 3811 (class 0 OID 16736)
 -- Dependencies: 277
 -- Data for Name: resource_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3532,7 +3490,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4179 (class 0 OID 16739)
+-- TOC entry 3812 (class 0 OID 16739)
 -- Dependencies: 278
 -- Data for Name: resource_server; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3540,7 +3498,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4180 (class 0 OID 16744)
+-- TOC entry 3813 (class 0 OID 16744)
 -- Dependencies: 279
 -- Data for Name: resource_server_perm_ticket; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3548,7 +3506,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4181 (class 0 OID 16749)
+-- TOC entry 3814 (class 0 OID 16749)
 -- Dependencies: 280
 -- Data for Name: resource_server_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3556,7 +3514,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4182 (class 0 OID 16754)
+-- TOC entry 3815 (class 0 OID 16754)
 -- Dependencies: 281
 -- Data for Name: resource_server_resource; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3564,7 +3522,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4183 (class 0 OID 16760)
+-- TOC entry 3816 (class 0 OID 16760)
 -- Dependencies: 282
 -- Data for Name: resource_server_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3572,7 +3530,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4184 (class 0 OID 16765)
+-- TOC entry 3817 (class 0 OID 16765)
 -- Dependencies: 283
 -- Data for Name: resource_uris; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3580,7 +3538,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4185 (class 0 OID 16768)
+-- TOC entry 3818 (class 0 OID 16768)
 -- Dependencies: 284
 -- Data for Name: role_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3588,7 +3546,7 @@ INSERT INTO keycloak.required_action_provider (id, alias, name, realm_id, enable
 
 
 --
--- TOC entry 4186 (class 0 OID 16773)
+-- TOC entry 3819 (class 0 OID 16773)
 -- Dependencies: 285
 -- Data for Name: scope_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3598,7 +3556,7 @@ INSERT INTO keycloak.scope_mapping (client_id, role_id) VALUES ('8b5e3db7-a356-4
 
 
 --
--- TOC entry 4187 (class 0 OID 16776)
+-- TOC entry 3820 (class 0 OID 16776)
 -- Dependencies: 286
 -- Data for Name: scope_policy; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3606,7 +3564,7 @@ INSERT INTO keycloak.scope_mapping (client_id, role_id) VALUES ('8b5e3db7-a356-4
 
 
 --
--- TOC entry 4188 (class 0 OID 16779)
+-- TOC entry 3821 (class 0 OID 16779)
 -- Dependencies: 287
 -- Data for Name: user_attribute; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3614,7 +3572,7 @@ INSERT INTO keycloak.scope_mapping (client_id, role_id) VALUES ('8b5e3db7-a356-4
 
 
 --
--- TOC entry 4189 (class 0 OID 16785)
+-- TOC entry 3822 (class 0 OID 16785)
 -- Dependencies: 288
 -- Data for Name: user_consent; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3622,7 +3580,7 @@ INSERT INTO keycloak.scope_mapping (client_id, role_id) VALUES ('8b5e3db7-a356-4
 
 
 --
--- TOC entry 4190 (class 0 OID 16790)
+-- TOC entry 3823 (class 0 OID 16790)
 -- Dependencies: 289
 -- Data for Name: user_consent_client_scope; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3630,7 +3588,7 @@ INSERT INTO keycloak.scope_mapping (client_id, role_id) VALUES ('8b5e3db7-a356-4
 
 
 --
--- TOC entry 4191 (class 0 OID 16793)
+-- TOC entry 3824 (class 0 OID 16793)
 -- Dependencies: 290
 -- Data for Name: user_entity; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3640,11 +3598,10 @@ INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, e
 INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('e41bd033-77df-4e07-8d38-eb5498998873', NULL, 'bbbe063a-9e2d-490b-8df2-342aed373831', false, true, NULL, '', '', '245617d4-22a0-4661-9450-5c17c04f2d8c', 'app_admin', 1662989225250, NULL, 0);
 INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('388258cb-1542-4104-920d-87e04a0381d5', NULL, '8e80488c-43e2-480d-8eb9-287bd4439551', false, true, NULL, '', '', '245617d4-22a0-4661-9450-5c17c04f2d8c', 'app_super_user', 1662989243519, NULL, 0);
 INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('35204ad5-c46a-405b-8bc8-f865819b1bd0', NULL, '902e7601-699f-4685-ba7b-3a7f4a97c44e', false, true, NULL, NULL, NULL, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'service-account-elastic-query-service-1', 1663688846305, '56c92216-f221-49bf-bb61-1333c553624a', 0);
-INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) VALUES ('e8dd762c-4995-4006-9e50-7231a6379934', NULL, '8cd0eaa6-e8a4-43da-a1e3-4a2c0703cd2b', false, true, NULL, NULL, NULL, '245617d4-22a0-4661-9450-5c17c04f2d8c', 'service-account-elastic-query-service-2', 1663688851861, '9f8490da-40cd-4870-94aa-b37127a2152a', 0);
 
 
 --
--- TOC entry 4192 (class 0 OID 16801)
+-- TOC entry 3825 (class 0 OID 16801)
 -- Dependencies: 291
 -- Data for Name: user_federation_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3652,7 +3609,7 @@ INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, e
 
 
 --
--- TOC entry 4193 (class 0 OID 16806)
+-- TOC entry 3826 (class 0 OID 16806)
 -- Dependencies: 292
 -- Data for Name: user_federation_mapper; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3660,7 +3617,7 @@ INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, e
 
 
 --
--- TOC entry 4194 (class 0 OID 16811)
+-- TOC entry 3827 (class 0 OID 16811)
 -- Dependencies: 293
 -- Data for Name: user_federation_mapper_config; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3668,7 +3625,7 @@ INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, e
 
 
 --
--- TOC entry 4195 (class 0 OID 16816)
+-- TOC entry 3828 (class 0 OID 16816)
 -- Dependencies: 294
 -- Data for Name: user_federation_provider; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3676,7 +3633,7 @@ INSERT INTO keycloak.user_entity (id, email, email_constraint, email_verified, e
 
 
 --
--- TOC entry 4196 (class 0 OID 16821)
+-- TOC entry 3829 (class 0 OID 16821)
 -- Dependencies: 295
 -- Data for Name: user_group_membership; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3687,7 +3644,7 @@ INSERT INTO keycloak.user_group_membership (group_id, user_id) VALUES ('651125c8
 
 
 --
--- TOC entry 4197 (class 0 OID 16824)
+-- TOC entry 3830 (class 0 OID 16824)
 -- Dependencies: 296
 -- Data for Name: user_required_action; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3695,7 +3652,7 @@ INSERT INTO keycloak.user_group_membership (group_id, user_id) VALUES ('651125c8
 
 
 --
--- TOC entry 4198 (class 0 OID 16828)
+-- TOC entry 3831 (class 0 OID 16828)
 -- Dependencies: 297
 -- Data for Name: user_role_mapping; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3723,11 +3680,10 @@ INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4
 INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', 'e41bd033-77df-4e07-8d38-eb5498998873');
 INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', '388258cb-1542-4104-920d-87e04a0381d5');
 INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', '35204ad5-c46a-405b-8bc8-f865819b1bd0');
-INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4-4d0a-9f5c-89e7af79c6df', 'e8dd762c-4995-4006-9e50-7231a6379934');
 
 
 --
--- TOC entry 4199 (class 0 OID 16831)
+-- TOC entry 3832 (class 0 OID 16831)
 -- Dependencies: 298
 -- Data for Name: user_session; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3735,7 +3691,7 @@ INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4
 
 
 --
--- TOC entry 4200 (class 0 OID 16837)
+-- TOC entry 3833 (class 0 OID 16837)
 -- Dependencies: 299
 -- Data for Name: user_session_note; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3743,7 +3699,7 @@ INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4
 
 
 --
--- TOC entry 4201 (class 0 OID 16842)
+-- TOC entry 3834 (class 0 OID 16842)
 -- Dependencies: 300
 -- Data for Name: username_login_failure; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3751,7 +3707,7 @@ INSERT INTO keycloak.user_role_mapping (role_id, user_id) VALUES ('a61a7643-bda4
 
 
 --
--- TOC entry 4202 (class 0 OID 16847)
+-- TOC entry 3835 (class 0 OID 16847)
 -- Dependencies: 301
 -- Data for Name: web_origins; Type: TABLE DATA; Schema: keycloak; Owner: postgres
 --
@@ -3761,10 +3717,9 @@ INSERT INTO keycloak.web_origins (client_id, value) VALUES ('8c80538e-486c-4b9d-
 INSERT INTO keycloak.web_origins (client_id, value) VALUES ('cd83868d-d7af-4559-b838-2cf4f4868b93', 'http://elastic-query-web-client-2:8186');
 INSERT INTO keycloak.web_origins (client_id, value) VALUES ('56c92216-f221-49bf-bb61-1333c553624a', 'http://elastic-query-service-1:8183');
 INSERT INTO keycloak.web_origins (client_id, value) VALUES ('7a29b352-f4b7-456c-8b46-7d8beaa9bad4', 'http://elastic-query-web-client-1:8184');
-INSERT INTO keycloak.web_origins (client_id, value) VALUES ('9f8490da-40cd-4870-94aa-b37127a2152a', 'http://elastic-query-service-2:8186');
 
 
--- Completed on 2022-09-21 22:37:26 CEST
+-- Completed on 2022-09-23 16:35:35 CEST
 
 --
 -- PostgreSQL database dump complete

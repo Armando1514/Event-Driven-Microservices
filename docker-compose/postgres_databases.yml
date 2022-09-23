@@ -9,7 +9,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-    - "./db-keycloak.sql:/docker-entrypoint-initdb.d/db-keycloak.sql"
+    - "./data/db-keycloak.sql:/docker-entrypoint-initdb.d/db-keycloak.sql"
     - "postgres_storage_1:/var/lib/postgresql/data/"
     networks:
       - ${GLOBAL_NETWORK:-services}
@@ -22,7 +22,7 @@ services:
     ports:
       - '5433:5432'
     volumes:
-      - "./db-elastic-query-service.sql:/docker-entrypoint-initdb.d/db-elastic-query-service.sql"
+      - "./data/db-elastic-query-service.sql:/docker-entrypoint-initdb.d/db-elastic-query-service.sql"
       - "postgres_storage_2:/var/lib/postgresql/data/"
     networks:
       - ${GLOBAL_NETWORK:-services}

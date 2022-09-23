@@ -10,7 +10,7 @@ spring:
         git:
           uri: https://github.com/Armando1514/Event-Driven-Microservices.git
           default-label: main
-          search-paths: microservices/config-server-repository
+          search-paths: config-server-repository
           clone-on-start: true
     fail-fast: true
   security:
