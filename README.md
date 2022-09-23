@@ -1,3 +1,7 @@
+## Architecture Overview
+
+![generalArchitecture](./generalArchitecture.png)
+
 ### Kafka Folders
 
 - Kafka-model: Create and hold java object for kafka in Avro format.
