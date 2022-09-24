@@ -15,5 +15,13 @@ spring:
       username: spring_cloud_user
       password: '1234'
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service-1:8761/eureka/,http://discovery-service-2:8762/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 2
+
 log:
   app-name: elastic-query-web-client

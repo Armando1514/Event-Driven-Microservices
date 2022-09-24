@@ -5,9 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import com.microservices.kafka.streams.service.init.StreamsInitializer;
 import com.microservices.kafka.streams.service.runner.StreamsRunner;
+
+@EnableDiscoveryClient
+
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.microservices"})
 public class KafkaStreamsServiceApplication implements CommandLineRunner {

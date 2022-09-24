@@ -285,4 +285,35 @@ services:
       - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
     networks:
       - ${GLOBAL_NETWORK:-services}
-
+  discovery-service-1:
+    image: ${GROUP_ID}/discovery.service:${SERVICE_VERSION:-latest}
+    ports:
+      - "5014:5014"
+      - "8761:8761"
+    volumes:
+      - "./docker-logs:/workspace/discovery-service/logs"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5014 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "SERVER_PORT=8761"
+      - "SPRING_PROFILES_ACTIVE=peer1"
+      - "EUREKA_INSTANCE_HOSTNAME=discovery-service-1"
+      - "EUREKA_CLIENT_SERVICE-URL_DEFAULT-ZONE=http://discovery-service-1:8761/eureka/,http://discovery-service-2:8762/eureka/"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  discovery-service-2:
+    image: ${GROUP_ID}/discovery.service:${SERVICE_VERSION:-latest}
+    ports:
+      - "5015:5015"
+      - "8762:8762"
+    volumes:
+      - "./docker-logs:/workspace/discovery-service/logs"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5015 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "SERVER_PORT=8762"
+      - "SPRING_PROFILES_ACTIVE=peer2"
+      - "EUREKA_INSTANCE_HOSTNAME=discovery-service-2"
+      - "EUREKA_CLIENT_SERVICE-URL_DEFAULT-ZONE=http://discovery-service-2:8762/eureka/,http://discovery-service-1:8761/eureka/"
+    networks:
+      - ${GLOBAL_NETWORK:-services}

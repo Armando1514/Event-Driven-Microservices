@@ -1,0 +1,22 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-discovery-service
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    appname: service-registry-cluster
+
+logging:
+  level:
+    ROOT: DEBUG
+    com.netflix.eureka: OFF
+    com.netflix.discovery: OFF
+
+log:
+  app-name: discovery-service

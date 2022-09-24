@@ -33,6 +33,10 @@ elastic-config:
   socket-timeout-ms: 30000
 
 spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
   security:
     oauth2:
       resourceserver:

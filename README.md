@@ -25,6 +25,7 @@
 
 - **Elastic-query-web-client**: Client that allows the user to login and search for a tweet. It asks to elastic-query-service to retrieve the tweets based on the user input in the search bar. It as well returns the words count to see in how many documents each word appears. 
 - **Elastic-query-web-client-2**: Same but created to show how to implement SSO (more info in [security readme](./doc/SECURITY.md)).
+- **Discovery-service**: Server for service registration and discovery.
 
 ### Modules
 

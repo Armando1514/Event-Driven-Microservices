@@ -21,6 +21,7 @@
 		<module>services/elastic-query-web-client-2</module>
         <module>services/kafka-streams-service</module>
         <module>services/analytics-service</module>
+        <module>services/discovery-service</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -54,6 +55,7 @@
 		<spring.cloud.load.balancer.version>3.1.4</spring.cloud.load.balancer.version>
 		<postgresql.version>42.5.0</postgresql.version>
 		<kafka-streams-avro-serde.version>7.2.1</kafka-streams-avro-serde.version>
+		<spring-cloud.version>3.1.4</spring-cloud.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -132,6 +134,16 @@
 				<version>${project.version}</version>
 			</dependency>
 			<!-- END LOCAL -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+				<version>${spring-cloud.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+				<version>${spring-cloud.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>io.confluent</groupId>
 				<artifactId>kafka-streams-avro-serde</artifactId>
