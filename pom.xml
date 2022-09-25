@@ -58,6 +58,7 @@
 		<kafka-streams-avro-serde.version>7.2.1</kafka-streams-avro-serde.version>
 		<spring-cloud.version>3.1.4</spring-cloud.version>
 		<spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>2.1.4</spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>
+		<micrometer-registry-prometheus.version>1.9.4</micrometer-registry-prometheus.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -136,6 +137,11 @@
 				<version>${project.version}</version>
 			</dependency>
 			<!-- END LOCAL -->
+			<dependency>
+				<groupId>io.micrometer</groupId>
+				<artifactId>micrometer-registry-prometheus</artifactId>
+				<version>${micrometer-registry-prometheus.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>

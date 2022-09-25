@@ -49,3 +49,16 @@ kafka-streams-config:
   output-topic-name: twitter-analytics-topic
   state-file-location: ${HOME}/kafka-streaming-state
   word-count-store-name: word-count-store
+
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure.include: health, prometheus
+      path-mapping.prometheus: metrics
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      cache.time-to-live: 1ms
