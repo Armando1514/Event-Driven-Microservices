@@ -1,0 +1,88 @@
+gateway-service:
+  timeout-ms: 3000
+  failure-rate-threshold: 50
+  slow-call-rate-threshold: 50
+  slow-call-duration-threshold: 50
+  permitted-num-of-calls-in-half-open-state: 10
+  sliding-window-size: 10
+  min-number-of-calls: 10
+  wait-duration-in-open-state: 60000
+
+server:
+  port: 9090
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+        - id: elastic-query-service
+          uri: lb://elastic-query-service
+          predicates:
+            - Path=/elastic-query-service/**
+          filters:
+            - RewritePath=/elastic-query-service/(?<path>.*), /$\{path}
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+                key-resolver: "#{@authHeaderResolver}"
+            - name: CircuitBreaker
+              args:
+                name: queryServiceCircuitBreaker
+                fallbackUri: forward:/fallback/query-fallback
+        - id: analytics-service
+          uri: lb://analytics-service
+          predicates:
+            - Path=/analytics-service/**
+          filters:
+            - RewritePath=/analytics-service/(?<path>.*), /$\{path}
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+                key-resolver: "#{@authHeaderResolver}"
+            - name: CircuitBreaker
+              args:
+                name: analyticsServiceCircuitBreaker
+                fallbackUri: forward:/fallback/analytics-fallback
+        - id: kafka-streams-service
+          uri: lb://kafka-streams-service
+          predicates:
+            - Path=/kafka-streams-service/**
+          filters:
+            - RewritePath=/kafka-streams-service/(?<path>.*), /$\{path}
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+                key-resolver: "#{@authHeaderResolver}"
+            - name: CircuitBreaker
+              args:
+                name: streamsServiceCircuitBreaker
+                fallbackUri: forward:/fallback/streams-fallback
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure.include: health, prometheus, gateway
+      path-mapping.prometheus: metrics
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      cache.time-to-live: 1ms
+    gateway:
+      enabled: true

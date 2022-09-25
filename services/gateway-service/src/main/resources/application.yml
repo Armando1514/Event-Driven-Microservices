@@ -1,0 +1,29 @@
+logging:
+  level.root: DEBUG
+
+server:
+  port: 9092
+
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active: gateway
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      name: gateway-service,config-client
+      username: spring_cloud_user
+      password: '1234'
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 2
+
+log:
+  app-name: gateway-service

@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  redis-master:
+    image: redis:${REDIS_VERSION:-latest}
+    hostname: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    networks:
+      - ${GLOBAL_NETWORK:-redis}
+  redis-slave:
+    image: redis:${REDIS_VERSION:-latest}
+    command: ["redis-server", "--slaveof", "redis-master", "6379"]
+    ports:
+      - "6380:6379"
+    depends_on:
+      - redis-master
+    networks:
+      - ${GLOBAL_NETWORK:-redis}
