@@ -6,6 +6,7 @@
         <artifactId>microservices</artifactId>
         <groupId>com.microservices</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,6 +16,10 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.microservices</groupId>
+            <artifactId>mdc-interceptor</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>

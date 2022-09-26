@@ -7,6 +7,7 @@ import com.microservices.elastic.query.web.client.exception.ElasticQueryWebClien
 import com.microservices.elastic.query.web.client.service.ElasticQueryWebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -17,6 +18,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+
+import static com.microservices.mdc.Constants.CORRELATION_ID_HEADER;
+import static com.microservices.mdc.Constants.CORRELATION_ID_KEY;
 
 @Service
 public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
@@ -48,6 +52,7 @@ public class TwitterElasticQueryWebClient implements ElasticQueryWebClient {
                 .method(HttpMethod.valueOf(elasticQueryWebClientConfigData.getQueryByText().getMethod()))
                 .uri(elasticQueryWebClientConfigData.getQueryByText().getUri())
                 .accept(MediaType.valueOf(elasticQueryWebClientConfigData.getQueryByText().getAccept()))
+                .header(CORRELATION_ID_HEADER, MDC.get(CORRELATION_ID_KEY))
                 .body(BodyInserters.fromPublisher(Mono.just(requestModel), createParameterizedTypeReference()))
                 .retrieve()
                 .onStatus(

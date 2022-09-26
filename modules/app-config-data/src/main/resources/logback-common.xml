@@ -41,7 +41,7 @@
     </appender>
 
 
-    <logger name="com.microservices.demo" level="info" additivity="false">
+    <logger name="com.microservices" level="info" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="STASH"/>

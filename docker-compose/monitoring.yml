@@ -11,14 +11,14 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
-      - ${GLOBAL_NETWORK:-grafana}
+      - ${GLOBAL_NETWORK:-services}
   prometheus:
     image: prom/prometheus:${PROMETHEUS_VERSION:-latest}
     hostname: prometheus
     ports:
-      - 9090:9090
+      - 9098:9090
     volumes:
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus:/prometheus
     networks:
-      - ${GLOBAL_NETWORK:-prometheus}
+      - ${GLOBAL_NETWORK:-services}

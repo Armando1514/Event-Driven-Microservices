@@ -23,7 +23,8 @@
         <module>services/analytics-service</module>
         <module>services/discovery-service</module>
         <module>services/gateway-service</module>
-    </modules>
+		<module>modules/mdc-interceptor</module>
+	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -59,6 +60,7 @@
 		<spring-cloud.version>3.1.4</spring-cloud.version>
 		<spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>2.1.4</spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>
 		<micrometer-registry-prometheus.version>1.9.4</micrometer-registry-prometheus.version>
+		<logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -70,6 +72,7 @@
 		<dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
+			<version>${logstash-logback-encoder.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -134,6 +137,11 @@
 			<dependency>
 				<groupId>com.microservices</groupId>
 				<artifactId>elastic-query-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microservices</groupId>
+				<artifactId>mdc-interceptor</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<!-- END LOCAL -->
@@ -266,11 +274,6 @@
 				<groupId>org.springframework.retry</groupId>
 				<artifactId>spring-retry</artifactId>
 				<version>${spring.retry}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter</artifactId>
-				<version>${spring-boot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>

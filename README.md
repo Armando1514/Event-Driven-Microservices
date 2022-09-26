@@ -61,25 +61,20 @@
 ### Modules
 
 - **App-config-data**: Objects representing the configs retrieved from spring-cloud-config.
-
 - **Common config**: common configs.
-
 - **Common util**: common utils.
-
 - **Elastic Folders**
   - Elastic-config: Get the configs to communicate correctly with Elasticsearch.
   - Elastic-index-client: Index correctly the documents in Elasticsearch.
   - elastic-model: define the index model and the tweet model for Elasticsearch.
   - Elastic-query-client: define how to query Elasticsearch to get documents.
-
 - **Kafka Folders**
 
   - Kafka-model: Create and hold java object for kafka in Avro format.
-
-  - Kafka-admin: Create and verify Kafka topics programmatically.
-
+- Kafka-admin: Create and verify Kafka topics programmatically.
   - Kafka-producer: Use spring-kafka to write Kafka producer implementation.
-  - Kafka-consumer: Use spring-kafka to write Kafka consumer implementation.
+- Kafka-consumer: Use spring-kafka to write Kafka consumer implementation.
+- **mdc-interceptor**: Interceptor that add to each HTTP request a correlation id in the header, the interceptor check if the correlation-id is in the header, if yes, just add to the header of the new request the same correlation id, if not, creates a new correlation id and adds it to the header.
 
 
 ## SECURITY
