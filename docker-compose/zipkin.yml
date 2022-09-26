@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  storage:
+    image: openzipkin/zipkin-mysql:${ZIPKIN_VERSION-latest}
+    container_name: mysql
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  zipkin:
+    image: openzipkin/zipkin:${ZIPKIN_VERSION-latest}
+    hostname: zipkin
+    container_name: zipkin
+    environment:
+      - STORAGE_TYPE=mysql
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=zipkin
+      - MYSQL_PASS=zipkin
+      - JAVA_OPTS=-Dlogging.level.zipkin2=DEBUG
+      - KAFKA_BOOTSTRAP_SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092
+    ports:
+      - 9411:9411
+    depends_on:
+      - storage
+    networks:
+      - ${GLOBAL_NETWORK:-services}

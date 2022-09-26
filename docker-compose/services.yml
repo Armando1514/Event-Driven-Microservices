@@ -38,6 +38,9 @@ services:
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "SPRING_CLOUD_CONFIG_URI=http://config-server-1:8888, http://config-server-2:8889"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     volumes:
       - "./scripts/check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
       - "./docker-logs:/workspace/twitter-to-kafka-service/logs"
@@ -73,6 +76,9 @@ services:
       - "SPRING_CLOUD_CONFIG_URI=http://config-server-1:8888, http://config-server-2:8889"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     networks:
       - ${GLOBAL_NETWORK:-services}
   config-server-1:
@@ -135,6 +141,9 @@ services:
       - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://gateway-service/kafka-streams-service/get-word-count-by-word/{word}"
       - "ELASTIC-QUERY-SERVICE_QUERY-FROM-ANALYTICS-DATABASE_URI=http://gateway-service/analytics-service/get-word-count-by-word/{word}"
       - "ELASTIC-QUERY-SERVICE_WEBCLIENT_QUERY-TYPE=ANALYTICS_DATABASE"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-service-2:
@@ -171,6 +180,9 @@ services:
       - "ELASTIC-QUERY-SERVICE_QUERY-FROM-KAFKA-STATE-STORE_URI=http://gateway-service/kafka-streams-service/get-word-count-by-word/{word}"
       - "ELASTIC-QUERY-SERVICE_QUERY-FROM-ANALYTICS-DATABASE_URI=http://gateway-service/analytics-service/get-word-count-by-word/{word}"
       - "ELASTIC-QUERY-SERVICE_WEBCLIENT_QUERY-TYPE=ANALYTICS_DATABASE"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-web-client-1:
@@ -204,6 +216,9 @@ services:
       - "SECURITY_LOGOUT-SUCCESS-URL=http://elastic-query-web-client-1:8184/elastic-query-web-client"
       - "SECURITY_DEFAULT-CLIENT-REGISTRATION-ID=keycloak"
       - "LOG_APP-NAME=elastic-query-web-client"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-web-client-2:
@@ -237,6 +252,9 @@ services:
       - "SECURITY_LOGOUT-SUCCESS-URL=http://elastic-query-web-client-2:8186/elastic-query-web-client"
       - "SECURITY_DEFAULT-CLIENT-REGISTRATION-ID=keycloak"
       - "LOG_APP-NAME=elastic-query-web-client"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     networks:
       - ${GLOBAL_NETWORK:-services}
   kafka-streams-service:
@@ -266,7 +284,9 @@ services:
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "LOG_APP-NAME=kafka-streams-service"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
       - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     networks:
       - ${GLOBAL_NETWORK:-services}
   analytics-service:
@@ -296,7 +316,9 @@ services:
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "LOG_APP-NAME=analytics-service"
       - "ENCRYPT_KEY=TOCHANGE-NOT-REALLY-SAFE-HERE"
+      - "SPRING_ZIPKIN_SENDER_TYPE=kafka"
       - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "SPRING_SLEUTH_SAMPLER_PROBABILITY=1.0"
     networks:
       - ${GLOBAL_NETWORK:-services}
   discovery-service-1:

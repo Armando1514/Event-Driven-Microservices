@@ -61,6 +61,7 @@
 		<spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>2.1.4</spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>
 		<micrometer-registry-prometheus.version>1.9.4</micrometer-registry-prometheus.version>
 		<logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
+		<spring-cloud-starter-zipkin.version>2.2.8.RELEASE</spring-cloud-starter-zipkin.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -145,6 +146,16 @@
 				<version>${project.version}</version>
 			</dependency>
 			<!-- END LOCAL -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-sleuth</artifactId>
+				<version>${spring-cloud.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-zipkin</artifactId>
+				<version>${spring-cloud-starter-zipkin.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>io.micrometer</groupId>
 				<artifactId>micrometer-registry-prometheus</artifactId>
