@@ -122,7 +122,7 @@ Now we can run everything from the folder docker-compose by typing:
 docker-compose up
 ```
 
-Wait for a while, till the services are up and running.
+Wait for a while, till the services are up and running (can take long).
 
 You can access the elastic-query-web-client from a browser at:
 
